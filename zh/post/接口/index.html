@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.48" />
+  <meta name="author" content="Huang yidong ">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/zh/post/%E6%8E%A5%E5%8F%A3/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair&#43;Display:400,700%7cFauna&#43;One">
+  
+
+  <link rel="stylesheet" href="/zh/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="https://Huangoida.github.io/index.xml" type="application/rss+xml" title="Oida Blog">
+  <link rel="feed" href="https://Huangoida.github.io/index.xml" type="application/rss+xml" title="Oida Blog">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://Huangoida.github.io/zh/post/%E6%8E%A5%E5%8F%A3/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@GeorgeCushen">
+  <meta property="twitter:creator" content="@GeorgeCushen">
+  
+  <meta property="og:site_name" content="Oida Blog">
+  <meta property="og:url" content="https://Huangoida.github.io/zh/post/%E6%8E%A5%E5%8F%A3/">
+  <meta property="og:title" content="接口 | Oida Blog">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-09-07T21:02:12&#43;08:00">
+  
+  <meta property="article:modified_time" content="2018-09-07T21:02:12&#43;08:00">
+  
+
+  
+
+  
+
+  <title>接口 | Oida Blog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/zh/">Oida Blog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/zh/#hero_carousel">
+            
+            <span>主页</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/zh/#publications_selected">
+            
+            <span>发布</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/zh/#posts">
+            
+            <span>推送</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/zh/#projects">
+            
+            <span>项目</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/zh/#contact">
+            
+            <span>联系方式</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">接口</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  
+  <div>
+    
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">oida</span>
+    </span>
+    
+  </div>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-09-07 21:02:12 &#43;0800 CST" itemprop="datePublished">
+    <time datetime="2018-09-07 21:02:12 &#43;0800 CST" itemprop="dateModified">
+      2018-09-07
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang yidong ">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 分钟阅读时间
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="https://Huangoida.github.io/zh/categories/java/">java</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e6%8e%a5%e5%8f%a3&amp;url=https%3a%2f%2fHuangoida.github.io%2fzh%2fpost%2f%25E6%258E%25A5%25E5%258F%25A3%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fzh%2fpost%2f%25E6%258E%25A5%25E5%258F%25A3%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fzh%2fpost%2f%25E6%258E%25A5%25E5%258F%25A3%2f&amp;title=%e6%8e%a5%e5%8f%a3"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fzh%2fpost%2f%25E6%258E%25A5%25E5%258F%25A3%2f&amp;title=%e6%8e%a5%e5%8f%a3"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e6%8e%a5%e5%8f%a3&amp;body=https%3a%2f%2fHuangoida.github.io%2fzh%2fpost%2f%25E6%258E%25A5%25E5%258F%25A3%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      <p></p>
+
+<h2>目录</h2>
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#继承扩展接口">继承扩展接口</a></li>
+</ul></li>
+</ul>
+</nav>
+
+
+<p>上文我们讲了抽象类，这次的接口和抽象类有许多的相似处，其实可以这么理解抽象类处于类与接口的中间部分，但接口不是类，而是对类的一组需求描述。</p>
+
+<p>接口的关键字是interface，它是要产生一个完全抽象的类，它允许创建者确定方法名、参数列表和返回类型，但没有任何的实现。
+想要创建一个接口，需要用interface来代替class关键字
+继续拿Person来进行魔改</p>
+
+<pre><code class="language-java">public interface Person
+{
+    String getName();
+}
+</code></pre>
+
+<p>我们一行一行的看</p>
+
+<pre><code class="language-java">public interface Person
+</code></pre>
+
+<p>这一行,我们可以像类一样，在前面加上一个public，如果不加，它也只具有在这个包里面的访问权限。
+然后下一行</p>
+
+<pre><code class="language-java">String getName();
+</code></pre>
+
+<p>你可以将方法声明为public，但你也可以不这么做，他们也照样是public的,你也可以包含域，但是域会被自动的设置为public static final.</p>
+
+<blockquote>
+<p>当要实现一个接口时，在接口中被定义的方法必须被定义为是public的，否则，他们将只能得到默认的包访问权限，这样继承过程中，其可访问权限就降低了，这是java编译器所不允许的。</p>
+</blockquote>
+
+<p>既然接口已经产生了，那么我们该如何使用它呢？
+要让一个类遵循某一个接口（或者一组）,那么需要使用implements关键字,这个好像extends一样。</p>
+
+<pre><code class="language-java">public class Student implements Person {
+    String name;
+    Student(String name){
+        this.name=name;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public static void main(String[] args) {
+        Student student=new Student(&quot;小明&quot;);
+        System.out.println(student.getName());
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">public class Student implements Person
+</code></pre>
+
+<p>这里Student后面使用了implements，这就表示Student遵循Person这个接口.
+而getName在这里实现，这便回到了我们熟悉的类了。</p>
+
+<p>java里面一个类只能继承一个超类，但它可以遵循许多个接口，比如</p>
+
+<pre><code class="language-java">public class Student implements Person,teacher
+</code></pre>
+
+<p>这样就需要实现两个接口就够了。</p>
+
+<p>虽然说接口不是类，它不能够用new实例化一个窗口(毕竟抽象类都不行，它还想行啊)
+但是它能够声明变量,接口变量必须引用实现了接口的对象</p>
+
+<pre><code class="language-java">Person student=new Student(&quot;小明&quot;);
+</code></pre>
+
+<p>既然有了抽象类，为什么还要这么复杂的搞出一个接口来。
+学过C++就会知道，C++能够多重继承，它一个类可以继承许多许多的类，这的确是很方便，但却会让事情变得很复杂，特别是两个父类都是有同样的函数，那么编译器到底调用哪个函数呢？是吧。java作为C++的简化版，因为C++存在这种问题，所以java只能单继承，一个类只能继承一个，这样就不会难以分辨这个方法是谁的了。而抽象类作为一个类，它的子类自然也只能够继承它，不能够再加了。如果我要多继承怎么办？所以来了这个接口。因为它的超类所有的方法都是没有实现的，这就不会扯皮了。这其实也可以说是java的多重继承。</p>
+
+<h2 id="继承扩展接口">继承扩展接口</h2>
+
+<p>接口也是可以继承的,这样就很容易的添加新的方法声明，还可以将多个接口组合成一个接口,这里直接拿别人的代码做例子</p>
+
+<pre><code class="language-java">//HorrorShow.java
+interface Monster{
+    void menace();
+}
+interface DangerousMonster extends Monster{
+    void destroy();
+}
+interface Lethal{
+    void kill();
+}
+interface Vampire extends DangerousMonster, Lethal{
+    void drinkBlood();
+}
+class DragonZilla implements DangerousMonster{
+    public void menace() { }
+    public void destroy() { }
+}
+class VeryBadVampire implements Vampire{
+    public void menace(){}
+    public void destroy() {}
+    public void kill() {}
+    public void drinkBlood() {}
+}
+public class HorrorShow {
+    static void u(Monster b){b.menace();}
+    static void v(DangerousMonster d){
+        d.menace();
+        d.destroy();
+    }
+    static void w(Lethal l){l.kill();}
+
+    public static void main(String[] args) {
+        DangerousMonster barney =new DragonZilla();
+        u(barney);
+        v(barney);
+        Vampire vlad=new VeryBadVampire();
+        u(vlad);
+        v(vlad);
+        w(vlad);
+    }
+}
+</code></pre>
+
+<p>这里extends用于单一类，但是可以引用多个基类接口，只需要将接口名一一分开就行。</p>
+
+<p>这里可能会产生一个问题，如果多继承后，方法啥都相同还好，如果返回类型这些不同，那么就麻烦了，编译器不知道如何是好，干脆直接报错得了。</p>
+
+<p>不同的接口用相同的名字不建议这样做，这样会给代码带来混乱。</p>
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://Huangoida.github.io/zh/tags/java/">java</a>
+  
+  <a class="label label-default" href="https://Huangoida.github.io/zh/tags/%E6%8E%A5%E5%8F%A3/">接口 </a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>相关</h3>
+      <ul>
+        
+        <li><a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/">面向对象--多态</a></li>
+        
+        <li><a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">面向对象--继承</a></li>
+        
+        <li><a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/">面向对象--封装</a></li>
+        
+        <li><a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">引用</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "",
+        'no_results': ""
+      };
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oida Blog on Oida Blog</title>
+    <link>https://Huangoida.github.io/en/</link>
+    <description>Recent content in Oida Blog on Oida Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2018</copyright>
+    <atom:link href="/en/" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>
