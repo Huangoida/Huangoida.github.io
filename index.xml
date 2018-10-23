@@ -11,6 +11,308 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>内部类</title>
+      <link>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#内部类&#34;&gt;内部类&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;h1 id=&#34;内部类&#34;&gt;内部类&lt;/h1&gt;
+
+&lt;p&gt;标签（空格分隔）： java 内部类 面向对象&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;如果说我们把一个类写在另外一个类里面呢？这会出现什么情况?
+这就是今天要讲的内部类。&lt;/p&gt;
+
+&lt;p&gt;##什么是内部类&lt;/p&gt;
+
+&lt;p&gt;内部类是定义在另外一个类中的类。先前在继承里面介绍了组合，新的类中产生现有类的对象。这样看来组合和内部类有点相似啊，但是这是错的，内部类和组合两个完全不一样&lt;/p&gt;
+
+&lt;p&gt;##创建内部类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+
+    public  class InnerClass{
+        private String InnerName;
+
+        InnerClass(){
+            OuterName=&amp;quot;外部类&amp;quot;;
+            InnerName=&amp;quot;内部类&amp;quot;;
+        }
+
+        public  void Display(){
+            System.out.println(OuterName+&amp;quot;  &amp;quot;+InnerName);
+        }
+    }
+
+    public static void main(String[] args) {
+        OuterClass outerClass =new OuterClass();
+        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
+        innerClass.Display();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里我们能够看到内部类里面的方法用了OuterName和InnerName两个域，但OuterName在OuterClass类里面是个私有变量。通过这里例子我们可以看到，内部类能够直接访问外部类的属性，尽管外部类的属性是由private修饰的。这是为什么呢？
+因为内部类的对象总有个隐式的引用，它指向创建它的外部类对象，访问外部对象就是通过这个引用来访问的，我们可以通过OuterClass.this来获得外部类的引用，如图下面的例子&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+    
+    public InnerClass to(){
+        return new InnerClass();
+    }
+    public  void Display(){
+        System.out.println(OuterName);
+    }
+    public  class InnerClass{
+        private String InnerName;
+
+        InnerClass(){
+            OuterName=&amp;quot;外部类&amp;quot;;
+            InnerName=&amp;quot;内部类&amp;quot;;
+        }
+        public OuterClass getOuterClass(){
+            return OuterClass.this;
+        }
+        public void innerDisplay(){
+            getOuterClass().Display();
+        }
+        
+    }
+    public static void main(String[] args) {
+        OuterClass outerClass =new OuterClass();
+        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
+        innerClass.innerDisplay();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内部类可以直接访问外部类的元素，但外部类不能够直接访问内部类元素，要访问的话必须先创建一个内部类对象，再通过对象来访问。&lt;/p&gt;
+
+&lt;p&gt;###内部类对象创建&lt;/p&gt;
+
+&lt;p&gt;####外部类外面创建对象&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+    
+    public InnerClass to(){
+        return new InnerClass();
+    }
+
+    public  class InnerClass{
+        private String InnerName;
+    }
+    public static void main(String[] args) {
+        OuterClass outerClass =new OuterClass();
+        OuterClass.InnerClass innerClass=outerClass.new InnerClass();//第一种方法
+        OuterClass.InnerClass inner =outerClass.to();//第二种方法
+        OuterClass.InnerClass inner2=new OuterClass().new InnerClass();//一步到位
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果说要创建成员内部类的对象，前提是要存在一个外部类的对象，而且必须利用outerClass.new 来创建&lt;/p&gt;
+
+&lt;p&gt;####外部类里面（除main方法）创建对象&lt;/p&gt;
+
+&lt;p&gt;在这里面的话，那就直接像普通对象来创建&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;InnerClass innerclass =new InnerClass();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##局部内部类&lt;/p&gt;
+
+&lt;p&gt;上文将的都是成员内部类，它有外部类的全部权限，接下来介绍局部内部类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+
+    public void  getInnerClass(){
+        class InnerClass{
+            public void Dispaly(){
+                System.out.println(&amp;quot;内部类获得&amp;quot;);
+            }
+        }
+        InnerClass innerClass=new InnerClass();
+        innerClass.Dispaly();
+    }
+    public static void main(String[] args) {
+        OuterClass outerClass=new OuterClass();
+        outerClass.getInnerClass();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里就是将InnerClass类放到了getInnerClass方法里面，它的作用域只是在方法里面，其实可以把它看做该方法的一个局部变量&lt;/p&gt;
+
+&lt;p&gt;##匿名内部类&lt;/p&gt;
+
+&lt;p&gt;匿名内部类顾名思义是没有名字的局部内部类，它有所有局部内部类的特性，但它有前提条件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;匿名内部类必须继承一个抽象类或一个接口&lt;/li&gt;
+&lt;li&gt;匿名内部类是没有访问修饰符的&lt;/li&gt;
+&lt;li&gt;匿名内部类是没有构造器的&lt;/li&gt;
+&lt;li&gt;匿名内部类中不能存在任何静态成员或方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Phone
+{
+    public abstract void on();
+
+    public abstract void off();
+}
+
+class Outer
+{
+    public void method()
+    {
+        Phone p = new Phone()
+        {
+            public void on()
+            {
+                System.out.println(&amp;quot;on&amp;quot;);
+            }
+
+            public void off()
+            {
+                System.out.println(&amp;quot;off&amp;quot;);
+            }
+        };
+
+        p.on();
+        p.off();
+    }
+
+    public static void main(String[] args) {
+        Outer outer=new Outer();
+        outer.method();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这段代码估计会看的一脸懵逼，我们一行一行的看&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Phone
+{
+    public abstract void on();
+    public abstract void off();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个不多说，定义一个phone接口.
+然后下行创建Outer类，写个method方法。之后就是懵逼的地方了吧，不是说接口无法创建自身的对象吗？它的意思是创建一个一个实现Phone接口的类的对象，把要实现的方法放在Phone后面的括号里,也可以这么理解，把这个类还原成一个局部内部类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void method1()
+    {
+        class Iphone implements  Phone
+        {
+            public void on()
+            {
+                System.out.println(&amp;quot;on&amp;quot;);
+            }
+
+            public void off()
+            {
+                System.out.println(&amp;quot;off&amp;quot;);
+            }
+        };
+
+        Iphone iphone=new Iphone();
+        iphone.on();
+        iphone.off();
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样就清晰多了吧，两个意思一样，但匿名内部类能省略一个类的书写。&lt;/p&gt;
+
+&lt;p&gt;##静态内部类（嵌套类）&lt;/p&gt;
+
+&lt;p&gt;静态内部类是在类的前面多了一个static关键字，这可以取消对外部类的引用，就像类的静态成员相似，它也不能访问非static成员&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+    
+    static class Innerclass{
+        public Innerclass(){
+            
+        }
+    }
+    public static void main(String[] args) {
+        OuterClass.Innerclass innerclass=new OuterClass.Innerclass();
+       
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;像静态变量一样，InnerClass引用不需要任何具体的对象。
+还有一个区别就是普通的内部类里面是不能有static关键字的，但它可以。
+&lt;strong&gt;在内部类不需要访问外部类对象的时候，应该使用静态内部类。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;###接口内部的类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface ClassIninterFace{
+    void Display();
+    class Test implements ClassIninterFace{
+        @Override
+        public void Display() {
+            System.out.println(&amp;quot;test&amp;quot;);
+        }
+
+        public static void main(String[] args) {
+            new Test().Display();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里本来接口是不能够放任何实现的代码，但放到接口里面的任何类都是public和static的，所以里面是个静态内部类，是个static，只是放在了接口里面，甚至可以在内部类中实现该接口。&lt;/p&gt;
+
+&lt;p&gt;##为什么要使用内部类？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据&lt;/li&gt;
+&lt;li&gt;内部类可以对同一个包中的其他类隐藏起来&lt;/li&gt;
+&lt;li&gt;当想要定义一个回调函数而不想编写大量代码时，使用匿名内部类比较便捷。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这里也是为了看是多重继承的方案更加完整，接口能解决一些问题，但如果是多个抽象类呢，普通的办法是不行的，那么只能使用内部类才能实现多重继承&lt;/p&gt;
+
+&lt;p&gt;##拓展&lt;/p&gt;
+
+&lt;p&gt;说实话，这一章由于水平有限，自己感觉写的很不好，在这个放一些别人的博客，加深理解：
+&lt;a href=&#34;https://blog.csdn.net/pangqiandou/article/details/53234908&#34; target=&#34;_blank&#34;&gt;java中的内部类完全总结&lt;/a&gt;
+&lt;a href=&#34;https://blog.csdn.net/suifeng3051/article/details/51791812/&#34; target=&#34;_blank&#34;&gt;java 内部类（inner class）详解&lt;/a&gt;
+&lt;a href=&#34;https://blog.csdn.net/guyuealian/article/details/51981163&#34; target=&#34;_blank&#34;&gt;java内部类和匿名内部类的用法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;##参考文献&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;java核心技术卷1
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>函数调用栈</title>
       <link>https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
@@ -442,301 +744,6 @@ int main()
 &lt;h3 id=&#34;直接寻址&#34;&gt;直接寻址&lt;/h3&gt;
 
 &lt;p&gt;直接寻址就是直接在指令中指定操作数的地址&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>汇编笔记</title>
-      <link>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</link>
-      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</guid>
-      <description>
-
-&lt;h1 id=&#34;内部类&#34;&gt;内部类&lt;/h1&gt;
-
-&lt;p&gt;标签（空格分隔）： java 内部类 面向对象&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;如果说我们把一个类写在另外一个类里面呢？这会出现什么情况?
-这就是今天要讲的内部类。&lt;/p&gt;
-
-&lt;p&gt;##什么是内部类&lt;/p&gt;
-
-&lt;p&gt;内部类是定义在另外一个类中的类。先前在继承里面介绍了组合，新的类中产生现有类的对象。这样看来组合和内部类有点相似啊，但是这是错的，内部类和组合两个完全不一样&lt;/p&gt;
-
-&lt;p&gt;##创建内部类&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
-    private String OuterName;
-
-    public  class InnerClass{
-        private String InnerName;
-
-        InnerClass(){
-            OuterName=&amp;quot;外部类&amp;quot;;
-            InnerName=&amp;quot;内部类&amp;quot;;
-        }
-
-        public  void Display(){
-            System.out.println(OuterName+&amp;quot;  &amp;quot;+InnerName);
-        }
-    }
-
-    public static void main(String[] args) {
-        OuterClass outerClass =new OuterClass();
-        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
-        innerClass.Display();
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里我们能够看到内部类里面的方法用了OuterName和InnerName两个域，但OuterName在OuterClass类里面是个私有变量。通过这里例子我们可以看到，内部类能够直接访问外部类的属性，尽管外部类的属性是由private修饰的。这是为什么呢？
-因为内部类的对象总有个隐式的引用，它指向创建它的外部类对象，访问外部对象就是通过这个引用来访问的，我们可以通过OuterClass.this来获得外部类的引用，如图下面的例子&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
-    private String OuterName;
-    
-    public InnerClass to(){
-        return new InnerClass();
-    }
-    public  void Display(){
-        System.out.println(OuterName);
-    }
-    public  class InnerClass{
-        private String InnerName;
-
-        InnerClass(){
-            OuterName=&amp;quot;外部类&amp;quot;;
-            InnerName=&amp;quot;内部类&amp;quot;;
-        }
-        public OuterClass getOuterClass(){
-            return OuterClass.this;
-        }
-        public void innerDisplay(){
-            getOuterClass().Display();
-        }
-        
-    }
-    public static void main(String[] args) {
-        OuterClass outerClass =new OuterClass();
-        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
-        innerClass.innerDisplay();
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;内部类可以直接访问外部类的元素，但外部类不能够直接访问内部类元素，要访问的话必须先创建一个内部类对象，再通过对象来访问。&lt;/p&gt;
-
-&lt;p&gt;###内部类对象创建&lt;/p&gt;
-
-&lt;p&gt;####外部类外面创建对象&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
-    private String OuterName;
-    
-    public InnerClass to(){
-        return new InnerClass();
-    }
-
-    public  class InnerClass{
-        private String InnerName;
-    }
-    public static void main(String[] args) {
-        OuterClass outerClass =new OuterClass();
-        OuterClass.InnerClass innerClass=outerClass.new InnerClass();//第一种方法
-        OuterClass.InnerClass inner =outerClass.to();//第二种方法
-        OuterClass.InnerClass inner2=new OuterClass().new InnerClass();//一步到位
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果说要创建成员内部类的对象，前提是要存在一个外部类的对象，而且必须利用outerClass.new 来创建&lt;/p&gt;
-
-&lt;p&gt;####外部类里面（除main方法）创建对象&lt;/p&gt;
-
-&lt;p&gt;在这里面的话，那就直接像普通对象来创建&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;InnerClass innerclass =new InnerClass();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;##局部内部类&lt;/p&gt;
-
-&lt;p&gt;上文将的都是成员内部类，它有外部类的全部权限，接下来介绍局部内部类&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
-    private String OuterName;
-
-    public void  getInnerClass(){
-        class InnerClass{
-            public void Dispaly(){
-                System.out.println(&amp;quot;内部类获得&amp;quot;);
-            }
-        }
-        InnerClass innerClass=new InnerClass();
-        innerClass.Dispaly();
-    }
-    public static void main(String[] args) {
-        OuterClass outerClass=new OuterClass();
-        outerClass.getInnerClass();
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里就是将InnerClass类放到了getInnerClass方法里面，它的作用域只是在方法里面，其实可以把它看做该方法的一个局部变量&lt;/p&gt;
-
-&lt;p&gt;##匿名内部类&lt;/p&gt;
-
-&lt;p&gt;匿名内部类顾名思义是没有名字的局部内部类，它有所有局部内部类的特性，但它有前提条件：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;匿名内部类必须继承一个抽象类或一个接口&lt;/li&gt;
-&lt;li&gt;匿名内部类是没有访问修饰符的&lt;/li&gt;
-&lt;li&gt;匿名内部类是没有构造器的&lt;/li&gt;
-&lt;li&gt;匿名内部类中不能存在任何静态成员或方法&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Phone
-{
-    public abstract void on();
-
-    public abstract void off();
-}
-
-class Outer
-{
-    public void method()
-    {
-        Phone p = new Phone()
-        {
-            public void on()
-            {
-                System.out.println(&amp;quot;on&amp;quot;);
-            }
-
-            public void off()
-            {
-                System.out.println(&amp;quot;off&amp;quot;);
-            }
-        };
-
-        p.on();
-        p.off();
-    }
-
-    public static void main(String[] args) {
-        Outer outer=new Outer();
-        outer.method();
-    }
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这段代码估计会看的一脸懵逼，我们一行一行的看&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Phone
-{
-    public abstract void on();
-    public abstract void off();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个不多说，定义一个phone接口.
-然后下行创建Outer类，写个method方法。之后就是懵逼的地方了吧，不是说接口无法创建自身的对象吗？它的意思是创建一个一个实现Phone接口的类的对象，把要实现的方法放在Phone后面的括号里,也可以这么理解，把这个类还原成一个局部内部类:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void method1()
-    {
-        class Iphone implements  Phone
-        {
-            public void on()
-            {
-                System.out.println(&amp;quot;on&amp;quot;);
-            }
-
-            public void off()
-            {
-                System.out.println(&amp;quot;off&amp;quot;);
-            }
-        };
-
-        Iphone iphone=new Iphone();
-        iphone.on();
-        iphone.off();
-    }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这样就清晰多了吧，两个意思一样，但匿名内部类能省略一个类的书写。&lt;/p&gt;
-
-&lt;p&gt;##静态内部类（嵌套类）&lt;/p&gt;
-
-&lt;p&gt;静态内部类是在类的前面多了一个static关键字，这可以取消对外部类的引用，就像类的静态成员相似，它也不能访问非static成员&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
-    private String OuterName;
-    
-    static class Innerclass{
-        public Innerclass(){
-            
-        }
-    }
-    public static void main(String[] args) {
-        OuterClass.Innerclass innerclass=new OuterClass.Innerclass();
-       
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;像静态变量一样，InnerClass引用不需要任何具体的对象。
-还有一个区别就是普通的内部类里面是不能有static关键字的，但它可以。
-&lt;strong&gt;在内部类不需要访问外部类对象的时候，应该使用静态内部类。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;###接口内部的类&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface ClassIninterFace{
-    void Display();
-    class Test implements ClassIninterFace{
-        @Override
-        public void Display() {
-            System.out.println(&amp;quot;test&amp;quot;);
-        }
-
-        public static void main(String[] args) {
-            new Test().Display();
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里本来接口是不能够放任何实现的代码，但放到接口里面的任何类都是public和static的，所以里面是个静态内部类，是个static，只是放在了接口里面，甚至可以在内部类中实现该接口。&lt;/p&gt;
-
-&lt;p&gt;##为什么要使用内部类？&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据&lt;/li&gt;
-&lt;li&gt;内部类可以对同一个包中的其他类隐藏起来&lt;/li&gt;
-&lt;li&gt;当想要定义一个回调函数而不想编写大量代码时，使用匿名内部类比较便捷。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这里也是为了看是多重继承的方案更加完整，接口能解决一些问题，但如果是多个抽象类呢，普通的办法是不行的，那么只能使用内部类才能实现多重继承&lt;/p&gt;
-
-&lt;p&gt;##拓展&lt;/p&gt;
-
-&lt;p&gt;说实话，这一章由于水平有限，自己感觉写的很不好，在这个放一些别人的博客，加深理解：
-&lt;a href=&#34;https://blog.csdn.net/pangqiandou/article/details/53234908&#34; target=&#34;_blank&#34;&gt;java中的内部类完全总结&lt;/a&gt;
-&lt;a href=&#34;https://blog.csdn.net/suifeng3051/article/details/51791812/&#34; target=&#34;_blank&#34;&gt;java 内部类（inner class）详解&lt;/a&gt;
-&lt;a href=&#34;https://blog.csdn.net/guyuealian/article/details/51981163&#34; target=&#34;_blank&#34;&gt;java内部类和匿名内部类的用法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;##参考文献&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;java核心技术卷1
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
     </item>
     
     <item>
