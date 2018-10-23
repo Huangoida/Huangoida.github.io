@@ -15,6 +15,8 @@
   
   
   
+    
+  
   <meta name="description" content="Student">
 
   
@@ -24,6 +26,10 @@
 
   
 
+
+  
+
+  
 
   
 
@@ -67,7 +73,7 @@
 
   
   
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair&#43;Display:400,700%7cFauna&#43;One">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
   
 
   <link rel="stylesheet" href="/en/styles.css">
@@ -94,6 +100,10 @@
   <meta property="og:url" content="https://Huangoida.github.io/en/publication_types/">
   <meta property="og:title" content="Publication_types | Oida Blog">
   <meta property="og:description" content="Student">
+  
+  
+    
+  <meta property="og:image" content="https://Huangoida.github.io/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   
@@ -106,31 +116,26 @@
   <title>Publication_types | Oida Blog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
+      <a class="navbar-brand" href="/en/">Oida Blog</a>
       
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">切换导航</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+        <span><i class="fas fa-bars"></i></span>
       </button>
       
-      <a class="navbar-brand" href="/en/">Oida Blog</a>
-    </div>
 
     
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbar">
 
       
       
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="navbar-nav ml-auto">
         
 
         
@@ -142,7 +147,7 @@
         
 
         <li class="nav-item">
-          <a href="/en/#hero_carousel">
+          <a class="nav-link" href="/en/#hero_carousel">
             
             <span>Home</span>
             
@@ -161,7 +166,7 @@
         
 
         <li class="nav-item">
-          <a href="/en/#publications_selected">
+          <a class="nav-link" href="/en/#publications_selected">
             
             <span>Publications</span>
             
@@ -180,7 +185,7 @@
         
 
         <li class="nav-item">
-          <a href="/en/#posts">
+          <a class="nav-link" href="/en/#posts">
             
             <span>tuison</span>
             
@@ -199,7 +204,7 @@
         
 
         <li class="nav-item">
-          <a href="/en/#projects">
+          <a class="nav-link" href="/en/#projects">
             
             <span>Projects</span>
             
@@ -218,7 +223,7 @@
         
 
         <li class="nav-item">
-          <a href="/en/#contact">
+          <a class="nav-link" href="/en/#contact">
             
             <span>Contact</span>
             
@@ -227,18 +232,20 @@
 
         
         
-      
 
       
-      
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
             <i class="fas fa-globe" aria-hidden="true"></i>
             <span>English</span>
           </a>
           <ul class="dropdown-menu">
             
-            <li class="nav-item">
+            <li class="dropdown-item my-0 py-0 mx-0 px-0">
               <a href="/zh/publication_types/">
                 <span>中文 (简体)</span>
               </a>
@@ -270,47 +277,49 @@
 
 
 </div>
-<footer class="site-footer">
-  <div class="container">
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
     
-
-    <p class="powered-by">
-
-      &copy; 2018 &middot; 
-
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fas fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
+
+</div>
 
 
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">引用</h4>
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
           <i class="fas fa-copy"></i> 复制
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
           <i class="fas fa-download"></i> 下载
         </a>
         <div id="modal-error"></div>
@@ -366,6 +375,7 @@
       const search_index_filename = "/index.json";
       const i18n = {
         'placeholder': "",
+        'results': "",
         'no_results': ""
       };
       const content_type = {
@@ -374,6 +384,24 @@
         'publication' : "出版物",
         'talk' : "演讲"
         };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
     </script>
     
 

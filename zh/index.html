@@ -14,6 +14,8 @@
   
   
   
+    
+  
   <meta name="description" content="Student">
 
   
@@ -23,6 +25,10 @@
 
   
 
+
+  
+
+  
 
   
 
@@ -66,7 +72,7 @@
 
   
   
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair&#43;Display:400,700%7cFauna&#43;One">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
   
 
   <link rel="stylesheet" href="/zh/styles.css">
@@ -93,6 +99,10 @@
   <meta property="og:url" content="https://Huangoida.github.io/zh/">
   <meta property="og:title" content="Oida Blog">
   <meta property="og:description" content="Student">
+  
+  
+    
+  <meta property="og:image" content="https://Huangoida.github.io/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="og:updated_time" content="2017-10-15T00:00:00&#43;08:00">
@@ -107,29 +117,24 @@
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
+      <a class="navbar-brand" href="/zh/">Oida Blog</a>
       
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">切换导航</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+        <span><i class="fas fa-bars"></i></span>
       </button>
       
-      <a class="navbar-brand" href="/zh/">Oida Blog</a>
-    </div>
 
     
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbar">
 
       
       
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="navbar-nav ml-auto">
         
 
         
@@ -141,7 +146,7 @@
         
 
         <li class="nav-item">
-          <a href="/zh/#hero_carousel" data-target="#hero_carousel">
+          <a class="nav-link" href="/zh/#hero_carousel" data-target="#hero_carousel">
             
             <span>主页</span>
             
@@ -160,7 +165,7 @@
         
 
         <li class="nav-item">
-          <a href="/zh/#publications_selected" data-target="#publications_selected">
+          <a class="nav-link" href="/zh/#publications_selected" data-target="#publications_selected">
             
             <span>发布</span>
             
@@ -179,7 +184,7 @@
         
 
         <li class="nav-item">
-          <a href="/zh/#posts" data-target="#posts">
+          <a class="nav-link" href="/zh/#posts" data-target="#posts">
             
             <span>推送</span>
             
@@ -198,7 +203,7 @@
         
 
         <li class="nav-item">
-          <a href="/zh/#projects" data-target="#projects">
+          <a class="nav-link" href="/zh/#projects" data-target="#projects">
             
             <span>项目</span>
             
@@ -217,7 +222,7 @@
         
 
         <li class="nav-item">
-          <a href="/zh/#contact" data-target="#contact">
+          <a class="nav-link" href="/zh/#contact" data-target="#contact">
             
             <span>联系方式</span>
             
@@ -226,18 +231,20 @@
 
         
         
-      
 
       
-      
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
             <i class="fas fa-globe" aria-hidden="true"></i>
             <span>中文 (简体)</span>
           </a>
           <ul class="dropdown-menu">
             
-            <li class="nav-item">
+            <li class="dropdown-item my-0 py-0 mx-0 px-0">
               <a href="/en/" data-target="/en/">
                 <span>English</span>
               </a>
@@ -272,7 +279,7 @@
 <section id="hero_carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
 
   
-  <ol class="carousel-indicators carousel-indicators-botleft">
+  <ol class="carousel-indicators">
     
     <li data-target="#hero_carousel" data-slide-to="0" class="active"></li>
     
@@ -285,14 +292,14 @@
   
   <div class="carousel-inner" style="min-height: 300px;">
     
-    <div class="hero-overlay item active" style="min-height: inherit;
+    <div class="hero-overlay carousel-item active" style="min-height: inherit;
       
       background-color: #666;
       
       
       background-image:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-      url('https://Huangoida.github.io/img/hero_center.bmp');
+      url('/img/hero_center.bmp');
       
       ;">
       <div class="container" style="text-align: center;">
@@ -309,20 +316,20 @@
           
           
           <p>
-            <a href="https://huangoida.github.io/zh/post/" class="btn btn-light btn-outline btn-large"><i class="fa fa-graduation-cap" style="padding-right: 10px;"></i>点此进入————顺带鳄总牛逼</a>
+            <a href="https://huangoida.github.io/zh/post/" class="btn btn-outline-light btn-lg"><i class="fa fa-graduation-cap" style="padding-right: 10px;"></i>点此进入————顺带鳄总牛逼</a>
           </p>
           
         </div>
     </div>
     
-    <div class="hero-overlay item" style="min-height: inherit;
+    <div class="hero-overlay carousel-item" style="min-height: inherit;
       
       background-color: #555;
       
       
       background-image:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-      url('https://Huangoida.github.io/img/hero_left.jpg');
+      url('/img/hero_left.jpg');
       
       ;">
       <div class="container" style="text-align: left;">
@@ -339,20 +346,20 @@
           
           
           <p>
-            <a href="https://huangoida.github.io/zh/tags/" class="btn btn-light btn-outline btn-large"><i class="fa fa-graduation-cap" style="padding-right: 10px;"></i>点此进入————顺带鳄总牛逼</a>
+            <a href="https://huangoida.github.io/zh/tags/" class="btn btn-outline-light btn-lg"><i class="fa fa-graduation-cap" style="padding-right: 10px;"></i>点此进入————顺带鳄总牛逼</a>
           </p>
           
         </div>
     </div>
     
-    <div class="hero-overlay item" style="min-height: inherit;
+    <div class="hero-overlay carousel-item" style="min-height: inherit;
       
       background-color: #333;
       
       
       background-image:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-      url('https://Huangoida.github.io/img/hero_rigtht.jpg');
+      url('/img/hero_rigtht.jpg');
       
       ;">
       <div class="container" style="text-align: right;">
@@ -373,12 +380,12 @@
   </div>
 
   
-  <a class="left carousel-control" href="#hero_carousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+  <a class="carousel-control-prev" href="#hero_carousel" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#hero_carousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
+  <a class="carousel-control-next" href="#hero_carousel" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
     <span class="sr-only">Next</span>
   </a>
 
@@ -396,6 +403,11 @@
 
 <div class="row featurette">
   
+  <div class="col-md-12 section-heading">
+    <h1>Skills</h1>
+    
+  </div>
+  
 
   
 
@@ -405,7 +417,7 @@
   
     
   
-  <div class="col-sm-4">
+  <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fab fa-android"></i></div>
     <h3>Android</h3>
     <p>安卓开发新手</p>
@@ -416,7 +428,7 @@
   
     
   
-  <div class="col-sm-4">
+  <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fab fa-java"></i></div>
     <h3>java</h3>
     <p>开始准备学习java后端</p>
@@ -427,7 +439,7 @@
   
     
   
-  <div class="col-sm-4">
+  <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fab fa-python"></i></div>
     <h3>python</h3>
     <p>刚刚入门python</p>
@@ -450,14 +462,14 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+  <div class="col-12 col-lg-4 section-heading">
 
     <h1>Recent Posts</h1>
     <p>my study</p>
     
 
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
 
     
 
@@ -485,8 +497,25 @@
         
           
 
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
+<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="headline">
+      <a href="/zh/post/%E6%8E%A5%E5%8F%A3/" itemprop="url">接口</a>
+    </h3>
+
+    
+    
+      
+    
+    
+    <div class="article-style" itemprop="articleBody">
+      <p></p>
+    </div>
+    
+
+    <div class="stream-meta">
+    
 
 <div class="article-metadata">
 
@@ -494,7 +523,6 @@
   
   
   <div>
-    
     <span itemscope itemprop="author" itemtype="http://schema.org/Person">
       <span itemprop="name">oida</span>
     </span>
@@ -530,7 +558,7 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="https://Huangoida.github.io/zh/categories/java/">java</a>
+    <a href="/zh/categories/java/">java</a>
     
   </span>
   
@@ -540,22 +568,13 @@
 
 </div>
 
+    </div>
 
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="https://Huangoida.github.io/zh/post/%E6%8E%A5%E5%8F%A3/" itemprop="url">接口</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
+  </div>
+  <div class="ml-3">
     
-    <p></p>
     
   </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="https://Huangoida.github.io/zh/post/%E6%8E%A5%E5%8F%A3/" class="btn btn-primary btn-outline">
-      继续阅读
-    </a>
-  </p>
 </div>
 
         
@@ -581,8 +600,25 @@
         
           
 
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
+<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="headline">
+      <a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/" itemprop="url">面向对象--多态</a>
+    </h3>
+
+    
+    
+      
+    
+    
+    <div class="article-style" itemprop="articleBody">
+      <p></p>
+    </div>
+    
+
+    <div class="stream-meta">
+    
 
 <div class="article-metadata">
 
@@ -590,7 +626,6 @@
   
   
   <div>
-    
     <span itemscope itemprop="author" itemtype="http://schema.org/Person">
       <span itemprop="name">oida</span>
     </span>
@@ -626,7 +661,7 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="https://Huangoida.github.io/zh/categories/java/">java</a>
+    <a href="/zh/categories/java/">java</a>
     
   </span>
   
@@ -636,22 +671,13 @@
 
 </div>
 
+    </div>
 
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/" itemprop="url">面向对象--多态</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
+  </div>
+  <div class="ml-3">
     
-    <p></p>
     
   </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/" class="btn btn-primary btn-outline">
-      继续阅读
-    </a>
-  </p>
 </div>
 
         
@@ -677,8 +703,25 @@
         
           
 
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
+<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="headline">
+      <a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/" itemprop="url">面向对象--继承</a>
+    </h3>
+
+    
+    
+      
+    
+    
+    <div class="article-style" itemprop="articleBody">
+      <p></p>
+    </div>
+    
+
+    <div class="stream-meta">
+    
 
 <div class="article-metadata">
 
@@ -686,7 +729,6 @@
   
   
   <div>
-    
     <span itemscope itemprop="author" itemtype="http://schema.org/Person">
       <span itemprop="name">oida</span>
     </span>
@@ -722,7 +764,7 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="https://Huangoida.github.io/zh/categories/java/">java</a>
+    <a href="/zh/categories/java/">java</a>
     
   </span>
   
@@ -732,22 +774,13 @@
 
 </div>
 
+    </div>
 
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/" itemprop="url">面向对象--继承</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
+  </div>
+  <div class="ml-3">
     
-    <p></p>
     
   </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/" class="btn btn-primary btn-outline">
-      继续阅读
-    </a>
-  </p>
 </div>
 
         
@@ -773,8 +806,25 @@
         
           
 
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
+<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="headline">
+      <a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/" itemprop="url">面向对象--封装</a>
+    </h3>
+
+    
+    
+      
+    
+    
+    <div class="article-style" itemprop="articleBody">
+      <p></p>
+    </div>
+    
+
+    <div class="stream-meta">
+    
 
 <div class="article-metadata">
 
@@ -782,7 +832,6 @@
   
   
   <div>
-    
     <span itemscope itemprop="author" itemtype="http://schema.org/Person">
       <span itemprop="name">oida</span>
     </span>
@@ -818,7 +867,7 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="https://Huangoida.github.io/zh/categories/java/">java</a>
+    <a href="/zh/categories/java/">java</a>
     
   </span>
   
@@ -828,22 +877,13 @@
 
 </div>
 
+    </div>
 
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/" itemprop="url">面向对象--封装</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
+  </div>
+  <div class="ml-3">
     
-    <p></p>
     
   </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/" class="btn btn-primary btn-outline">
-      继续阅读
-    </a>
-  </p>
 </div>
 
         
@@ -869,8 +909,25 @@
         
           
 
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
+<div class="media stream-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="headline">
+      <a href="/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url">面向对象</a>
+    </h3>
+
+    
+    
+      
+    
+    
+    <div class="article-style" itemprop="articleBody">
+      <p></p>
+    </div>
+    
+
+    <div class="stream-meta">
+    
 
 <div class="article-metadata">
 
@@ -878,7 +935,6 @@
   
   
   <div>
-    
     <span itemscope itemprop="author" itemtype="http://schema.org/Person">
       <span itemprop="name">oida</span>
     </span>
@@ -914,7 +970,7 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="https://Huangoida.github.io/zh/categories/java/">java</a>
+    <a href="/zh/categories/java/">java</a>
     
   </span>
   
@@ -924,22 +980,13 @@
 
 </div>
 
+    </div>
 
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url">面向对象</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
+  </div>
+  <div class="ml-3">
     
-    <p></p>
     
   </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="https://Huangoida.github.io/zh/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="btn btn-primary btn-outline">
-      继续阅读
-    </a>
-  </p>
 </div>
 
         
@@ -958,6 +1005,118 @@
   
   
   
+  <section id="experience" class="home-section">
+    <div class="container">
+      
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Experience</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+    
+
+    
+    
+    
+    <div class="row experience">
+      
+      <div class="col-auto text-center flex-column d-none d-sm-flex">
+        <div class="row h-50">
+          <div class="col ">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+        <div class="m-2">
+          <span class="badge badge-pill border exp-fill">&nbsp;</span>
+        </div>
+        <div class="row h-50">
+          <div class="col border-right">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+      </div>
+      
+      <div class="col py-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="float-right text-muted exp-meta">
+              <div>
+                January 2017 –
+                
+                  Present
+                
+                
+              </div>
+              <div class="text-right">California</div>
+              
+            </div>
+            <h4 class="card-title exp-title text-muted mt-0 mb-1">CEO</h4>
+            <h4 class="card-title exp-company text-muted my-0">GenCoin</h4>
+            <div class="card-text">Responsibilities include:</p>
+
+<ul>
+<li>Analysing</li>
+<li>Modelling</li>
+<li>Deploying
+<br /></li>
+</ul>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row experience">
+      
+      <div class="col-auto text-center flex-column d-none d-sm-flex">
+        <div class="row h-50">
+          <div class="col border-right">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+        <div class="m-2">
+          <span class="badge badge-pill border ">&nbsp;</span>
+        </div>
+        <div class="row h-50">
+          <div class="col ">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+      </div>
+      
+      <div class="col py-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="float-right text-muted exp-meta">
+              <div>
+                January 2016 –
+                
+                  December 2016
+                
+                
+              </div>
+              <div class="text-right">California</div>
+              
+            </div>
+            <h4 class="card-title exp-title text-muted mt-0 mb-1">Professor</h4>
+            <h4 class="card-title exp-company text-muted my-0">University X</h4>
+            <div class="card-text">Taught electronic engineering and researched semiconductor physics.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+    </div>
+  </section>
+  
+
+  
+  
+  
   <section id="publications_selected" class="home-section">
     <div class="container">
       
@@ -965,11 +1124,11 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Selected Publications</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
     
 
     
@@ -997,12 +1156,12 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Recent &amp; Upcoming Talks</h1>
     
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
     
 
     
@@ -1012,30 +1171,51 @@
 
     
       
-        <div class="pub-list-item" style="margin-bottom: 1rem" itemscope itemtype="http://schema.org/Event">
-  <i class="fas fa-calendar-alt pub-icon" aria-hidden="true"></i>
-  <span itemprop="name"><a href="https://Huangoida.github.io/zh/talk/my-talk-name/">My Talk Name</a></span>
-  <div itemprop="startDate">
+        <div class="media stream-item" itemscope itemtype="http://schema.org/Event">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/zh/talk/my-talk-name/" itemprop="url">My Talk Name</a>
+    </h3>
+
     
-    2018-09-07
     
-      21:08
     
+
+    <div class="stream-meta article-metadata">
+      <div>
+        
+        2018-09-07
+        
+          21:08
+          
+            &mdash; 21:08
+          
+        
+
+        
+      </div>
+      <div itemprop="author">
+        </div>
+    </div>
+
+    <div class="talk-links">
+      
+
+
+
+
+
+
+
+
+
+    </div>
+
   </div>
-  <div class="talk-metadata">
+  <div class="ml-3">
     
-  </div>
-  <div class="talk-links">
     
-
-
-
-
-
-
-
-
-
   </div>
 </div>
 
@@ -1058,11 +1238,11 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Projects</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
     
 
     
@@ -1093,11 +1273,11 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Tags</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
     
 
     
@@ -1115,17 +1295,17 @@
           
           
           
-          <a href="https://Huangoida.github.io/zh/tags/java/" style="font-size:2.3270154828966763rem">java</a>
+          <a href="/zh/tags/java/" style="font-size:2.3270154828966763rem">java</a>
         
           
           
           
-          <a href="https://Huangoida.github.io/zh/tags/%E6%8E%A5%E5%8F%A3/" style="font-size:0.8rem">接口 </a>
+          <a href="/zh/tags/%E6%8E%A5%E5%8F%A3/" style="font-size:0.8rem">接口 </a>
         
           
           
           
-          <a href="https://Huangoida.github.io/zh/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size:2.115299544597441rem">面向对象</a>
+          <a href="/zh/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size:2.115299544597441rem">面向对象</a>
         
       </div>
     
@@ -1166,21 +1346,6 @@
   </div>
 </div>
 
-
-
-<script id="search-hit-fuse-template" type="text/x-template">
-  <div class="search-hit" id="summary-{{key}}">
-    <div class="search-hit-content">
-      <div class="search-hit-name">
-        <a href="{{relpermalink}}">{{title}}</a>
-        <div class="article-metadata search-hit-type">{{type}}</div>
-        <p class="search-hit-description">{{snippet}}</p>
-      </div>
-    </div>
-  </div>
-</script>
-
-
     </div>
   </section>
   
@@ -1195,12 +1360,11 @@
 
 
 <div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="person-email person-telephone person-address">
-  <div class="col-xs-12 col-md-4">
+  <div class="col-12 col-lg-4">
     <div id="profile">
 
       
-      <div class="portrait" style="background-image: url('/img/portrait.jpg');"></div>
-      <meta itemprop="image" content="https://Huangoida.github.io/img/portrait.jpg">
+      <img class="portrait" src="/img/portrait.jpg" itemprop="image" alt="Avatar">
       
 
       <div class="portrait-title">
@@ -1258,7 +1422,7 @@
 
     </div>
   </div>
-  <div class="col-xs-12 col-md-8" itemprop="description">
+  <div class="col-12 col-lg-8" itemprop="description">
 
     
 
@@ -1270,7 +1434,7 @@
     <div class="row">
 
       
-      <div class="col-sm-5">
+      <div class="col-md-5">
         <h3>兴趣爱好</h3>
         <ul class="ul-interests">
           
@@ -1303,20 +1467,41 @@
 
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Contact</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
+    
+
+    
+
+    
+    
+      
+    
+
+    <div class="mb-3">
+      <form name="contact" method="POST" action="https://formspree.io/617500087@qq.com">
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputName"></label>
+          <input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Name" required>
+        </div>
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputEmail"></label>
+          <input type="email" name="email" class="form-control w-100" id="inputEmail" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="inputMessage"></label>
+          <textarea name="message" class="form-control" id="inputMessage" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary px-3 py-2">Send</button>
+      </form>
+    </div>
     
 
     <ul class="fa-ul" itemscope>
 
-      
-      <li>
-        <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
-        <span id="person-email" itemprop="email"><a href="mailto:617500087@qq.com">617500087@qq.com</a></span>
-      </li>
       
 
       
@@ -1346,7 +1531,7 @@
     </ul>
 
     
-    <div class="hidden">
+    <div class="d-none">
       <input id="map-provider" value="3">
       <input id="map-lat" value="37.4275">
       <input id="map-lng" value="-122.1697">
@@ -1366,47 +1551,49 @@
 
 
 
-<footer class="site-footer">
-  <div class="container">
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
     
-
-    <p class="powered-by">
-
-      &copy; 2018 &middot; 
-
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fas fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
+
+</div>
 
 
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">引用</h4>
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
           <i class="fas fa-copy"></i> 复制
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
           <i class="fas fa-download"></i> 下载
         </a>
         <div id="modal-error"></div>
@@ -1462,6 +1649,7 @@
       const search_index_filename = "/index.json";
       const i18n = {
         'placeholder': "",
+        'results': "",
         'no_results': ""
       };
       const content_type = {
@@ -1470,6 +1658,24 @@
         'publication' : "出版物",
         'talk' : "演讲"
         };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
     </script>
     
 
