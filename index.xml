@@ -878,7 +878,7 @@ movl Source,Dest.&lt;/p&gt;
 &lt;p&gt;java里面就自带了一个库，它可以帮我们实现这些数据结构。&lt;/p&gt;
 
 &lt;p&gt;这里贴出这个集合类的层次图。
-&lt;img src=&#34;java集合关系图.png&#34; alt=&#34;java集合关系图&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-23/91300748.jpg&#34; alt=&#34;java集合关系图&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;该图片源于: &lt;a href=&#34;https://blog.csdn.net/u010887744/article/details/50575735&#34; target=&#34;_blank&#34;&gt;史上最全Java集合关系图&lt;/a&gt;&lt;/p&gt;
 
