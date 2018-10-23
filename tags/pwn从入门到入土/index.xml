@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>汇编 on Oida Blog</title>
-    <link>https://Huangoida.github.io/tags/%E6%B1%87%E7%BC%96/</link>
-    <description>Recent content in 汇编 on Oida Blog</description>
+    <title>pwn从入门到入土 on Oida Blog</title>
+    <link>https://Huangoida.github.io/tags/pwn%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
+    <description>Recent content in pwn从入门到入土 on Oida Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 23 Oct 2018 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://Huangoida.github.io/tags/%E6%B1%87%E7%BC%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Huangoida.github.io/tags/pwn%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/</guid>
       <description>函数调用栈 函数会占用栈的空间，当使用该函数时，调用函数的状态会被保存再栈中，被调用的函数会被压入调用栈的栈顶。调用结束后，栈顶的函数会被弹出</description>
-    </item>
-    
-    <item>
-      <title>汇编笔记</title>
-      <link>https://Huangoida.github.io/post/%E6%B1%87%E7%BC%96/</link>
-      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://Huangoida.github.io/post/%E6%B1%87%E7%BC%96/</guid>
-      <description>汇编 指令集简介 x86指令集的基本特色 向下兼容 变长指令 1-15字节，多数为2-3字节长度 多种寻址方式（可访问不对齐内存地址） 指令集的通用寄存器</description>
     </item>
     
   </channel>

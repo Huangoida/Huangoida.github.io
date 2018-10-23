@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -17,10 +15,10 @@
   
     
   
-  <meta name="description" content="Professor of Artificial Intelligence">
+  <meta name="description" content="函数调用栈 函数会占用栈的空间，当使用该函数时，调用函数的状态会被保存再栈中，被调用的函数会被压入调用栈的栈顶。调用结束后，栈顶的函数会被弹出">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/categories/">
+  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/">
 
   
 
@@ -82,36 +80,38 @@
   
 
   
-  <link rel="alternate" href="https://Huangoida.github.io/categories/index.xml" type="application/rss+xml" title="Oida Blog">
-  <link rel="feed" href="https://Huangoida.github.io/categories/index.xml" type="application/rss+xml" title="Oida Blog">
+  <link rel="alternate" href="https://Huangoida.github.io/index.xml" type="application/rss+xml" title="Oida Blog">
+  <link rel="feed" href="https://Huangoida.github.io/index.xml" type="application/rss+xml" title="Oida Blog">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://Huangoida.github.io/categories/">
+  <link rel="canonical" href="https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Oida Blog">
-  <meta property="og:url" content="https://Huangoida.github.io/categories/">
-  <meta property="og:title" content="Categories | Oida Blog">
-  <meta property="og:description" content="Professor of Artificial Intelligence">
+  <meta property="og:url" content="https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/">
+  <meta property="og:title" content="函数调用栈 | Oida Blog">
+  <meta property="og:description" content="函数调用栈 函数会占用栈的空间，当使用该函数时，调用函数的状态会被保存再栈中，被调用的函数会被压入调用栈的栈顶。调用结束后，栈顶的函数会被弹出">
   
   
     
   <meta property="og:image" content="https://Huangoida.github.io/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
+  <meta property="article:published_time" content="2018-10-23T00:00:00&#43;08:00">
   
+  <meta property="article:modified_time" content="2018-10-23T00:00:00&#43;08:00">
+  
+
   
 
   
 
-  
-
-  <title>Categories | Oida Blog</title>
+  <title>函数调用栈 | Oida Blog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -249,7 +249,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -266,56 +268,245 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">函数调用栈</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Categories</h1>
+
+<div class="article-metadata">
 
   
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lena Smith">
+  </span>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-10-23 00:00:00 &#43;0800 CST" itemprop="datePublished">
+    <time datetime="2018-10-23 00:00:00 &#43;0800 CST" itemprop="dateModified">
+      Oct 23, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lena Smith">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/ctf/">ctf</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%a0%88&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E5%2587%25BD%25E6%2595%25B0%25E8%25B0%2583%25E7%2594%25A8%25E6%25A0%2588%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E5%2587%25BD%25E6%2595%25B0%25E8%25B0%2583%25E7%2594%25A8%25E6%25A0%2588%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E5%2587%25BD%25E6%2595%25B0%25E8%25B0%2583%25E7%2594%25A8%25E6%25A0%2588%2f&amp;title=%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%a0%88"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E5%2587%25BD%25E6%2595%25B0%25E8%25B0%2583%25E7%2594%25A8%25E6%25A0%2588%2f&amp;title=%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%a0%88"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%a0%88&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E5%2587%25BD%25E6%2595%25B0%25E8%25B0%2583%25E7%2594%25A8%25E6%25A0%2588%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/categories/ctf/">ctf</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/categories/java/">java</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/categories/%E6%B1%87%E7%BC%96/">汇编</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
-  
+<h1 id="函数调用栈">函数调用栈</h1>
 
+<p>函数会占用栈的空间，当使用该函数时，调用函数的状态会被保存再栈中，被调用的函数会被压入调用栈的栈顶。调用结束后，栈顶的函数会被弹出，栈顶恢复到调用函数的状态。</p>
+
+<p>函数状态涉及三个寄存器： esp,ebp,eip.</p>
+
+<ul>
+<li>esp:用来存储函数调用栈的栈顶地址，在压栈和和退栈时发生变化。</li>
+<li>ebp：用来存储当前函数状态的基地址，在函数运行时不变，可以用来索引确定函数参数或局部变量地址的位置</li>
+<li>eip：用来存储即将执行的程序指令的地址，cpu依照eip的存储内容读取指令并执行，eip随之指向相邻的下一条指令</li>
+</ul>
+
+<pre><code class="language-c">void func(int a, int b)
+{
+    int p =12, q = 345;
+}
+int main()
+{
+    func(90, 26);
+    return 0;
+}
+</code></pre>
+
+<p>函数进出栈的过程如下图所示：
+<img src="http://pcritks5y.bkt.clouddn.com/18-10-23/70296641.jpg" alt="函数进出栈的过程" /></p>
+
+<ol>
+<li>首先被调用函数的参数会被依次压入栈中</li>
+<li>然后将调用函数进行调用后下一条指令地址作为返回地址压入栈中</li>
+<li>将当前ebp寄存器的值压入栈中，并将ebp的值更新为当前栈顶的地址。</li>
+<li>将被调用函数的局部变量压入栈中</li>
+<li>之后就是被调用函数的各种骚操作了</li>
+<li>当被调用函数执行完毕之后，函数要退出栈中，首先会把被调用函数的局部变量从栈内直径弹出，栈顶会指向被调用函数的基地址。</li>
+<li>将基地址的调用函数的基地址从栈内弹出，并存到ebp中。调用函数的ebp信息恢复。</li>
+<li>将返回地址从栈内弹出，存到eip中。</li>
+<li>接着进行调用函数的指令了</li>
+</ol>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+  
+  <a class="badge badge-light" href="/tags/ctf/">ctf</a>
+  
+  <a class="badge badge-light" href="/tags/pwn%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">pwn从入门到入土</a>
+  
 </div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/portrait.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Lena Smith</a></h5>
+    <h6 class="card-subtitle">Professor of Artificial Intelligence</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="617500087@qq.com" target="_blank" rel="noopener">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="//github.com/gcushen" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/%E6%B1%87%E7%BC%96/">汇编笔记</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -456,6 +647,4 @@
 
   </body>
 </html>
-
-
 

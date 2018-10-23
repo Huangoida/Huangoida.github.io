@@ -11,6 +11,54 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>函数调用栈</title>
+      <link>https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88/</guid>
+      <description>
+
+&lt;h1 id=&#34;函数调用栈&#34;&gt;函数调用栈&lt;/h1&gt;
+
+&lt;p&gt;函数会占用栈的空间，当使用该函数时，调用函数的状态会被保存再栈中，被调用的函数会被压入调用栈的栈顶。调用结束后，栈顶的函数会被弹出，栈顶恢复到调用函数的状态。&lt;/p&gt;
+
+&lt;p&gt;函数状态涉及三个寄存器： esp,ebp,eip.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;esp:用来存储函数调用栈的栈顶地址，在压栈和和退栈时发生变化。&lt;/li&gt;
+&lt;li&gt;ebp：用来存储当前函数状态的基地址，在函数运行时不变，可以用来索引确定函数参数或局部变量地址的位置&lt;/li&gt;
+&lt;li&gt;eip：用来存储即将执行的程序指令的地址，cpu依照eip的存储内容读取指令并执行，eip随之指向相邻的下一条指令&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void func(int a, int b)
+{
+    int p =12, q = 345;
+}
+int main()
+{
+    func(90, 26);
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;函数进出栈的过程如下图所示：
+&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-23/70296641.jpg&#34; alt=&#34;函数进出栈的过程&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;首先被调用函数的参数会被依次压入栈中&lt;/li&gt;
+&lt;li&gt;然后将调用函数进行调用后下一条指令地址作为返回地址压入栈中&lt;/li&gt;
+&lt;li&gt;将当前ebp寄存器的值压入栈中，并将ebp的值更新为当前栈顶的地址。&lt;/li&gt;
+&lt;li&gt;将被调用函数的局部变量压入栈中&lt;/li&gt;
+&lt;li&gt;之后就是被调用函数的各种骚操作了&lt;/li&gt;
+&lt;li&gt;当被调用函数执行完毕之后，函数要退出栈中，首先会把被调用函数的局部变量从栈内直径弹出，栈顶会指向被调用函数的基地址。&lt;/li&gt;
+&lt;li&gt;将基地址的调用函数的基地址从栈内弹出，并存到ebp中。调用函数的ebp信息恢复。&lt;/li&gt;
+&lt;li&gt;将返回地址从栈内弹出，存到eip中。&lt;/li&gt;
+&lt;li&gt;接着进行调用函数的指令了&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
       <title>单片机部分笔记</title>
       <link>https://Huangoida.github.io/post/%E5%8D%95%E7%89%87%E6%9C%BA/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
