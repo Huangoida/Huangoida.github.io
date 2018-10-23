@@ -446,6 +446,301 @@ int main()
     
     <item>
       <title>汇编笔记</title>
+      <link>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</guid>
+      <description>
+
+&lt;h1 id=&#34;内部类&#34;&gt;内部类&lt;/h1&gt;
+
+&lt;p&gt;标签（空格分隔）： java 内部类 面向对象&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;如果说我们把一个类写在另外一个类里面呢？这会出现什么情况?
+这就是今天要讲的内部类。&lt;/p&gt;
+
+&lt;p&gt;##什么是内部类&lt;/p&gt;
+
+&lt;p&gt;内部类是定义在另外一个类中的类。先前在继承里面介绍了组合，新的类中产生现有类的对象。这样看来组合和内部类有点相似啊，但是这是错的，内部类和组合两个完全不一样&lt;/p&gt;
+
+&lt;p&gt;##创建内部类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+
+    public  class InnerClass{
+        private String InnerName;
+
+        InnerClass(){
+            OuterName=&amp;quot;外部类&amp;quot;;
+            InnerName=&amp;quot;内部类&amp;quot;;
+        }
+
+        public  void Display(){
+            System.out.println(OuterName+&amp;quot;  &amp;quot;+InnerName);
+        }
+    }
+
+    public static void main(String[] args) {
+        OuterClass outerClass =new OuterClass();
+        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
+        innerClass.Display();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里我们能够看到内部类里面的方法用了OuterName和InnerName两个域，但OuterName在OuterClass类里面是个私有变量。通过这里例子我们可以看到，内部类能够直接访问外部类的属性，尽管外部类的属性是由private修饰的。这是为什么呢？
+因为内部类的对象总有个隐式的引用，它指向创建它的外部类对象，访问外部对象就是通过这个引用来访问的，我们可以通过OuterClass.this来获得外部类的引用，如图下面的例子&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+    
+    public InnerClass to(){
+        return new InnerClass();
+    }
+    public  void Display(){
+        System.out.println(OuterName);
+    }
+    public  class InnerClass{
+        private String InnerName;
+
+        InnerClass(){
+            OuterName=&amp;quot;外部类&amp;quot;;
+            InnerName=&amp;quot;内部类&amp;quot;;
+        }
+        public OuterClass getOuterClass(){
+            return OuterClass.this;
+        }
+        public void innerDisplay(){
+            getOuterClass().Display();
+        }
+        
+    }
+    public static void main(String[] args) {
+        OuterClass outerClass =new OuterClass();
+        OuterClass.InnerClass innerClass=outerClass.new InnerClass();
+        innerClass.innerDisplay();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内部类可以直接访问外部类的元素，但外部类不能够直接访问内部类元素，要访问的话必须先创建一个内部类对象，再通过对象来访问。&lt;/p&gt;
+
+&lt;p&gt;###内部类对象创建&lt;/p&gt;
+
+&lt;p&gt;####外部类外面创建对象&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+    
+    public InnerClass to(){
+        return new InnerClass();
+    }
+
+    public  class InnerClass{
+        private String InnerName;
+    }
+    public static void main(String[] args) {
+        OuterClass outerClass =new OuterClass();
+        OuterClass.InnerClass innerClass=outerClass.new InnerClass();//第一种方法
+        OuterClass.InnerClass inner =outerClass.to();//第二种方法
+        OuterClass.InnerClass inner2=new OuterClass().new InnerClass();//一步到位
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果说要创建成员内部类的对象，前提是要存在一个外部类的对象，而且必须利用outerClass.new 来创建&lt;/p&gt;
+
+&lt;p&gt;####外部类里面（除main方法）创建对象&lt;/p&gt;
+
+&lt;p&gt;在这里面的话，那就直接像普通对象来创建&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;InnerClass innerclass =new InnerClass();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##局部内部类&lt;/p&gt;
+
+&lt;p&gt;上文将的都是成员内部类，它有外部类的全部权限，接下来介绍局部内部类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+
+    public void  getInnerClass(){
+        class InnerClass{
+            public void Dispaly(){
+                System.out.println(&amp;quot;内部类获得&amp;quot;);
+            }
+        }
+        InnerClass innerClass=new InnerClass();
+        innerClass.Dispaly();
+    }
+    public static void main(String[] args) {
+        OuterClass outerClass=new OuterClass();
+        outerClass.getInnerClass();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里就是将InnerClass类放到了getInnerClass方法里面，它的作用域只是在方法里面，其实可以把它看做该方法的一个局部变量&lt;/p&gt;
+
+&lt;p&gt;##匿名内部类&lt;/p&gt;
+
+&lt;p&gt;匿名内部类顾名思义是没有名字的局部内部类，它有所有局部内部类的特性，但它有前提条件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;匿名内部类必须继承一个抽象类或一个接口&lt;/li&gt;
+&lt;li&gt;匿名内部类是没有访问修饰符的&lt;/li&gt;
+&lt;li&gt;匿名内部类是没有构造器的&lt;/li&gt;
+&lt;li&gt;匿名内部类中不能存在任何静态成员或方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Phone
+{
+    public abstract void on();
+
+    public abstract void off();
+}
+
+class Outer
+{
+    public void method()
+    {
+        Phone p = new Phone()
+        {
+            public void on()
+            {
+                System.out.println(&amp;quot;on&amp;quot;);
+            }
+
+            public void off()
+            {
+                System.out.println(&amp;quot;off&amp;quot;);
+            }
+        };
+
+        p.on();
+        p.off();
+    }
+
+    public static void main(String[] args) {
+        Outer outer=new Outer();
+        outer.method();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这段代码估计会看的一脸懵逼，我们一行一行的看&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Phone
+{
+    public abstract void on();
+    public abstract void off();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个不多说，定义一个phone接口.
+然后下行创建Outer类，写个method方法。之后就是懵逼的地方了吧，不是说接口无法创建自身的对象吗？它的意思是创建一个一个实现Phone接口的类的对象，把要实现的方法放在Phone后面的括号里,也可以这么理解，把这个类还原成一个局部内部类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void method1()
+    {
+        class Iphone implements  Phone
+        {
+            public void on()
+            {
+                System.out.println(&amp;quot;on&amp;quot;);
+            }
+
+            public void off()
+            {
+                System.out.println(&amp;quot;off&amp;quot;);
+            }
+        };
+
+        Iphone iphone=new Iphone();
+        iphone.on();
+        iphone.off();
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样就清晰多了吧，两个意思一样，但匿名内部类能省略一个类的书写。&lt;/p&gt;
+
+&lt;p&gt;##静态内部类（嵌套类）&lt;/p&gt;
+
+&lt;p&gt;静态内部类是在类的前面多了一个static关键字，这可以取消对外部类的引用，就像类的静态成员相似，它也不能访问非static成员&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  OuterClass{
+    private String OuterName;
+    
+    static class Innerclass{
+        public Innerclass(){
+            
+        }
+    }
+    public static void main(String[] args) {
+        OuterClass.Innerclass innerclass=new OuterClass.Innerclass();
+       
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;像静态变量一样，InnerClass引用不需要任何具体的对象。
+还有一个区别就是普通的内部类里面是不能有static关键字的，但它可以。
+&lt;strong&gt;在内部类不需要访问外部类对象的时候，应该使用静态内部类。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;###接口内部的类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface ClassIninterFace{
+    void Display();
+    class Test implements ClassIninterFace{
+        @Override
+        public void Display() {
+            System.out.println(&amp;quot;test&amp;quot;);
+        }
+
+        public static void main(String[] args) {
+            new Test().Display();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里本来接口是不能够放任何实现的代码，但放到接口里面的任何类都是public和static的，所以里面是个静态内部类，是个static，只是放在了接口里面，甚至可以在内部类中实现该接口。&lt;/p&gt;
+
+&lt;p&gt;##为什么要使用内部类？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据&lt;/li&gt;
+&lt;li&gt;内部类可以对同一个包中的其他类隐藏起来&lt;/li&gt;
+&lt;li&gt;当想要定义一个回调函数而不想编写大量代码时，使用匿名内部类比较便捷。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这里也是为了看是多重继承的方案更加完整，接口能解决一些问题，但如果是多个抽象类呢，普通的办法是不行的，那么只能使用内部类才能实现多重继承&lt;/p&gt;
+
+&lt;p&gt;##拓展&lt;/p&gt;
+
+&lt;p&gt;说实话，这一章由于水平有限，自己感觉写的很不好，在这个放一些别人的博客，加深理解：
+&lt;a href=&#34;https://blog.csdn.net/pangqiandou/article/details/53234908&#34; target=&#34;_blank&#34;&gt;java中的内部类完全总结&lt;/a&gt;
+&lt;a href=&#34;https://blog.csdn.net/suifeng3051/article/details/51791812/&#34; target=&#34;_blank&#34;&gt;java 内部类（inner class）详解&lt;/a&gt;
+&lt;a href=&#34;https://blog.csdn.net/guyuealian/article/details/51981163&#34; target=&#34;_blank&#34;&gt;java内部类和匿名内部类的用法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;##参考文献&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;java核心技术卷1
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>汇编笔记</title>
       <link>https://Huangoida.github.io/post/%E6%B1%87%E7%BC%96/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
       
@@ -559,6 +854,213 @@ movl Source,Dest.&lt;/p&gt;
 
 &lt;p&gt;寄存器R指定内存起始地址，常数D给出偏移量 movl 8(%ebp),%edx&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>集合类</title>
+      <link>https://Huangoida.github.io/post/%E9%9B%86%E5%90%88%E7%B1%BB/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E9%9B%86%E5%90%88%E7%B1%BB/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;集合类&#34;&gt;集合类&lt;/h1&gt;
+
+&lt;p&gt;你们回头会学一门课，叫数据结构，像链表、数组什么都是数据结构。&lt;/p&gt;
+
+&lt;p&gt;java里面就自带了一个库，它可以帮我们实现这些数据结构。&lt;/p&gt;
+
+&lt;p&gt;这里贴出这个集合类的层次图。
+&lt;img src=&#34;java集合关系图.png&#34; alt=&#34;java集合关系图&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;该图片源于: &lt;a href=&#34;https://blog.csdn.net/u010887744/article/details/50575735&#34; target=&#34;_blank&#34;&gt;史上最全Java集合关系图&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;从图上我们可以看出，Collection接口和map接口是整个集合类最根本的接口。&lt;/p&gt;
+
+&lt;p&gt;Collection接口又接着被继承，List必须按照插入的顺序保存元素，set不能有重复的元素，Queue和排队一样先进先出，后进后出。&lt;/p&gt;
+
+&lt;p&gt;Map包含了key-value对，就和python里面字典是一样的，它可以通过key来查找value，这样就可以将两种对象关联在一起。&lt;/p&gt;
+
+&lt;h2 id=&#34;list&#34;&gt;list&lt;/h2&gt;
+
+&lt;p&gt;list又分出来三种: LinkedList ArrayList Vector&lt;/p&gt;
+
+&lt;h3 id=&#34;arraylist&#34;&gt;ArrayList&lt;/h3&gt;
+
+&lt;p&gt;ArrayList是基于数组实现的List类，之前我们说过数组一旦定义了，就不可变了，这里它是通过类来实现动态数组，也就是可以动态增长的数组.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public static void main(String[] args) {
+        ArrayList&amp;lt;Integer&amp;gt; array= new ArrayList&amp;lt;&amp;gt;();
+        for (int i = 0; i &amp;lt; 5; i++) {
+            array.add(i);//添加五个元素
+        }
+        array.add(1,10);//把10插入到第二个位置
+        array.remove(3);//删除第三元素
+        System.out.println(array);//打印list中全部元素
+        array.set(1,9);//将第二个元素替换成9
+        System.out.println(array);
+        //size()方法获得此集合的元素数量
+        for (int i = 0; i &amp;lt; array.size(); i++) {
+            System.out.println(array.get(i));//将list中的元素全部打印出来
+        }
+        System.out.println(array.isEmpty());//检测该集合是否为空
+        System.out.println(array.subList(1,3));//把array中的第二个集合和第三个集合截取子集合
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;vector&#34;&gt;Vector&lt;/h3&gt;
+
+&lt;p&gt;它和ArrayList的用法是差不多的，也是动态数组
+vector有个子类：stack,它是用来模拟栈这种数据结构的(先进后出)&lt;/p&gt;
+
+&lt;h3 id=&#34;linkedlist&#34;&gt;LinkedList&lt;/h3&gt;
+
+&lt;p&gt;它是实现链表的，在java里面所有的链表都是是双向的，也就是说有指向前节点的引用，也有指向后节点的引用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public static void main(String[] args) {
+        LinkedList&amp;lt;String&amp;gt;link=new LinkedList&amp;lt;&amp;gt;();
+        link.add(&amp;quot;a&amp;quot;);
+        link.add(&amp;quot;b&amp;quot;);
+        link.offer(&amp;quot;c&amp;quot;);//将元素加入到链表的尾部
+        link.push(&amp;quot;AA&amp;quot;);//将元素加入到链表最头部
+        link.offerFirst(&amp;quot;ABCD&amp;quot;);//将元素加入到链表的头部
+        System.out.println(link);
+        System.out.println(link.peekFirst());//访问第一个元素
+        System.out.println(link.pollLast());//访问最后一个元素
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;iterator-迭代器&#34;&gt;Iterator 迭代器&lt;/h2&gt;
+
+&lt;p&gt;大部分集合类都实现了Iterator接口，这个是用来遍历集合中的元素的接口。&lt;/p&gt;
+
+&lt;p&gt;它包含4个方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Iterator&amp;lt;E&amp;gt;
+{
+    E next();
+    boolean hasNext();
+    void remove();
+    default void forEachRemaining(Consumer &amp;lt;? super E&amp;gt;action);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过调用next方法，可以一个一个的访问集合中的每一个元素，但它只能单向移动
+hasNext()方法可以检查迭代器是否还有元素
+remove()可以将其返回的元素删除&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public static void main(String[] args) {
+        LinkedList&amp;lt;String&amp;gt;link=new LinkedList&amp;lt;&amp;gt;();
+        link.add(&amp;quot;a&amp;quot;);
+        link.add(&amp;quot;b&amp;quot;);
+        link.offer(&amp;quot;c&amp;quot;);//将元素加入到链表的尾部
+        link.push(&amp;quot;AA&amp;quot;);//将元素加入到链表最头部
+        link.offerFirst(&amp;quot;ABCD&amp;quot;);//将元素加入到链表的头部
+        Iterator&amp;lt;String&amp;gt; iterable=link.iterator();//link使用迭代器
+        while (iterable.hasNext())//检测是否还有元素
+        {
+            System.out.println(iterable.next());//打印元素
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;到这来我们给了一堆访问元素的方法，用迭代器一个一个的访问，或者用get和set方法来随机的访问元素。我们可以根据不同的集合来选择不同的方法，比如链表更适合用迭代器，这都是按照不同的情况来说的。&lt;/p&gt;
+
+&lt;h2 id=&#34;set&#34;&gt;Set&lt;/h2&gt;
+
+&lt;p&gt;Set是不保存重复元素的，它这又分出来三个:HashSet、EnumSet、TreeSet，常用的是Hashset和TreeSet&lt;/p&gt;
+
+&lt;h3 id=&#34;hashset&#34;&gt;HashSet&lt;/h3&gt;
+
+&lt;p&gt;HashSet不能保证元素的顺序，不能够重复&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public static void main(String[] args) {
+        HashSet&amp;lt;Integer&amp;gt; test=new HashSet&amp;lt;&amp;gt;();
+        test.add(1);
+        test.add(4);
+        test.add(3);
+        System.out.println(test.size());//set中元素数量
+        boolean bool=test.add(1);//会返回false，如果没有1的话，会返回true
+        System.out.println(bool);
+        System.out.println(test.size());//set中元素数量
+        Iterator&amp;lt;Integer&amp;gt;integerIterator=test.iterator();
+        while (integerIterator.hasNext()) {
+            System.out.println(integerIterator.next());
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;treeset&#34;&gt;TreeSet&lt;/h3&gt;
+
+&lt;p&gt;TreeSet有序，不可以重复&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public static void main(String[] args) {
+        TreeSet&amp;lt;Integer&amp;gt; test=new TreeSet&amp;lt;&amp;gt;();
+        test.add(1);
+        test.add(4);
+        test.add(3);
+        System.out.println(test.size());//set中元素数量
+        boolean bool=test.add(1);//会返回false，如果没有1的话，会返回true
+        System.out.println(bool);
+        System.out.println(test.size());//set中元素数量
+        Iterator&amp;lt;Integer&amp;gt;integerIterator=test.iterator();
+        while (integerIterator.hasNext()) {
+            System.out.println(integerIterator.next());
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;TreeSet会将里面的元素默认排序&lt;/p&gt;
+
+&lt;h3 id=&#34;enumset&#34;&gt;EnumSet&lt;/h3&gt;
+
+&lt;p&gt;它是一个专门为枚举类设计的集合类，里面所有的元素都必须是指定的枚举类型&lt;/p&gt;
+
+&lt;h2 id=&#34;map&#34;&gt;Map&lt;/h2&gt;
+
+&lt;p&gt;key-value的键值对，key不能重复，value可以重复
+Map集合不是实现Collection接口，也没实现iterable，所有不能用迭代器&lt;/p&gt;
+
+&lt;p&gt;Map其实很好理解，比如我key就是你的学号，value是你的姓名(虽然这个好难重复),只要我知道了你的学号，那么我就能够找到你的名字，你的学号是唯一的，可能有3个人叫小明，但每个小明都有一个唯一的学号，只要通过学号找就能找到我要找的小明.&lt;/p&gt;
+
+&lt;p&gt;这里面提供了两种HashMap和TreeMap。&lt;/p&gt;
+
+&lt;h3 id=&#34;hashmap&#34;&gt;HashMap&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public static void main(String[] args) {
+        HashMap&amp;lt;Integer,String&amp;gt;hashMap=new HashMap&amp;lt;&amp;gt;();
+        //添加元素到Map中
+        hashMap.put(1,&amp;quot;小明&amp;quot;);
+        hashMap.put(2,&amp;quot;小红&amp;quot;);
+        hashMap.put(3,&amp;quot;小明&amp;quot;);
+        hashMap.put(4,&amp;quot;小伟&amp;quot;);
+        System.out.println(hashMap);
+
+        //通过key值删除map中的元素
+        hashMap.remove(3);
+        //通过key值获得value值
+        String str1=hashMap.get(1);
+        //通过key值，修改value值
+        hashMap.put(4,&amp;quot;小光&amp;quot;);
+        System.out.println(hashMap);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;treemap&#34;&gt;TreeMap&lt;/h3&gt;
+
+&lt;p&gt;treemap的使用和Hashmap是差不多的，只是会给按照key来进行排序。这两种按照不同的情况进行选择，hashmap更快一点，treemap可以进行排序。&lt;/p&gt;</description>
     </item>
     
     <item>
