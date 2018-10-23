@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>单片机部分</title>
+      <title>单片机部分笔记</title>
       <link>https://Huangoida.github.io/post/%E5%8D%95%E7%89%87%E6%9C%BA/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
       
@@ -394,6 +394,123 @@
 &lt;h3 id=&#34;直接寻址&#34;&gt;直接寻址&lt;/h3&gt;
 
 &lt;p&gt;直接寻址就是直接在指令中指定操作数的地址&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>汇编笔记</title>
+      <link>https://Huangoida.github.io/post/%E6%B1%87%E7%BC%96/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E6%B1%87%E7%BC%96/</guid>
+      <description>
+
+&lt;h1 id=&#34;汇编&#34;&gt;汇编&lt;/h1&gt;
+
+&lt;h2 id=&#34;指令集简介&#34;&gt;指令集简介&lt;/h2&gt;
+
+&lt;h3 id=&#34;x86指令集的基本特色&#34;&gt;x86指令集的基本特色&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;向下兼容&lt;/li&gt;
+&lt;li&gt;变长指令&lt;/li&gt;
+&lt;li&gt;1-15字节，多数为2-3字节长度&lt;/li&gt;
+&lt;li&gt;多种寻址方式（可访问不对齐内存地址）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;指令集的通用寄存器个数有限
+x86-32系统下拥有8个通用寄存器（x86-64扩展到16个）&lt;/p&gt;
+
+&lt;h2 id=&#34;整数的机器表示&#34;&gt;整数的机器表示&lt;/h2&gt;
+
+&lt;h3 id=&#34;机器字长&#34;&gt;机器字长&lt;/h3&gt;
+
+&lt;p&gt;一般指计算机进行一次整数运算所能处理的二进制数据位数，通常也包括数据地址长度&lt;/p&gt;
+
+&lt;h3 id=&#34;32位字长&#34;&gt;32位字长&lt;/h3&gt;
+
+&lt;p&gt;地址的表示空间是4GB，对很多内存需求量大的应用而言，非常有限&lt;/p&gt;
+
+&lt;h3 id=&#34;机器字在内存中的组织&#34;&gt;机器字在内存中的组织&lt;/h3&gt;
+
+&lt;p&gt;机器字中的第一个字节的地址，相邻机器字的地址相差4(32-bit)或者8(64-bit)&lt;/p&gt;
+
+&lt;h2 id=&#34;无符号整数和带符号整数&#34;&gt;无符号整数和带符号整数&lt;/h2&gt;
+
+&lt;p&gt;c语言中的无符号数和带符号数&lt;/p&gt;
+
+&lt;p&gt;默认是带符号数，如果有u作为后缀则是无符号数，如0U
+如果无符号数与带符号数混合使用，则带符号数默认转换为无符号数，包括比较运算符&lt;/p&gt;
+
+&lt;h2 id=&#34;汇编与c语言&#34;&gt;汇编与c语言&lt;/h2&gt;
+
+&lt;p&gt;汇编语言数据结构类型
+&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-23/47113619.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接下来看一段代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;
+int sum(int x,int y)
+{
+ int t =x+y;
+ return t;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;对应的x86-32汇编&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-assembly&#34;&gt;Sum:
+    Pushl %ebp
+    Movl %esp,%ebp
+    Movl 12($ebp),%eax
+    Addl 8(%ebp),%eax
+    Movl %ebp,%esp
+    Popl %ebp
+ret
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;int t=x+y;&lt;/strong&gt;与&lt;strong&gt;addl 8(%ebp) %eax&lt;/strong&gt;语句意思是相同的&lt;/p&gt;
+
+&lt;p&gt;c语言 | 汇编语言 |
+&amp;ndash;| &amp;ndash;|
+两个整数相加| 两个32位整数相加
+s| &lt;code&gt;|&lt;/code&gt;后缀表示的是双字运算，无符号/带符号整数加法运算指令是一样的&lt;/p&gt;
+
+&lt;p&gt;操作数：
+    x: Register eax
+    y: Memory M[ebp+8]
+    t: Register eax
+    结果存于eax&lt;/p&gt;
+
+&lt;h3 id=&#34;数据传送指令-mov&#34;&gt;数据传送指令(mov)&lt;/h3&gt;
+
+&lt;p&gt;数据传送(AT&amp;amp;T 语法)
+movl Source,Dest.&lt;/p&gt;
+
+&lt;p&gt;将一个&amp;rdquo;双字&amp;rdquo;从Source移到Dest&lt;/p&gt;
+
+&lt;p&gt;允许的操作数类型:&lt;/p&gt;
+
+&lt;p&gt;立即数：常整数
+    如： $0x400,$-533，可以被1，2或4个字节来表示
+寄存器：8个通用寄存器之一&lt;/p&gt;
+
+&lt;p&gt;存储器：4个连续字节，支持多种访存寻址模式&lt;/p&gt;
+
+&lt;p&gt;数据传送指令支持的不同操作数类型组合
+&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-23/44203507.jpg&#34; alt=&#34;数据传送指令支持的不同操作数类型组合&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;寻址方式&#34;&gt;寻址方式&lt;/h3&gt;
+
+&lt;p&gt;间接寻址 （R） Mem[Reg[R]]&lt;/p&gt;
+
+&lt;p&gt;寄存器R指定内存地址&lt;/p&gt;
+
+&lt;p&gt;movl (%ecx),%eax&lt;/p&gt;
+
+&lt;p&gt;基址+偏移量 寻址 D&amp;reg; Mem[Reg[R]]&lt;/p&gt;
+
+&lt;p&gt;寄存器R指定内存起始地址，常数D给出偏移量 movl 8(%ebp),%edx&lt;/p&gt;
+</description>
     </item>
     
     <item>
