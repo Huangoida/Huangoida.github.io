@@ -1,14 +1,1337 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academic on Academic</title>
-    <link>/</link>
-    <description>Recent content in Academic on Academic</description>
+    <title>Oida Blog on Oida Blog</title>
+    <link>https://Huangoida.github.io/</link>
+    <description>Recent content in Oida Blog on Oida Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>单片机部分</title>
+      <link>https://Huangoida.github.io/post/%E5%8D%95%E7%89%87%E6%9C%BA/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E5%8D%95%E7%89%87%E6%9C%BA/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#单片机的某些概念&#34;&gt;单片机的某些概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#单片机内部结构&#34;&gt;单片机内部结构&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#中央处理器-cpu&#34;&gt;中央处理器（CPU）&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#运算器&#34;&gt;运算器&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#算术逻辑部件-alu&#34;&gt;算术逻辑部件（ALU）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#累加器a&#34;&gt;累加器A&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#寄存器b&#34;&gt;寄存器B&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#程序状态字-psw&#34;&gt;程序状态字（PSW）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#控制器&#34;&gt;控制器&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#程序计数器-pc&#34;&gt;程序计数器(PC)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#数据指针-dptr&#34;&gt;数据指针(DPTR)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#指令寄存器-ir-指令译码器-id-以及控制逻辑&#34;&gt;指令寄存器(IR)、指令译码器(ID)以及控制逻辑&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#存储器结构&#34;&gt;存储器结构&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#内部程序存储器&#34;&gt;内部程序存储器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#内部数据存储器&#34;&gt;内部数据存储器&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#通用寄存器区-00h-1fh&#34;&gt;通用寄存器区（00H~1FH）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#位寻址区-20h-2fh&#34;&gt;位寻址区（20H~2FH）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#数据缓存器区-30h-7fh&#34;&gt;数据缓存器区（30H~7FH）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#堆栈指针&#34;&gt;堆栈指针&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#特殊功能寄存器&#34;&gt;特殊功能寄存器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#i-o端口结构&#34;&gt;I/O端口结构&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#p0端口&#34;&gt;P0端口&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#p1端口&#34;&gt;P1端口&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#p2端口&#34;&gt;P2端口&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#单片机引脚功能&#34;&gt;单片机引脚功能&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#芯片引脚及功能&#34;&gt;芯片引脚及功能&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#供电引脚&#34;&gt;供电引脚&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#i-o引脚&#34;&gt;I/O引脚&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#p0&#34;&gt;p0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#p1-p2-p3&#34;&gt;p1、p2、p3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#控制引脚&#34;&gt;控制引脚&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#外接晶振引脚-时钟信号&#34;&gt;外接晶振引脚（时钟信号）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#单片机工作时序&#34;&gt;单片机工作时序&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#时序定时单位&#34;&gt;时序定时单位&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#拍节与状态&#34;&gt;拍节与状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#机器周期-一个机器周期-12个振荡周期&#34;&gt;机器周期（一个机器周期=12个振荡周期）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#指令周期&#34;&gt;指令周期&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#单片机的指令系统&#34;&gt;单片机的指令系统&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#指令格式&#34;&gt;指令格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#符号说明&#34;&gt;符号说明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#单片机的寻址方式&#34;&gt;单片机的寻址方式&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#立即寻址&#34;&gt;立即寻址&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#直接寻址&#34;&gt;直接寻址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;h1 id=&#34;单片机的某些概念&#34;&gt;单片机的某些概念&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;位数： 单片机能够一次处理的数据的宽度&lt;/li&gt;
+&lt;li&gt;存储器：包括 &lt;strong&gt;程序存储器&lt;/strong&gt; 和 &lt;strong&gt;数据存储器&lt;/strong&gt; 。 程序存储器空间较大，字节数一般从几kb到几十kb。&lt;/li&gt;
+&lt;li&gt;工作电压：通常工作电压是5v&lt;/li&gt;
+&lt;li&gt;功耗：μA或nA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;单片机内部结构&#34;&gt;单片机内部结构&lt;/h1&gt;
+
+&lt;h2 id=&#34;中央处理器-cpu&#34;&gt;中央处理器（CPU）&lt;/h2&gt;
+
+&lt;h3 id=&#34;运算器&#34;&gt;运算器&lt;/h3&gt;
+
+&lt;p&gt;主要包括算术逻辑运算部件（ALU）、累加器A、寄存器B、程序状态字（PSW）、暂存器、布尔处理器以及十进制调整电路等。&lt;/p&gt;
+
+&lt;h4 id=&#34;算术逻辑部件-alu&#34;&gt;算术逻辑部件（ALU）&lt;/h4&gt;
+
+&lt;p&gt;主要对数据进行算术运算的：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;加、减、乘、除运算&lt;/li&gt;
+&lt;li&gt;增量（加1）、减量（减1）运算&lt;/li&gt;
+&lt;li&gt;十进制数调整&lt;/li&gt;
+&lt;li&gt;位操作中的置位、复位和取反操作&lt;/li&gt;
+&lt;li&gt;与、或、异或等运算操作&lt;/li&gt;
+&lt;li&gt;数据传送操作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;累加器a&#34;&gt;累加器A&lt;/h4&gt;
+
+&lt;p&gt;累加器A是cpu中最繁忙、使用频率最高的一个特殊功能寄存器&lt;/p&gt;
+
+&lt;p&gt;其作用为：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;累加器A作为ALU的输入数据源之一，也是ALU的输出。&lt;/li&gt;
+&lt;li&gt;CPU中的数据传送大多数都通过累加器，累加器A是一个非常重要的数据中转站。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;寄存器b&#34;&gt;寄存器B&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;只有用乘或除才用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;执行乘法时，用于存放其中一个乘数和乘积的高8位数
+执行除法时，用于存放除数和余数&lt;/p&gt;
+
+&lt;h4 id=&#34;程序状态字-psw&#34;&gt;程序状态字（PSW）&lt;/h4&gt;
+
+&lt;p&gt;| D7 | D6 | D5 | D4 | D3 | D2 | D1 | D0 |
+| -  | -  |  - | -  | -  |  - | -  | -  |
+| CY | AC | F0 | RS1 | RS0 | OV | - | P |&lt;/p&gt;
+
+&lt;p&gt;CY: &lt;strong&gt;进位标志&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;进行算术运算时，由硬件置位或复位,表示运算过程中，最高位是否有进位或借位状态&lt;/p&gt;
+
+&lt;p&gt;进行位操作时，CY被认为是位累加器，它的作业相当于CPU中的累加器A&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;AC: &lt;strong&gt;辅助进位标志&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;进行加法或减法运算时，若低4位向高4位有进位或借位，AC将被硬件置1，否则置0.&lt;/p&gt;
+
+&lt;p&gt;AC位常用于十进制调整指令和压缩BCD运算等&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;F0： &lt;strong&gt;用户标志位&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;作为一个用户自定义的状态标志&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;RS1、RS0： &lt;strong&gt;工作寄存器组选择位&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;| RS1、RS0 | 寄存器组（地址单位） |
+| - | -|
+| 00 | 寄存器组0（00H-07H）  1区 |
+| 01 | 寄存器组1（08H-0FH） 2区  |
+| 02 | 寄存器组2 （10H-17H） 3区 |
+| 03 | 寄存器组3（18H-1FH） 4区  |&lt;/p&gt;
+
+&lt;p&gt;OV： &lt;strong&gt;溢出标志位&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;算术运算时：产生溢出，将OV置1，溢出为真，表明结果超出寄存器A表示的符号数范围，否则清0，溢出为假&lt;/p&gt;
+
+&lt;p&gt;加减运算时：采用双进位的状态来判断，双进位标志是指Cp和Cs。若Cp异或Cs=0，表示无溢出，0v=0.反正，ov=1&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;无符号溢出看CY，有符号数溢出看OV&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;P： &lt;strong&gt;奇偶标志位&lt;/strong&gt;
+&amp;gt;该位用来表示累加器A中为1的位数是奇数还是偶数。
+&amp;gt;
+&amp;gt;若累加器A中为1的位数是奇数，则P标志位置1，否则P标志位清0.&lt;/p&gt;
+
+&lt;h3 id=&#34;控制器&#34;&gt;控制器&lt;/h3&gt;
+
+&lt;h4 id=&#34;程序计数器-pc&#34;&gt;程序计数器(PC)&lt;/h4&gt;
+
+&lt;p&gt;程序计数器是一个独立的计数寄存器，存放下一条要从程序存储器中取出指令的地址。&lt;/p&gt;
+
+&lt;p&gt;51系列单片机的程序计数器为16位。&lt;/p&gt;
+
+&lt;p&gt;程序计数器的工作不完全是顺序的，因为在指令中，存在转移、子程序调用、中断调用返回等工作，程序计数器就不再是自动加“1”了。&lt;/p&gt;
+
+&lt;h4 id=&#34;数据指针-dptr&#34;&gt;数据指针(DPTR)&lt;/h4&gt;
+
+&lt;p&gt;数据指针是一个16位专用寄存器&lt;/p&gt;
+
+&lt;p&gt;数据指针寄存器也可用做访问程序存储器时的基址寄存器，还可以作为一个通用的16位寄存器或两个8位寄存器使用。&lt;/p&gt;
+
+&lt;h4 id=&#34;指令寄存器-ir-指令译码器-id-以及控制逻辑&#34;&gt;指令寄存器(IR)、指令译码器(ID)以及控制逻辑&lt;/h4&gt;
+
+&lt;p&gt;指令寄存器是用来存放操作码的专用寄存器。指令译码器译码识别IR中指令的操作类型。控制逻辑从取指令开始，直至指令执行控制各部件协调工作。&lt;/p&gt;
+
+&lt;h2 id=&#34;存储器结构&#34;&gt;存储器结构&lt;/h2&gt;
+
+&lt;p&gt;程序存储器：片内程序存储器和片外程序存储器&lt;/p&gt;
+
+&lt;p&gt;数据存储器：片内数据存储器和片外数据存储器&lt;/p&gt;
+
+&lt;h3 id=&#34;内部程序存储器&#34;&gt;内部程序存储器&lt;/h3&gt;
+
+&lt;p&gt;如果EA引脚接地，程序读取只从外部存储器开始。&lt;/p&gt;
+
+&lt;p&gt;如果EA接至VCC，程序读写先从内部存储器（地址为0000H~1FFFH）开始，接着从外部寻址，寻址地址为2000H~FFFFH。&lt;/p&gt;
+
+&lt;h3 id=&#34;内部数据存储器&#34;&gt;内部数据存储器&lt;/h3&gt;
+
+&lt;h4 id=&#34;通用寄存器区-00h-1fh&#34;&gt;通用寄存器区（00H~1FH）&lt;/h4&gt;
+
+&lt;p&gt;每块包含8个8位寄存器，均以R0~R7来命名，我们常称这些寄存器为通用寄存器。&lt;/p&gt;
+
+&lt;h4 id=&#34;位寻址区-20h-2fh&#34;&gt;位寻址区（20H~2FH）&lt;/h4&gt;
+
+&lt;p&gt;即可作为一般单元用字节寻址，也可以对它们的位进行寻址。
+（可拿8位，可拿1位）&lt;/p&gt;
+
+&lt;p&gt;CPU能直接寻址这些位，执行例如置“1”、清“0”、求“反”、转移、传送和逻辑等操作。&lt;/p&gt;
+
+&lt;h4 id=&#34;数据缓存器区-30h-7fh&#34;&gt;数据缓存器区（30H~7FH）&lt;/h4&gt;
+
+&lt;p&gt;用于0存放用户数据和各种字节标志，以采用直接或间接寻址方式访问。&lt;/p&gt;
+
+&lt;h4 id=&#34;堆栈指针&#34;&gt;堆栈指针&lt;/h4&gt;
+
+&lt;p&gt;51系列单片机属于向上生长型堆栈，这种堆栈操作规则如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;进栈操作：先SP加1，后写入数据。&lt;/li&gt;
+&lt;li&gt;出栈操作：先读出数据，后SP减1。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;特殊功能寄存器&#34;&gt;特殊功能寄存器&lt;/h3&gt;
+
+&lt;p&gt;翻书去&lt;/p&gt;
+
+&lt;h2 id=&#34;i-o端口结构&#34;&gt;I/O端口结构&lt;/h2&gt;
+
+&lt;p&gt;51系列单片机有1个8位双向并行I/O端口P0和3个8位准双向并行I/O端口P1~P3.&lt;/p&gt;
+
+&lt;h3 id=&#34;p0端口&#34;&gt;P0端口&lt;/h3&gt;
+
+&lt;p&gt;P0口既可以作为通用的I/O口进行数据的输入/输出，也可以作为单片机系统的地址/数据线使用。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果端口的负载恰是一个晶体管的基极，导通了的PN结会把端口引脚的高电平拉低，这样直接读引脚就会把本来的“1”误读为“0”。 但若从锁存器Q端读，就能避免这样的错误，得到正确的数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;p1端口&#34;&gt;P1端口&lt;/h3&gt;
+
+&lt;p&gt;与P0口不同处：首先它不再需要多路转接电路MUX；其次是电路的内部有上拉电阻，与场效应管共同组成输出驱动电路。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;电阻接电源=上拉电阻&lt;/p&gt;
+
+&lt;p&gt;电阻接地=下拉电阻&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;p2端口&#34;&gt;P2端口&lt;/h3&gt;
+
+&lt;p&gt;通常情况下，P2口是作为高位地址线使用而不作为数据线使用&lt;/p&gt;
+
+&lt;h1 id=&#34;单片机引脚功能&#34;&gt;单片机引脚功能&lt;/h1&gt;
+
+&lt;h2 id=&#34;芯片引脚及功能&#34;&gt;芯片引脚及功能&lt;/h2&gt;
+
+&lt;h3 id=&#34;供电引脚&#34;&gt;供电引脚&lt;/h3&gt;
+
+&lt;p&gt;供电引脚接入AT89S51的工作电源&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;VCC:电源正极，一般为+5V。&lt;/li&gt;
+&lt;li&gt;GND：电源接地。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;i-o引脚&#34;&gt;I/O引脚&lt;/h3&gt;
+
+&lt;h4 id=&#34;p0&#34;&gt;p0&lt;/h4&gt;
+
+&lt;p&gt;当访问外部程序和数据存储器时，P0口也被作为低8位地址/数据复用。在这种模式下，P0具有内部上拉电阻。&lt;/p&gt;
+
+&lt;p&gt;在程序校验时，输出指令字节。程序校验时，需要外部上拉电阻。&lt;/p&gt;
+
+&lt;h4 id=&#34;p1-p2-p3&#34;&gt;p1、p2、p3&lt;/h4&gt;
+
+&lt;p&gt;看书&lt;/p&gt;
+
+&lt;h3 id=&#34;控制引脚&#34;&gt;控制引脚&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RST：复位输入&lt;/li&gt;
+&lt;li&gt;ALE/PROG：地址锁存控制信号是访问外部程序存储器时，锁存低8位地址的输出脉冲。&lt;/li&gt;
+&lt;li&gt;PSEN：外部程序存储器选通信号&lt;/li&gt;
+&lt;li&gt;EA/VPP:访问外部程序存储器控制信号&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;外接晶振引脚-时钟信号&#34;&gt;外接晶振引脚（时钟信号）&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;XTAL1：接外部晶体的一个引脚，在单片机内部，它是一个反相放大器的输入端。&lt;/li&gt;
+&lt;li&gt;XTAL2: 接外部晶体的另一端，在单片机内部接到反相放大器的输出端，当采用外接晶体振荡器时，此引脚可以不接。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;单片机工作时序&#34;&gt;单片机工作时序&lt;/h1&gt;
+
+&lt;h2 id=&#34;时序定时单位&#34;&gt;时序定时单位&lt;/h2&gt;
+
+&lt;h3 id=&#34;拍节与状态&#34;&gt;拍节与状态&lt;/h3&gt;
+
+&lt;p&gt;把振荡脉冲的周期定义为拍节（用P表示）。振荡脉冲经过二分频后，就是单片机的时钟信号的周期，其定义为状态（用S表示）。其前半周期对应的拍节叫拍节1，后半周期对应的拍节叫拍节2.&lt;/p&gt;
+
+&lt;h3 id=&#34;机器周期-一个机器周期-12个振荡周期&#34;&gt;机器周期（一个机器周期=12个振荡周期）&lt;/h3&gt;
+
+&lt;p&gt;一个机器周期的宽度为6个状态，并依次表示为S1~S6.&lt;/p&gt;
+
+&lt;p&gt;一个状态包括两个拍节，因此一个机器周期总共有12个拍节，分别记作S1P1、S1P2、&amp;hellip;、S6P2.当振荡脉冲频率为12MHZ时，一个机器周期为1us，当振荡脉冲频率为6MHz时，一个机器周期为2us。&lt;/p&gt;
+
+&lt;h3 id=&#34;指令周期&#34;&gt;指令周期&lt;/h3&gt;
+
+&lt;p&gt;指令周期是最大的时序定时单位，执行一条指令所需要的时间称为指令周期。&lt;/p&gt;
+
+&lt;p&gt;一个机器周期的指令称为单周期指令，包含两个机器周期的指令称为双周期指令。&lt;/p&gt;
+
+&lt;p&gt;MCS-51 单片机通常可以分为单周期指令、双周期指令和四周期指令3种。四周期指令只有乘法和除法两条指令，其余均为单周期和双周期指令。&lt;/p&gt;
+
+&lt;h1 id=&#34;单片机的指令系统&#34;&gt;单片机的指令系统&lt;/h1&gt;
+
+&lt;h2 id=&#34;指令格式&#34;&gt;指令格式&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;操作码[目的操作数]，[源操作数];[注释]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;符号说明&#34;&gt;符号说明&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;#data: 8位立即数&lt;/li&gt;
+&lt;li&gt;#data16: 16位立即数&lt;/li&gt;
+&lt;li&gt;Rn：工作寄存器，R0~R7，n为0~7&lt;/li&gt;
+&lt;li&gt;Ri：工作寄存器，0或1，i=0或1.&lt;/li&gt;
+&lt;li&gt;@Ri:寄存器Ri间接寻址8位存储单元00H~FFH&lt;/li&gt;
+&lt;li&gt;direct：8位直接寻址，可以是特殊功能寄存器（SFR）的80H~FFH或内部存储单元00H~7FH&lt;/li&gt;
+&lt;li&gt;addr16: 16位目的地址，用于LJMP和LCALL指令，可在64KB地址内转移或调用。&lt;/li&gt;
+&lt;li&gt;rel：带符号的8位偏移地址，主要应用于所有的条件转移指令和SJMP。其范围是相对于下一条指令的第一字节地址-128~+127字节。&lt;/li&gt;
+&lt;li&gt;bit：位地址。片内RAM中的可寻址位和专用寄存器中的可寻址位&lt;/li&gt;
+&lt;li&gt;DPTR：数据指针，可用于16位的地址寄存器&lt;/li&gt;
+&lt;li&gt;@:间接寄存器或基址寄存器的前缀，如@DPTR、@Ri、@A+PC、@A+DPTR.&lt;/li&gt;
+&lt;li&gt;A:累加器ACC&lt;/li&gt;
+&lt;li&gt;B：通用寄存器，常用于乘法MUL和除法&lt;/li&gt;
+&lt;li&gt;CY：进位标志位或者布尔处理器中的累加器&lt;/li&gt;
+&lt;li&gt;/:位操作数前缀，表示对该位操作数进行取反操作。&lt;/li&gt;
+&lt;li&gt;(x)：寄存器或存储单元x的内容&lt;/li&gt;
+&lt;li&gt;（（x））：以寄存器或存储单元x的内容作为地址的存储单元的内容&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;单片机的寻址方式&#34;&gt;单片机的寻址方式&lt;/h2&gt;
+
+&lt;h3 id=&#34;立即寻址&#34;&gt;立即寻址&lt;/h3&gt;
+
+&lt;p&gt;直接给出操作数的地址。直接将需要访问的数据在指令中给出，这样的寻址方式就是立即寻址。&lt;/p&gt;
+
+&lt;p&gt;MOV A，#dataH&lt;/p&gt;
+
+&lt;p&gt;这是一条立即寻址方式的传送指令，通常出现在指令中的操作数data称为立即数。&lt;/p&gt;
+
+&lt;p&gt;注意：&lt;strong&gt;在立即数寻址中立即数前面必须加上一个#号&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;直接寻址&#34;&gt;直接寻址&lt;/h3&gt;
+
+&lt;p&gt;直接寻址就是直接在指令中指定操作数的地址&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>接口</title>
+      <link>https://Huangoida.github.io/post/%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Fri, 07 Sep 2018 21:02:12 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E6%8E%A5%E5%8F%A3/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#继承扩展接口&#34;&gt;继承扩展接口&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;p&gt;上文我们讲了抽象类，这次的接口和抽象类有许多的相似处，其实可以这么理解抽象类处于类与接口的中间部分，但接口不是类，而是对类的一组需求描述。&lt;/p&gt;
+
+&lt;p&gt;接口的关键字是interface，它是要产生一个完全抽象的类，它允许创建者确定方法名、参数列表和返回类型，但没有任何的实现。
+想要创建一个接口，需要用interface来代替class关键字
+继续拿Person来进行魔改&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Person
+{
+    String getName();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们一行一行的看&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Person
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这一行,我们可以像类一样，在前面加上一个public，如果不加，它也只具有在这个包里面的访问权限。
+然后下一行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String getName();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你可以将方法声明为public，但你也可以不这么做，他们也照样是public的,你也可以包含域，但是域会被自动的设置为public static final.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;当要实现一个接口时，在接口中被定义的方法必须被定义为是public的，否则，他们将只能得到默认的包访问权限，这样继承过程中，其可访问权限就降低了，这是java编译器所不允许的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;既然接口已经产生了，那么我们该如何使用它呢？
+要让一个类遵循某一个接口（或者一组）,那么需要使用implements关键字,这个好像extends一样。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student implements Person {
+    String name;
+    Student(String name){
+        this.name=name;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public static void main(String[] args) {
+        Student student=new Student(&amp;quot;小明&amp;quot;);
+        System.out.println(student.getName());
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student implements Person
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里Student后面使用了implements，这就表示Student遵循Person这个接口.
+而getName在这里实现，这便回到了我们熟悉的类了。&lt;/p&gt;
+
+&lt;p&gt;java里面一个类只能继承一个超类，但它可以遵循许多个接口，比如&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student implements Person,teacher
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样就需要实现两个接口就够了。&lt;/p&gt;
+
+&lt;p&gt;虽然说接口不是类，它不能够用new实例化一个窗口(毕竟抽象类都不行，它还想行啊)
+但是它能够声明变量,接口变量必须引用实现了接口的对象&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Person student=new Student(&amp;quot;小明&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;既然有了抽象类，为什么还要这么复杂的搞出一个接口来。
+学过C++就会知道，C++能够多重继承，它一个类可以继承许多许多的类，这的确是很方便，但却会让事情变得很复杂，特别是两个父类都是有同样的函数，那么编译器到底调用哪个函数呢？是吧。java作为C++的简化版，因为C++存在这种问题，所以java只能单继承，一个类只能继承一个，这样就不会难以分辨这个方法是谁的了。而抽象类作为一个类，它的子类自然也只能够继承它，不能够再加了。如果我要多继承怎么办？所以来了这个接口。因为它的超类所有的方法都是没有实现的，这就不会扯皮了。这其实也可以说是java的多重继承。&lt;/p&gt;
+
+&lt;h2 id=&#34;继承扩展接口&#34;&gt;继承扩展接口&lt;/h2&gt;
+
+&lt;p&gt;接口也是可以继承的,这样就很容易的添加新的方法声明，还可以将多个接口组合成一个接口,这里直接拿别人的代码做例子&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//HorrorShow.java
+interface Monster{
+    void menace();
+}
+interface DangerousMonster extends Monster{
+    void destroy();
+}
+interface Lethal{
+    void kill();
+}
+interface Vampire extends DangerousMonster, Lethal{
+    void drinkBlood();
+}
+class DragonZilla implements DangerousMonster{
+    public void menace() { }
+    public void destroy() { }
+}
+class VeryBadVampire implements Vampire{
+    public void menace(){}
+    public void destroy() {}
+    public void kill() {}
+    public void drinkBlood() {}
+}
+public class HorrorShow {
+    static void u(Monster b){b.menace();}
+    static void v(DangerousMonster d){
+        d.menace();
+        d.destroy();
+    }
+    static void w(Lethal l){l.kill();}
+
+    public static void main(String[] args) {
+        DangerousMonster barney =new DragonZilla();
+        u(barney);
+        v(barney);
+        Vampire vlad=new VeryBadVampire();
+        u(vlad);
+        v(vlad);
+        w(vlad);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里extends用于单一类，但是可以引用多个基类接口，只需要将接口名一一分开就行。&lt;/p&gt;
+
+&lt;p&gt;这里可能会产生一个问题，如果多继承后，方法啥都相同还好，如果返回类型这些不同，那么就麻烦了，编译器不知道如何是好，干脆直接报错得了。&lt;/p&gt;
+
+&lt;p&gt;不同的接口用相同的名字不建议这样做，这样会给代码带来混乱。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>面向对象--多态</title>
+      <link>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/</link>
+      <pubDate>Fri, 07 Sep 2018 21:02:12 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#抽象类&#34;&gt;抽象类&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;p&gt;这里讲面向对象第三个特性：多态
+多态的意思就是一个类型在不同情况下的多种形态，也可以说多态是指通过指向父类的指针，来调用在不同子类中实现的方法。
+多态就比如说：老师和学生是两个不同的职业，但他们都是人，也就是说张三是个学生，但他也是个人。
+依旧拿之前的例子进行介绍&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Person {
+    private String name;//姓名
+    private int number;//学号
+    private static  int NextNumber=1;
+
+    Person(String name){
+        this.name=name;
+        number=NextNumber;
+        NextNumber++;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student extends Person {
+    private  int score;
+
+    Student(String name,int score) {
+        super(name);
+        this.score=score;
+    }
+
+
+    @Override
+    public int getNumber() {
+        return super.getNumber()+1;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public static void main(String[] args) {
+        //!!!!!!!!!!!!
+        //!!!!!!!!!!! 注意这里
+        Person  student1=new Student(&amp;quot;小明&amp;quot;,100);
+        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+&amp;quot; 小明的学号:&amp;quot;+student1.getNumber());
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里本来应该是&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student student1=new Student(&amp;quot;小明&amp;quot;,100);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这句话的，但是这里却写的&lt;code&gt;Person  student1=new Student(&amp;quot;小明&amp;quot;,100);&lt;/code&gt;
+咱们再来看看输出结果：
+&amp;gt;小明的名字：小明 小明的学号:2&lt;/p&gt;
+
+&lt;p&gt;这明明是Person类型，调用的getNumber()应该是Person的getNumber()吧，但这却学号却是2而不是1，这也很奇怪。
+这里就是要介绍的多态。
+这里为啥Person能引用Student的东西呢？
+Student是继承与Person的，所以Student里面是有Person的东西的，但是因为你是Person类型的对象，我们只能够使用Person对象所拥有的东西，对于Student多出来的东西，这是不能够被执行的,不信的话可以把最后一句话改成：
+&lt;code&gt;System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+&amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());&lt;/code&gt;
+这里报错就是因为getScore这个方法并没有在Person类中声明,
+&lt;strong&gt;而那些原来就有的部分，会首先调用子类的重写的方法而不会调用父类的方法，如果说子类没有重写该方法，那么就会调用父类的方法。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;抽象类&#34;&gt;抽象类&lt;/h1&gt;
+
+&lt;p&gt;有的时候，我们可以将一些类进一步抽象，把一堆有相同或者相似元素拿出来，放在一个继承层次比较高的超类中，这便是抽象类。
+在Student和teacher中，有相似点的是姓名，我们便可以把姓名给拿出来，放到Person类中，我们还可以在Person类中加上个人编号，但如何编号呢？哪我们该怎么办呢？
+这时候就可以使用abstract关键字
+&lt;code&gt;public abstract int setNumber&lt;/code&gt;这样setNumber这个方法就是一个抽象方法了，这样我们就不用在person类中想出如何写这个方法了。
+除了抽象方法外，有一个或多个抽象方法的类必须被声明为一个抽象类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class Person {
+    private String name;//姓名
+    private int number;
+
+    Person(String name){
+        this.name=name;
+    }
+
+    public String  getName() {
+        return name;
+    }
+    public abstract  int setNumber();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面就是Person类的代码
+这里看到抽象类中还是可以有具体的数据和方法的，但这种还是不推荐的。
+抽象方法的具体实现是在子类中实现的
+&amp;gt;如果在抽象类中定义的部分抽象方法或者不定义抽象类方法，那么子类必须被定义为抽象类。
+如果你把所有的抽象方法给定义了，那么子类就不是抽象类了&lt;/p&gt;
+
+&lt;p&gt;抽象类也是不能够被实例化的，也就是说无法创建抽象类的对象，比如:&lt;code&gt;Person person=new Person(&amp;quot;小明&amp;quot;)&lt;/code&gt;这样是不行的,但是可以创建一个子类的对象，或者是&lt;code&gt;Person person=new Student(&amp;quot;小明&amp;quot;)&lt;/code&gt;,这样就是说可以定义一个抽象类的对象，但它只能够引用非抽象子类的对象，不能够引用自己的对象。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>面向对象--继承</title>
+      <link>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Fri, 07 Sep 2018 21:02:12 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#超类和子类&#34;&gt;超类和子类&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#覆盖方法&#34;&gt;覆盖方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#子类构造器&#34;&gt;子类构造器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#阻止继承&#34;&gt;阻止继承&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;p&gt;这里提到面向对象第二个特性：继承
+依旧拿之前用的student类举例子，我们这可以说学生类写好了，但如果我们要写个教师类呢？是不是要重新写一个类，尽管里面有许多相同的元素在里面。这样做是可以的，但一个类还好，要是多个类呢？
+人们可以便想出了一些方法来复用代码，这样就不用重复编写了。
+&amp;gt;第一种只需在新的类中产生现有类的对象。由于新的类是由现有类的对象所组成，所以这种方法称为组合
+&amp;gt;第二种按照现有类的类型来创建新类，无需改变现有类的形式，采用现有类的形式并在其中添加代码，这种形式称为继承&lt;/p&gt;
+
+&lt;h1 id=&#34;超类和子类&#34;&gt;超类和子类&lt;/h1&gt;
+
+&lt;p&gt;继承这很容易理解，你会继承你父母的财产，就是这个意思。
+java里面爸爸就叫超类（也可以叫父类，基类），儿子就叫子类（也可以叫派生类）。
+当创建出来一个类时，它总是在继承的，如果没有明确从其他类中继承，那么这个类会从java的object类继承，所以object类就是所有类的超类。&lt;/p&gt;
+
+&lt;p&gt;比如可以先写个人类作为基类，再通过继承来写出学生类和教师类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Person {//人类作为基类
+    private String name;//姓名
+    private int number;//学号
+    private static  int NextNumber=1;
+    Person(String name){
+        this.name=name;
+        number=NextNumber;
+        NextNumber++;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+
+
+public class Student extends Person {
+    private  int score;
+    Student(String name,int score) {
+        super(name);
+        this.score=score;
+    }
+
+    public int getScore() {
+        return score;
+    }
+     public static void main(String[] args) {
+        Student student1=new Student(&amp;quot;小明&amp;quot;,100);
+        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+
+        &amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出结果：
+&amp;gt;小明的名字：小明 小明的学号:1 小明的分数:100&lt;/p&gt;
+
+&lt;p&gt;这里便是学生类继承人类，这里在Student后面有个关键词extends
+extends就是表示继承，这里便是Student类继承Person类
+Student类里增加了一个分数的域，以及一个显示该域的方法。
+尽管Student类中没有定义getName和getNumber等方法，但Student类生成的对象却可以使用这些方法，这是因为Student类会继承超类Person的这些方法，同时，也从超类中继承name，number这两个域
+但相反的是，Person无法使用Student类中的getScore方法，也没有Score这个域。&lt;/p&gt;
+
+&lt;h2 id=&#34;覆盖方法&#34;&gt;覆盖方法&lt;/h2&gt;
+
+&lt;p&gt;有的时候，超类中的一些方法对于子类是不适用的，这时候便可以用一个新的方法来覆盖超类中的这个方法。
+但不能直接修改
+如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student extends Person {
+    private  int score;
+
+    Student(String name,int score) {
+        super(name);
+        this.score=score;
+    }
+    public int getNumber() {
+        ;
+        return  number+1;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public static void main(String[] args) {
+        Student student1=new Student(&amp;quot;小明&amp;quot;,100);
+        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+&amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里重写了getNumber方法，这是我们想当然应该这么做的，但这样是&lt;strong&gt;错的&lt;/strong&gt;，因为&lt;strong&gt;子类不能够直接访问超类的私有域&lt;/strong&gt;。
+那么这该怎么办呢？
+那么我改成调用方法行不，事实上也是不行的，因为超类也有一个getNumber方法，这会导致无限次的调用，造成程序崩溃。
+可以使用关键字super来解决问题：
+&lt;code&gt;super.getNumber()&lt;/code&gt;
+这就是调用超类的方法，调用Person类中的getNumber方法。
+所以，正确的方法便是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student extends Person {
+    private  int score;
+
+    Student(String name,int score) {
+        super(name);
+        this.score=score;
+    }
+
+
+    @Override
+    public int getNumber() {
+        return super.getNumber()+1;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public static void main(String[] args) {
+        Student student1=new Student(&amp;quot;小明&amp;quot;,100);
+        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+&amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;emmmm，这个@Override只是个注解（先理解为注释吧），也就是说可写可不写，但写了的话：
+如果你不小心写成了重载而不是重新该方法，编译器会报错。&lt;/p&gt;
+
+&lt;h2 id=&#34;子类构造器&#34;&gt;子类构造器&lt;/h2&gt;
+
+&lt;p&gt;在student类中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String name,int score) {
+        super(name);
+        this.score=score;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Student这个构造器，里面还有个&lt;code&gt;super(name)&lt;/code&gt;,通过前文我们知道super是调用超类的方法，这里便是调用超类构造器的简写，这就是调用有name这个参数的构造器。因为子类无法访问超类的私有部分，所以可以通过该方法进行调用。同时，&lt;strong&gt;使用super调用构造器必须是子类调用器的第一条语句。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;阻止继承&#34;&gt;阻止继承&lt;/h1&gt;
+
+&lt;p&gt;如果说你不想要自己的类被继承，那么可以使用关键词final&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final class Student extends Person
+{
+.........
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样的话，Student就不会被其他的类所继承了。
+方法也是如此，如果你不想要别人重写该方法，那么也是加final&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;public final String getName(){}&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>面向对象--封装</title>
+      <link>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Thu, 06 Sep 2018 21:02:12 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#封装是什么&#34;&gt;封装是什么？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#private&#34;&gt;private&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#public&#34;&gt;public&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#protected&#34;&gt;protected&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#default&#34;&gt;default&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;p&gt;前面提到了面向对象有三个特性：封装、继承、多态
+这里便讲封装这个特性&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;封装是什么&#34;&gt;封装是什么？&lt;/h1&gt;
+
+&lt;p&gt;定义一个变量 &lt;code&gt;int i=1&lt;/code&gt;，我们可以利用一大堆的办法来对这个变量进行修改，这有时候就会造成一些很不利的影响，一个不经意间就会对这个变量进行操作，从而造成一堆的bug。有时候，一些人还可以利用这些变量来对你的程序进行破坏，这些都是十分麻烦的。
+于是就想把一些信息隐藏起来，让别人无法操作，只允许自己操作，这便是封装，将信息隐藏起来，留下一些接口来外人进行操作。
+这里举个例子来加深对封装的理解：
+你手上的电脑，里面有cpu、内存、gpu、硬盘、主板等部件，如果说把这一大堆的部件全部放在外面，会出多少问题呢？所以，就会用一个壳子把它放在里面，留出一堆的接口来。作为外人，并不需要理解里面是怎么运作的，只需要知道这些接口是如何使用就行了。&lt;/p&gt;
+
+&lt;h1 id=&#34;private&#34;&gt;private&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class Student {
+    private String name;//姓名
+    private int number;//学号
+
+    Student(String na,int nu){
+        name=na;
+        number=nu;
+    }
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里依旧拿出上文的例子，这里看到name和number这两个变量之前都是有一个private关键词的，这里就意味着这个权限是私有的，pirvate的意思就是说：除了包含该成员的类之外，其他的类都无权操作该成员。
+你们可以试试看这下面这段代码，看看报不报错&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public  class  StudentTest{
+    public static void main(String[] args) {
+        Student student1=new Student(&amp;quot;小明&amp;quot;,1);
+        Student student2=new Student(&amp;quot;小红&amp;quot;,2);
+        System.out.println(&amp;quot;姓名为：&amp;quot;+student1.name+&amp;quot; 学号为：&amp;quot;+student1.number);
+        System.out.println(&amp;quot;姓名为：&amp;quot;+student2.name+&amp;quot; 学号为：&amp;quot;+student2.number);
+    }
+}
+class Student {
+    private String name;//姓名
+    private int number;//学号
+
+    Student(String na,int nu){
+        name=na;
+        number=nu;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;想必是会报错的，虽然说Student这个类里面的确是有name和number这两个变量,但前面加上了private关键字，StudentTest这个类就没有对这两个变量的访问权限，只能通过下面两个函数来对这两个变量进行操作。&lt;/p&gt;
+
+&lt;p&gt;你们可以尝试删除一下private这个关键词，其他的地方不动，看看会发生什么情况。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;public&#34;&gt;public&lt;/h1&gt;
+
+&lt;p&gt;public这个关键字，它的意义就是让这个成员对所有的类都是可以使用的，这个是最宽松的权限了。
+如同上面的代码
+拥有public这个关键字的两个函数，可以在StudentTest这个类里面进行操作
+你可以尝试再创建一个文件，在新文件里写个main函数，将老文件导入新文件里，看看能不能访问这两个函数。&lt;/p&gt;
+
+&lt;p&gt;tips：java源文件文件名，如果该文件里面所有类都没有用public修饰，那么取啥名字都行
+但是有一个类用了public修饰，那么这个源文件的文件名必需与public修饰的类的类名相同.
+而且public类每个文件只能有一个&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;protected&#34;&gt;protected&lt;/h1&gt;
+
+&lt;p&gt;这个关键字呢，通常和继承一起用的，这就很蛋疼了。这里先写上，等你们学了继承之后再回头看这个关键字吧。&lt;/p&gt;
+
+&lt;p&gt;protected关键字，它是指可以被同一包中的其他类进行访问，也可以被自己的子类进行访问，但不能被其他包所访问&lt;/p&gt;
+
+&lt;p&gt;你事实上可以这么想：protected就是public的弱化版，他删去了被其他包所访问的这个权限。
+如果说你创建了一个新包，并继承另一个包中的类，你本来只能访问的是public成员（在同一个包里不存在这回事），但如果需要一些成员，要给子类而不是新包里所有的类，那么protected就要上场了&lt;/p&gt;
+
+&lt;h1 id=&#34;default&#34;&gt;default&lt;/h1&gt;
+
+&lt;p&gt;事实上是没有这个关键字的，但有时候类里面一些成员前面没有任何权限的关键字时，系统就会默认给那个成员加上这个关键字。&lt;/p&gt;
+
+&lt;p&gt;这个权限是只能是这个包里面的类来进行访问，其他包里面的类就不能进行访问。&lt;/p&gt;
+
+&lt;p&gt;这就又是protected的弱化版，继续删去了其他包内子类能够访问的权限。&lt;/p&gt;
+
+&lt;p&gt;权限访问级别顺序：public &amp;gt; protected &amp;gt; default &amp;gt;private&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;权限&lt;/th&gt;
+&lt;th&gt;public&lt;/th&gt;
+&lt;th&gt;protected&lt;/th&gt;
+&lt;th&gt;default&lt;/th&gt;
+&lt;th&gt;private&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;当前类&lt;/td&gt;
+&lt;td&gt;√y&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;同一个包&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;子类&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;其他包&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;tips：大部分情况下，成员变量是用private修饰，一些方法用private修饰，一些方法用public修饰，这都是要按照情况而定的。
+如果是想给子类而不想给其他的类，那么用protected修饰。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>面向对象</title>
+      <link>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Wed, 05 Sep 2018 21:02:12 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#前言&#34;&gt;前言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#例子&#34;&gt;例子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#类的创建&#34;&gt;类的创建&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#该程序解析&#34;&gt;该程序解析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#构造器&#34;&gt;构造器&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#重载&#34;&gt;重载&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#默认初始化&#34;&gt;默认初始化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#无参数构造器&#34;&gt;无参数构造器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#隐式参数与显式参数&#34;&gt;隐式参数与显式参数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#静态方法与静态常量&#34;&gt;静态方法与静态常量&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#静态域&#34;&gt;静态域&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#静态方法&#34;&gt;静态方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#析构&#34;&gt;析构&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#其他例子&#34;&gt;其他例子&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;我们编程都是将自然语言抽象成计算机语言，这其中就有很多的抽象方法，比如我们之前用c语言时用的面向过程编程，这就是一种抽象方法，还有函数式编程、面向切面编程等等，这些都是抽象的方法。相同的问题用不同的抽象方法看，就会有不同的解。这篇就将介绍面向对象这种编程思想&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;例子&#34;&gt;例子&lt;/h1&gt;
+
+&lt;p&gt;举个例子：
+把大象放进冰箱里：
+面向过程编程：
+1、打开冰箱
+2、把大象放进去
+3、把冰箱门关上
+而面向对象编程则是：
+1、抽象出冰箱的属性（容量）和行为（打开冰箱，放大象，关冰箱）==画出个冰箱的图纸
+2、制造一个冰箱，放进大象
+这一看可能还是一脸懵逼状态，为什么要搞那么复杂？
+如果按照面向过程编程，如果中间要稍微变动一些细节怎么样？会不会引起全部的代码改动呢？比如两个冰箱放两个大象呢，这样就要对整个过程进行改动。
+而面向对象编程呢？因为我们已经抽象出来了这个冰箱，就等于我们有了这个冰箱的图纸，不断地制造这个冰箱就行。
+人们把这个图纸就叫做类，制造冰箱就是类的实例化也就是对象。&lt;/p&gt;
+
+&lt;p&gt;面向对象有三大特性：封装、继承、多态。这三个特性会在后面一一细讲。&lt;/p&gt;
+
+&lt;h1 id=&#34;类的创建&#34;&gt;类的创建&lt;/h1&gt;
+
+&lt;p&gt;java里面类定义则是&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class className
+{
+field1
+field2
+.....
+method1
+method2
+.....
+}
+className 是类的名字
+field是类的属性
+method是类的行为
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;举个简单的例子&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class Student {
+    private String name;//姓名
+    private int number;//学号
+
+    Student(String na,int nu){
+        name=na;
+        number=nu;
+    }
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这就是一个学生类的创建，里面有学生的属性（姓名和学号），还有获得那些属性的方法，这里面的一些东西会在后面讲，我们先看看这个类的运用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public  class  StudentTest{
+    public static void main(String[] args) {
+        Student student1=new Student(&amp;quot;小明&amp;quot;,1);
+        Student student2=new Student(&amp;quot;小红&amp;quot;,2);
+        System.out.println(&amp;quot;姓名为：&amp;quot;+student1.getName()+&amp;quot; 学号为：&amp;quot;+student1.getNumber());
+        System.out.println(&amp;quot;姓名为：&amp;quot;+student2.getName()+&amp;quot; 学号为：&amp;quot;+student2.getNumber());
+    }
+}
+class Student {
+    private String name;//姓名
+    private int number;//学号
+
+    Student(String na,int nu){
+        name=na;
+        number=nu;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里我们创建了两个学生对象，一个叫小明，一个叫小红，还给了他们不同的学号&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;姓名为：小明 学号为：1
+姓名为：小红 学号为：2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这就是他们的输出结果
+通过调用getNumber函数和getName函数将信息打印出来了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;注意：这程序的文件名为StudentTest.java，因为文件名必须与public类的名字匹配。在一个源文件里，只能有一个public，但可以有无数个非public类&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;该程序解析&#34;&gt;该程序解析&lt;/h1&gt;
+
+&lt;p&gt;这个程序包含了2个实例域&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private String name;//姓名
+private int number;//学号
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;private关键字确保只有Student类自身的方法能够访问到这些实例域，其他类的方法无法访问&lt;/p&gt;
+
+&lt;p&gt;1个构造器和两个方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String na,int nu)
+public int getNumber()
+public String  getName()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个类所有的方法都被标记public，public关键字意味着所有的类任何方法都可以调用这些方法
+（这些之后会细讲）&lt;/p&gt;
+
+&lt;h1 id=&#34;构造器&#34;&gt;构造器&lt;/h1&gt;
+
+&lt;p&gt;这个程序里面看Student类，会看到一个函数和类有着相同的名字：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String na,int nu){
+    name=na;
+    number=nu;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个便是构造器，也称构造函数
+当Student类被创建的时候，便会自动调用该函数，以便将实例域初始化成为想要的状态
+如
+&lt;code&gt;Student student1=new Student(&amp;quot;小明&amp;quot;,1);&lt;/code&gt;
+创造Student1这个对象时，就会调用构造器，将Student1这个对象的实例域设置为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;name=&amp;quot;小明&amp;quot;
+number=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;还有一点要注意，&lt;strong&gt;构造器是没有返回值的&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;重载&#34;&gt;重载&lt;/h2&gt;
+
+&lt;p&gt;java里面所有的方法都是支持重载的
+重载是什么呢？
+比如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int test(int i)
+int test(String j)
+int test(int i,String j)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这三个函数名字是一样的，但里面的参数不同，这就是重载。编译器会通过不同方法给出的参数类型以及值类型进行匹配来挑选相应的方法。如果编译器找不到匹配的参数，便会报错。
+&lt;strong&gt;要注意重载是要返回类型相同的，也就是说不能有两个名字相同、参数相同，但返回类型不同的方法&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;构造器自然也是支持重载的，可以重载构造器，来应对不同的需求。&lt;/p&gt;
+
+&lt;h2 id=&#34;默认初始化&#34;&gt;默认初始化&lt;/h2&gt;
+
+&lt;p&gt;如果构造器没有给实例域赋值，就会自动的赋默认值：数值为0，布尔值为false，对象引用为null&lt;/p&gt;
+
+&lt;h2 id=&#34;无参数构造器&#34;&gt;无参数构造器&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(){
+    name=&amp;quot;小明&amp;quot;;
+    number=1;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这就是Student无参数构造器。如果有该方法，对象无参数创建时，便会调用该方法进行初始化。
+如果一个类有至少一个构造器，但没有无参数构造器，则创建对象是如果无参数就是报错。
+如果类没有任何构造器，系统会提供一个默认的构造器：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;className()
+{
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以在类的定义中，直接将一个值赋给实例域&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class student()
+{
+private String name=&amp;quot;小米&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样也是可以的&lt;/p&gt;
+
+&lt;h1 id=&#34;隐式参数与显式参数&#34;&gt;隐式参数与显式参数&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int getNumber()
+{
+return number;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当调用&lt;code&gt;Student1.getNumber()&lt;/code&gt;，将会执行以下指令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int getNumber()
+{
+return Student1.number;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看上去getNumber这个方法并没有任何参数，实际上存在着一个隐藏的参数，这就是隐式参数，是出现在方法名前的Student对象。假如getNumber有参数的方法&lt;code&gt;Student1.getNumber(1)&lt;/code&gt;,这个1就是显式参数。可以知道，显式参数出现在方法的声明里，隐式参数并没有出现在声明里。那么有没有可能能自己调用隐式函数呢？
+每个方法里关键字this表示隐式参数&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int getNumber()
+{
+return this.number;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个和上面那个方法意思是一样的&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String name,int number)
+{
+name=name;
+number=number;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果我们这么写，系统就不会知道那个是实例域哪个是局部变量了&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String name,int number)
+{
+this.name=name;
+this.number=number;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样改就能知道，左边this调用了该对象，所以左边是对象的实例域，右边是局部变量&lt;/p&gt;
+
+&lt;h1 id=&#34;静态方法与静态常量&#34;&gt;静态方法与静态常量&lt;/h1&gt;
+
+&lt;h2 id=&#34;静态域&#34;&gt;静态域&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public  class  StudentTest{
+    public static void main(String[] args) {
+        Student student1=new Student(&amp;quot;小明&amp;quot;);
+        Student student2=new Student(&amp;quot;小红&amp;quot;);
+        System.out.println(&amp;quot;姓名为：&amp;quot;+student1.getName()+&amp;quot; 学号为：&amp;quot;+student1.getNumber());
+        System.out.println(&amp;quot;姓名为：&amp;quot;+student2.getName()+&amp;quot; 学号为：&amp;quot;+student2.getNumber());
+    }
+}
+class Student {
+    private String name;//姓名
+    private int number;//学号
+    private static  int NextNumber=1;
+    Student(String name){
+        this.name=name;
+        number=NextNumber;
+        NextNumber++;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String  getName() {
+        return name;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;static关键字表示静态，如果将一个属性定义为static，那么这个属性为整个类所共享，上面的程序依旧输出：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;姓名为：小明 学号为：1
+姓名为：小红 学号为：2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果不用static关键字，有些操作要给每个对象进行赋值，这很不方便，比如统一使用一个常量，设置为静态的话，只需要&lt;code&gt;类名字.该常量&lt;/code&gt;，但不设置该常量，则需要创建对象，然后通过对象来进行操作。&lt;/p&gt;
+
+&lt;h2 id=&#34;静态方法&#34;&gt;静态方法&lt;/h2&gt;
+
+&lt;p&gt;如果把方法前面放上static，则该方法为静态方法，该方法是可以不需要使用对象进行操作的
+可以直接&lt;code&gt;类名字.该方法&lt;/code&gt;的方式来运行。
+&lt;strong&gt;也就是说该方法没有隐式参数，也就是说它无法访问对象的实例域，但它可以访问类的静态域。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;析构&#34;&gt;析构&lt;/h2&gt;
+
+&lt;p&gt;如果你学过C++，C++里面有个析构函数，那个是当对象生成期结束后，对对象进行回收的函数，但java里面没有这个概念，因为其有自动的垃圾回收器，不需要人工回收内存&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;其他例子&#34;&gt;其他例子&lt;/h1&gt;</description>
+    </item>
     
   </channel>
 </rss>

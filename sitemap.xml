@@ -1,16 +1,163 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://Huangoida.github.io/en/sitemap.xml</loc>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://Huangoida.github.io/zh/sitemap.xml</loc>
-		
-	   	<lastmod>2018-09-07T21:21:55+08:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+      <lastmod>2018-10-23T00:00:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/%E6%8E%A5%E5%8F%A3/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/</loc>
+      <lastmod>2018-09-06T21:02:12+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
+      <lastmod>2018-09-05T21:02:12+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/post/</loc>
+      <lastmod>2017-01-01T00:00:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/publication/</loc>
+      <lastmod>2017-01-01T00:00:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/talk/</loc>
+      <lastmod>2017-01-01T00:00:00+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/</loc>
+      <lastmod>2017-10-15T00:00:00+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/tags/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/tags/java/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/categories/java/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+      <lastmod>2018-10-23T00:00:00+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+      <lastmod>2018-10-23T00:00:00+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/tags/%E6%8E%A5%E5%8F%A3/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+</urlset>
