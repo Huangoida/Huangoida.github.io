@@ -11,6 +11,431 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>策略模式</title>
+      <link>https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description>
+
+&lt;h1 id=&#34;策略模式&#34;&gt;策略模式&lt;/h1&gt;
+
+&lt;h2 id=&#34;策略模式的定义&#34;&gt;策略模式的定义&lt;/h2&gt;
+
+&lt;p&gt;它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户&lt;/p&gt;
+
+&lt;h3 id=&#34;策略模式的使用场景&#34;&gt;策略模式的使用场景&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;针对同一类型问题的多种处理方式，仅仅是具体行为的差别&lt;/li&gt;
+&lt;li&gt;需要安全的封装多种同一类型的操作时。&lt;/li&gt;
+&lt;li&gt;出现同一抽象类有多个子类，又需要使用if-else或者swithc-case来选择子类时&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;策略模式的结构&#34;&gt;策略模式的结构&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Strategy&amp;ndash;抽象的策略，是一个接口或抽象类&lt;/li&gt;
+&lt;li&gt;ConcreteStrategy&amp;ndash;具体的策略类，实现了抽象的策略&lt;/li&gt;
+&lt;li&gt;Context&amp;ndash;一个普通的类，上下文环境，持有Strategy的引用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;实例&#34;&gt;实例&lt;/h2&gt;
+
+&lt;p&gt;应对不同种类的鸭子的需求&lt;/p&gt;
+
+&lt;p&gt;下面依旧是UML图：
+&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-9-20/62272279.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-9-20/64987553.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Quackbehavior接口：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Quackbehavior {
+    public  void quack();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MuteQuack类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MuteQuack implements Quackbehavior {
+    @Override
+    public void quack() {
+        System.out.println(&amp;quot;&amp;lt;&amp;lt; Silence &amp;gt;&amp;gt;&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Quack类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Quack implements Quackbehavior {
+    @Override
+    public void quack() {
+        System.out.println(&amp;quot;Quack&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Squeak类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Squeak implements Quackbehavior{
+    @Override
+    public void quack() {
+        System.out.println(&amp;quot;Squeak&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上是关于鸭子叫的算法簇&lt;/p&gt;
+
+&lt;p&gt;FlyBehavior接口：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//飞行行为接口
+public interface FlyBehavior {
+    public  void Fly();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;FlyNoWay类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//该类的鸭子没有飞行行为
+public class FlyNoWay implements FlyBehavior {
+    @Override
+    public void Fly() {
+        System.out.println(&amp;quot;I &#39;m not fly&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;FlyRockerPowered类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//用火箭飞行的行为
+public class FlyRockerPowered implements FlyBehavior {
+    @Override
+    public void Fly() {
+        System.out.println(&amp;quot;I&#39;m a flying with a rocket!&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;FlyWithWings类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;//用翅膀飞行的行为
+public class FlyWithWings implements FlyBehavior {
+    @Override
+    public void Fly() {
+        System.out.println(&amp;quot;I&#39;m flying!&amp;quot;);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上是关于鸭子飞行的算法簇&lt;/p&gt;
+
+&lt;p&gt;这些是具体的策略类，实现抽象的策略。&lt;/p&gt;
+
+&lt;p&gt;Duck类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class Duck {
+    //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们
+    FlyBehavior flyBehavior;
+    Quackbehavior quackbehavior;
+    public Duck(){ }
+    public abstract void  display();
+
+    public void performQuack(){
+        quackbehavior.quack();
+    }//委托给行为类
+
+    public  void performFly(){
+        flyBehavior.Fly();
+    }
+
+    //动态改变其飞行行为
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+    //动态改变其叫行为
+    public void setQuackbehavior(Quackbehavior quackbehavior) {
+        this.quackbehavior = quackbehavior;
+    }
+
+    public  void swim(){
+        System.out.println(&amp;quot;All ducks float,even decoys!&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MallardDuck类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MallardDuck extends Duck {
+    public MallardDuck(){
+        quackbehavior=new Quack();
+        flyBehavior=new FlyWithWings();
+    }
+
+    @Override
+    public void display() {
+        System.out.println(&amp;quot;I &#39;m a real Mallard duck&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ModelDuck类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class ModelDuck extends Duck {
+    public ModelDuck(){
+        flyBehavior=new FlyNoWay();
+        quackbehavior=new Quack();
+    }
+
+    @Override
+    public void display() {
+        System.out.println(&amp;quot;I&#39;m a model duck&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;测试类
+MiniDuckSimulator类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class MiniDuckSimulator {
+    public static void main(String[] args) {
+        Duck mallard=new MallardDuck();
+        mallard.performQuack();
+        //这会调用MallerdDuck继承来的performQuack方法，从而委托给对象QuackBehavior对象处理（也就是说调用继承来的quackBehavior引用对象的Quack（））
+        mallard.performFly();
+        Duck model=new ModelDuck();
+        model.performFly();//第一次调用performFly（）会被委托给flyBehavior对象（FlyNoway实例），该对象是在模型鸭构造器中设置的。
+        model.setFlyBehavior(new FlyRockerPowered());//会调用继承来的setter方法，把火箭动力飞行行为设定到了模型鸭中。
+        //运行时想改变鸭子的行为，只需要调用鸭子的setter方法就行
+        model.performFly();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出结果:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Quack&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m flying!&lt;/p&gt;
+
+&lt;p&gt;I &amp;rsquo;m not fly&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m a flying with a rocket!&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>观察者模式</title>
+      <link>https://Huangoida.github.io/post/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>
+
+&lt;h1 id=&#34;观察者模式&#34;&gt;观察者模式&lt;/h1&gt;
+
+&lt;h2 id=&#34;观察者模式的定义&#34;&gt;观察者模式的定义&lt;/h2&gt;
+
+&lt;p&gt;观察者模式定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。&lt;/p&gt;
+
+&lt;p&gt;说白了，如同电视订阅一样，订阅了该频道，就能获得电视台的节目；没有订阅该频道，就不能够看该频道。&lt;/p&gt;
+
+&lt;h2 id=&#34;观察者模式主要角色&#34;&gt;观察者模式主要角色&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;注册主题接口&amp;ndash;它把所有观察者对象引用保存再一个集合中，对象使用此接口注册成为观察者，或者把自己从观察者中删除&lt;/li&gt;
+&lt;li&gt;观察者接口&amp;ndash;为观察者定义一个接口，主题改变的时候它被调用&lt;/li&gt;
+&lt;li&gt;具体主题&amp;ndash;实现主题接口，除了注册和撤销外，还用于在状态改变时更新所有当前观察者&lt;/li&gt;
+&lt;li&gt;具体观察者&amp;ndash;实现观察者接口，观察者必须注册具体主题，以便接受更新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
+
+&lt;p&gt;以head frist 设计模式的代码为例，它是要气象站服务，会发布气象更新，公告板注册就能收到气象变化。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-25/18328771.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是气象站观察者的类图&lt;/p&gt;
+
+&lt;p&gt;subject接口就是主题接口，WeatherData类就是具体主题，它实现subject接口。&lt;/p&gt;
+
+&lt;p&gt;Obersever接口是观察者接口，CUrrentconditionsDisplay是具体观察者&lt;/p&gt;
+
+&lt;p&gt;以下是各个类的代码:&lt;/p&gt;
+
+&lt;p&gt;subject接口:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+public interface subject {
+    public void registerObserver(Obersever o);//这两个方法都需要一个观察者作为变量，该观察者是用来注册或被删除的
+    public void removeObserver(Obersever o);
+    public void notifyObservers();//当主题改变是，这个方法会被调用，以通知所有的观察者
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;WeatherData类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+import java.util.ArrayList;
+
+public class WeatherData implements subject {
+    private ArrayList&amp;lt;Obersever&amp;gt; observers;
+    private float temperature;
+    private float humidity;
+    private float pressure;
+    
+    public WeatherData(){
+        observers=new ArrayList&amp;lt;&amp;gt;();
+    }//加一个ArrayList来记录观察者
+    
+    @Override
+    public void registerObserver(Obersever o) {
+        observers.add(o);
+    }//注册观察者时，将其放到Arraylist后面
+
+    @Override
+    public void removeObserver(Obersever o) {
+        int i=observers.indexOf(o);
+        if (i&amp;gt;=0)
+        {
+            observers.remove(i);
+        }
+    }//删除，从ArrayList中删除即可
+
+    @Override
+    public void notifyObservers() {
+        for (int i = 0; i &amp;lt; observers.size(); i++) {
+            Obersever obersever=(Obersever)observers.get(i);
+            obersever.update(temperature,humidity,pressure);
+        }
+    }//通知每一个观察者
+
+    public  void measurementsChanged(){
+        notifyObservers();
+    }//得到更新观测值，通知观察者
+
+    public void setMeasurements(float temperature,float humidity,float pressure)
+    {
+        this.temperature=temperature;
+        this.humidity=humidity;
+        this.pressure=pressure;
+        measurementsChanged();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;DisplayElement接口:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+public interface DisplayElement {
+    public void display();//当布告板需要显示时，调用此方法
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Obersever类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+public interface Obersever{
+    public  void update(float temp,float humidity,float pressure);
+    //当气象观测值改变时，主题会把这些状态值作为方法的参数，传送给观察者
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CurrentConditionsDisplay类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+public class CurrentConditionsDisplay implements Obersever,DisplayElement {
+    private float temperature;
+    private float humidity;
+    private subject weatherData;
+
+    public CurrentConditionsDisplay(subject weatherData)
+    {
+        this.weatherData=weatherData;
+        weatherData.registerObserver(this);
+    }
+
+    @Override
+    public void display() {
+        System.out.println(&amp;quot;Current conditions: &amp;quot;+temperature+&amp;quot;F degrees and&amp;quot;+humidity+&amp;quot;% humidity&amp;quot;);
+    }
+
+    @Override
+    public void update(float temp, float humidity, float pressure) {
+        this.temperature=temp;
+        this.humidity=humidity;
+        display();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以及最后的测试类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+    // write your code here
+        WeatherData weatherData=new WeatherData();
+
+        CurrentConditionsDisplay currentDisplay=new CurrentConditionsDisplay(weatherData);
+        weatherData.setMeasurements(80,65,30.4f);
+        weatherData.setMeasurements(82,70,29.2f);
+        weatherData.setMeasurements(78,90,29.2f);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;测试结果:
+&amp;gt;Current conditions: 80.0F degrees and65.0% humidity
+&amp;gt;
+&amp;gt;Current conditions: 82.0F degrees and70.0% humidity
+&amp;gt;
+&amp;gt;Current conditions: 78.0F degrees and90.0% humidity&lt;/p&gt;
+
+&lt;p&gt;##小结&lt;/p&gt;
+
+&lt;p&gt;该设计模式是松耦合的，它们依然可以交互，但不清楚彼此的细节。&lt;/p&gt;
+
+&lt;p&gt;JDK里面有自带的观察者模式&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>设计模式</title>
+      <link>https://Huangoida.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>
+
+&lt;h1 id=&#34;设计模式&#34;&gt;设计模式&lt;/h1&gt;
+
+&lt;p&gt;现在在学习设计模式，故将各个设计模式记下来&lt;/p&gt;
+
+&lt;h2 id=&#34;策略模式&#34;&gt;策略模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://huangoida.github.io/post/策略模式/&#34; target=&#34;_blank&#34;&gt;策略模式&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;观察者模式&#34;&gt;观察者模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://huangoida.github.io/post/观察者模式/&#34; target=&#34;_blank&#34;&gt;观察者模式&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>内部类</title>
       <link>https://Huangoida.github.io/post/%E5%86%85%E9%83%A8%E7%B1%BB/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>

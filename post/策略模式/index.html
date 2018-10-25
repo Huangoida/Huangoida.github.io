@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="策略模式 策略模式的定义 它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户 策略模式的使用场景 针对同一">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E9%9B%86%E5%90%88%E7%B1%BB/">
+  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
 
   
 
@@ -88,30 +88,30 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://Huangoida.github.io/post/%E9%9B%86%E5%90%88%E7%B1%BB/">
+  <link rel="canonical" href="https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Oida Blog">
-  <meta property="og:url" content="https://Huangoida.github.io/post/%E9%9B%86%E5%90%88%E7%B1%BB/">
-  <meta property="og:title" content="集合类 | Oida Blog">
-  <meta property="og:description" content="">
+  <meta property="og:url" content="https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
+  <meta property="og:title" content="策略模式 | Oida Blog">
+  <meta property="og:description" content="策略模式 策略模式的定义 它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户 策略模式的使用场景 针对同一">
   
   
     
   <meta property="og:image" content="https://Huangoida.github.io/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-10-23T00:00:00&#43;08:00">
+  <meta property="article:published_time" content="2018-10-25T00:00:00&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-10-23T00:00:00&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-10-25T00:00:00&#43;08:00">
   
 
   
 
-  <title>集合类 | Oida Blog</title>
+  
+
+  <title>策略模式 | Oida Blog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -270,7 +270,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">集合类</h1>
+  <h1 itemprop="name">策略模式</h1>
 
   
 
@@ -288,9 +288,9 @@
 
   <span class="article-date">
     
-    <meta content="2018-10-23 00:00:00 &#43;0800 CST" itemprop="datePublished">
-    <time datetime="2018-10-23 00:00:00 &#43;0800 CST" itemprop="dateModified">
-      Oct 23, 2018
+    <meta content="2018-10-25 00:00:00 &#43;0800 CST" itemprop="datePublished">
+    <time datetime="2018-10-25 00:00:00 &#43;0800 CST" itemprop="dateModified">
+      Oct 25, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -300,7 +300,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    3 min read
   </span>
   
 
@@ -314,7 +314,9 @@
   <span class="article-categories">
     <i class="fas fa-folder"></i>
     
-    <a href="/categories/java/">java</a>
+    <a href="/categories/java/">java</a>, 
+    
+    <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
     
   </span>
   
@@ -326,35 +328,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e9%9b%86%e5%90%88%e7%b1%bb&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259B%2586%25E5%2590%2588%25E7%25B1%25BB%2f"
+         href="https://twitter.com/intent/tweet?text=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259B%2586%25E5%2590%2588%25E7%25B1%25BB%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259B%2586%25E5%2590%2588%25E7%25B1%25BB%2f&amp;title=%e9%9b%86%e5%90%88%e7%b1%bb"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f&amp;title=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259B%2586%25E5%2590%2588%25E7%25B1%25BB%2f&amp;title=%e9%9b%86%e5%90%88%e7%b1%bb"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f&amp;title=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e9%9b%86%e5%90%88%e7%b1%bb&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259B%2586%25E5%2590%2588%25E7%25B1%25BB%2f">
+         href="mailto:?subject=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -374,205 +376,215 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p></p>
+      
 
-<h1 id="集合类">集合类</h1>
+<h1 id="策略模式">策略模式</h1>
 
-<p>你们回头会学一门课，叫数据结构，像链表、数组什么都是数据结构。</p>
+<h2 id="策略模式的定义">策略模式的定义</h2>
 
-<p>java里面就自带了一个库，它可以帮我们实现这些数据结构。</p>
+<p>它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户</p>
 
-<p>这里贴出这个集合类的层次图。
-<img src="http://pcritks5y.bkt.clouddn.com/18-10-23/91300748.jpg" alt="java集合关系图" /></p>
+<h3 id="策略模式的使用场景">策略模式的使用场景</h3>
 
-<p>该图片源于: <a href="https://blog.csdn.net/u010887744/article/details/50575735" target="_blank">史上最全Java集合关系图</a></p>
+<ol>
+<li>针对同一类型问题的多种处理方式，仅仅是具体行为的差别</li>
+<li>需要安全的封装多种同一类型的操作时。</li>
+<li>出现同一抽象类有多个子类，又需要使用if-else或者swithc-case来选择子类时</li>
+</ol>
 
-<p>从图上我们可以看出，Collection接口和map接口是整个集合类最根本的接口。</p>
+<h2 id="策略模式的结构">策略模式的结构</h2>
 
-<p>Collection接口又接着被继承，List必须按照插入的顺序保存元素，set不能有重复的元素，Queue和排队一样先进先出，后进后出。</p>
+<ul>
+<li>Strategy&ndash;抽象的策略，是一个接口或抽象类</li>
+<li>ConcreteStrategy&ndash;具体的策略类，实现了抽象的策略</li>
+<li>Context&ndash;一个普通的类，上下文环境，持有Strategy的引用</li>
+</ul>
 
-<p>Map包含了key-value对，就和python里面字典是一样的，它可以通过key来查找value，这样就可以将两种对象关联在一起。</p>
+<h2 id="实例">实例</h2>
 
-<h2 id="list">list</h2>
+<p>应对不同种类的鸭子的需求</p>
 
-<p>list又分出来三种: LinkedList ArrayList Vector</p>
+<p>下面依旧是UML图：
+<img src="http://pcritks5y.bkt.clouddn.com/18-9-20/62272279.jpg" alt="" />
+<img src="http://pcritks5y.bkt.clouddn.com/18-9-20/64987553.jpg" alt="" /></p>
 
-<h3 id="arraylist">ArrayList</h3>
+<p>Quackbehavior接口：</p>
 
-<p>ArrayList是基于数组实现的List类，之前我们说过数组一旦定义了，就不可变了，这里它是通过类来实现动态数组，也就是可以动态增长的数组.</p>
+<pre><code class="language-java">public interface Quackbehavior {
+    public  void quack();
+}
+</code></pre>
 
-<pre><code class="language-java">public class Test{
-    public static void main(String[] args) {
-        ArrayList&lt;Integer&gt; array= new ArrayList&lt;&gt;();
-        for (int i = 0; i &lt; 5; i++) {
-            array.add(i);//添加五个元素
-        }
-        array.add(1,10);//把10插入到第二个位置
-        array.remove(3);//删除第三元素
-        System.out.println(array);//打印list中全部元素
-        array.set(1,9);//将第二个元素替换成9
-        System.out.println(array);
-        //size()方法获得此集合的元素数量
-        for (int i = 0; i &lt; array.size(); i++) {
-            System.out.println(array.get(i));//将list中的元素全部打印出来
-        }
-        System.out.println(array.isEmpty());//检测该集合是否为空
-        System.out.println(array.subList(1,3));//把array中的第二个集合和第三个集合截取子集合
+<p>MuteQuack类:</p>
+
+<pre><code class="language-java">public class MuteQuack implements Quackbehavior {
+    @Override
+    public void quack() {
+        System.out.println(&quot;&lt;&lt; Silence &gt;&gt;&quot;);
     }
 }
 </code></pre>
 
-<h3 id="vector">Vector</h3>
+<p>Quack类:</p>
 
-<p>它和ArrayList的用法是差不多的，也是动态数组
-vector有个子类：stack,它是用来模拟栈这种数据结构的(先进后出)</p>
-
-<h3 id="linkedlist">LinkedList</h3>
-
-<p>它是实现链表的，在java里面所有的链表都是是双向的，也就是说有指向前节点的引用，也有指向后节点的引用。</p>
-
-<pre><code class="language-java">public class Test{
-    public static void main(String[] args) {
-        LinkedList&lt;String&gt;link=new LinkedList&lt;&gt;();
-        link.add(&quot;a&quot;);
-        link.add(&quot;b&quot;);
-        link.offer(&quot;c&quot;);//将元素加入到链表的尾部
-        link.push(&quot;AA&quot;);//将元素加入到链表最头部
-        link.offerFirst(&quot;ABCD&quot;);//将元素加入到链表的头部
-        System.out.println(link);
-        System.out.println(link.peekFirst());//访问第一个元素
-        System.out.println(link.pollLast());//访问最后一个元素
+<pre><code class="language-java">public class Quack implements Quackbehavior {
+    @Override
+    public void quack() {
+        System.out.println(&quot;Quack&quot;);
     }
 }
 </code></pre>
 
-<h2 id="iterator-迭代器">Iterator 迭代器</h2>
+<p>Squeak类：</p>
 
-<p>大部分集合类都实现了Iterator接口，这个是用来遍历集合中的元素的接口。</p>
-
-<p>它包含4个方法</p>
-
-<pre><code class="language-java">public interface Iterator&lt;E&gt;
-{
-    E next();
-    boolean hasNext();
-    void remove();
-    default void forEachRemaining(Consumer &lt;? super E&gt;action);
-}
-</code></pre>
-
-<p>通过调用next方法，可以一个一个的访问集合中的每一个元素，但它只能单向移动
-hasNext()方法可以检查迭代器是否还有元素
-remove()可以将其返回的元素删除</p>
-
-<pre><code class="language-java">public class Test{
-    public static void main(String[] args) {
-        LinkedList&lt;String&gt;link=new LinkedList&lt;&gt;();
-        link.add(&quot;a&quot;);
-        link.add(&quot;b&quot;);
-        link.offer(&quot;c&quot;);//将元素加入到链表的尾部
-        link.push(&quot;AA&quot;);//将元素加入到链表最头部
-        link.offerFirst(&quot;ABCD&quot;);//将元素加入到链表的头部
-        Iterator&lt;String&gt; iterable=link.iterator();//link使用迭代器
-        while (iterable.hasNext())//检测是否还有元素
-        {
-            System.out.println(iterable.next());//打印元素
-        }
+<pre><code class="language-java">public class Squeak implements Quackbehavior{
+    @Override
+    public void quack() {
+        System.out.println(&quot;Squeak&quot;);
     }
 }
 </code></pre>
 
-<p>到这来我们给了一堆访问元素的方法，用迭代器一个一个的访问，或者用get和set方法来随机的访问元素。我们可以根据不同的集合来选择不同的方法，比如链表更适合用迭代器，这都是按照不同的情况来说的。</p>
+<p>以上是关于鸭子叫的算法簇</p>
 
-<h2 id="set">Set</h2>
+<p>FlyBehavior接口：</p>
 
-<p>Set是不保存重复元素的，它这又分出来三个:HashSet、EnumSet、TreeSet，常用的是Hashset和TreeSet</p>
+<pre><code class="language-java">//飞行行为接口
+public interface FlyBehavior {
+    public  void Fly();
+}
+</code></pre>
 
-<h3 id="hashset">HashSet</h3>
+<p>FlyNoWay类:</p>
 
-<p>HashSet不能保证元素的顺序，不能够重复</p>
-
-<pre><code class="language-java">public class Test{
-    public static void main(String[] args) {
-        HashSet&lt;Integer&gt; test=new HashSet&lt;&gt;();
-        test.add(1);
-        test.add(4);
-        test.add(3);
-        System.out.println(test.size());//set中元素数量
-        boolean bool=test.add(1);//会返回false，如果没有1的话，会返回true
-        System.out.println(bool);
-        System.out.println(test.size());//set中元素数量
-        Iterator&lt;Integer&gt;integerIterator=test.iterator();
-        while (integerIterator.hasNext()) {
-            System.out.println(integerIterator.next());
-        }
+<pre><code class="language-java">//该类的鸭子没有飞行行为
+public class FlyNoWay implements FlyBehavior {
+    @Override
+    public void Fly() {
+        System.out.println(&quot;I 'm not fly&quot;);
     }
 }
 </code></pre>
 
-<h3 id="treeset">TreeSet</h3>
+<p>FlyRockerPowered类：</p>
 
-<p>TreeSet有序，不可以重复</p>
-
-<pre><code class="language-java">public class Test{
-    public static void main(String[] args) {
-        TreeSet&lt;Integer&gt; test=new TreeSet&lt;&gt;();
-        test.add(1);
-        test.add(4);
-        test.add(3);
-        System.out.println(test.size());//set中元素数量
-        boolean bool=test.add(1);//会返回false，如果没有1的话，会返回true
-        System.out.println(bool);
-        System.out.println(test.size());//set中元素数量
-        Iterator&lt;Integer&gt;integerIterator=test.iterator();
-        while (integerIterator.hasNext()) {
-            System.out.println(integerIterator.next());
-        }
+<pre><code class="language-java">//用火箭飞行的行为
+public class FlyRockerPowered implements FlyBehavior {
+    @Override
+    public void Fly() {
+        System.out.println(&quot;I'm a flying with a rocket!&quot;);
     }
 }
 </code></pre>
 
-<p>TreeSet会将里面的元素默认排序</p>
+<p>FlyWithWings类:</p>
 
-<h3 id="enumset">EnumSet</h3>
+<pre><code class="language-java">//用翅膀飞行的行为
+public class FlyWithWings implements FlyBehavior {
+    @Override
+    public void Fly() {
+        System.out.println(&quot;I'm flying!&quot;);
+    }
+}
 
-<p>它是一个专门为枚举类设计的集合类，里面所有的元素都必须是指定的枚举类型</p>
+</code></pre>
 
-<h2 id="map">Map</h2>
+<p>以上是关于鸭子飞行的算法簇</p>
 
-<p>key-value的键值对，key不能重复，value可以重复
-Map集合不是实现Collection接口，也没实现iterable，所有不能用迭代器</p>
+<p>这些是具体的策略类，实现抽象的策略。</p>
 
-<p>Map其实很好理解，比如我key就是你的学号，value是你的姓名(虽然这个好难重复),只要我知道了你的学号，那么我就能够找到你的名字，你的学号是唯一的，可能有3个人叫小明，但每个小明都有一个唯一的学号，只要通过学号找就能找到我要找的小明.</p>
+<p>Duck类：</p>
 
-<p>这里面提供了两种HashMap和TreeMap。</p>
+<pre><code class="language-java">public abstract class Duck {
+    //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们
+    FlyBehavior flyBehavior;
+    Quackbehavior quackbehavior;
+    public Duck(){ }
+    public abstract void  display();
 
-<h3 id="hashmap">HashMap</h3>
+    public void performQuack(){
+        quackbehavior.quack();
+    }//委托给行为类
 
-<pre><code class="language-java">public class Test{
-    public static void main(String[] args) {
-        HashMap&lt;Integer,String&gt;hashMap=new HashMap&lt;&gt;();
-        //添加元素到Map中
-        hashMap.put(1,&quot;小明&quot;);
-        hashMap.put(2,&quot;小红&quot;);
-        hashMap.put(3,&quot;小明&quot;);
-        hashMap.put(4,&quot;小伟&quot;);
-        System.out.println(hashMap);
+    public  void performFly(){
+        flyBehavior.Fly();
+    }
 
-        //通过key值删除map中的元素
-        hashMap.remove(3);
-        //通过key值获得value值
-        String str1=hashMap.get(1);
-        //通过key值，修改value值
-        hashMap.put(4,&quot;小光&quot;);
-        System.out.println(hashMap);
+    //动态改变其飞行行为
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+    //动态改变其叫行为
+    public void setQuackbehavior(Quackbehavior quackbehavior) {
+        this.quackbehavior = quackbehavior;
+    }
+
+    public  void swim(){
+        System.out.println(&quot;All ducks float,even decoys!&quot;);
     }
 }
 </code></pre>
 
-<h3 id="treemap">TreeMap</h3>
+<p>MallardDuck类：</p>
 
-<p>treemap的使用和Hashmap是差不多的，只是会给按照key来进行排序。这两种按照不同的情况进行选择，hashmap更快一点，treemap可以进行排序。</p>
+<pre><code class="language-java">public class MallardDuck extends Duck {
+    public MallardDuck(){
+        quackbehavior=new Quack();
+        flyBehavior=new FlyWithWings();
+    }
+
+    @Override
+    public void display() {
+        System.out.println(&quot;I 'm a real Mallard duck&quot;);
+    }
+}
+</code></pre>
+
+<p>ModelDuck类：</p>
+
+<pre><code class="language-java">public class ModelDuck extends Duck {
+    public ModelDuck(){
+        flyBehavior=new FlyNoWay();
+        quackbehavior=new Quack();
+    }
+
+    @Override
+    public void display() {
+        System.out.println(&quot;I'm a model duck&quot;);
+    }
+}
+</code></pre>
+
+<p>测试类
+MiniDuckSimulator类:</p>
+
+<pre><code class="language-java">public class MiniDuckSimulator {
+    public static void main(String[] args) {
+        Duck mallard=new MallardDuck();
+        mallard.performQuack();
+        //这会调用MallerdDuck继承来的performQuack方法，从而委托给对象QuackBehavior对象处理（也就是说调用继承来的quackBehavior引用对象的Quack（））
+        mallard.performFly();
+        Duck model=new ModelDuck();
+        model.performFly();//第一次调用performFly（）会被委托给flyBehavior对象（FlyNoway实例），该对象是在模型鸭构造器中设置的。
+        model.setFlyBehavior(new FlyRockerPowered());//会调用继承来的setter方法，把火箭动力飞行行为设定到了模型鸭中。
+        //运行时想改变鸭子的行为，只需要调用鸭子的setter方法就行
+        model.performFly();
+    }
+}
+</code></pre>
+
+<p>输出结果:</p>
+
+<blockquote>
+<p>Quack</p>
+
+<p>I&rsquo;m flying!</p>
+
+<p>I &rsquo;m not fly</p>
+
+<p>I&rsquo;m a flying with a rocket!</p>
+</blockquote>
+
     </div>
 
     
@@ -582,7 +594,9 @@ Map集合不是实现Collection接口，也没实现iterable，所有不能用�
   
   <a class="badge badge-light" href="/tags/java/">java</a>
   
-  <a class="badge badge-light" href="/tags/%E9%9B%86%E5%90%88%E7%B1%BB/">集合类</a>
+  <a class="badge badge-light" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+  
+  <a class="badge badge-light" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a>
   
 </div>
 
@@ -650,15 +664,15 @@ Map集合不是实现Collection接口，也没实现iterable，所有不能用�
       <h3>Related</h3>
       <ul>
         
+        <li><a href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
+        
+        <li><a href="/post/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a></li>
+        
         <li><a href="/post/%E5%86%85%E9%83%A8%E7%B1%BB/">内部类</a></li>
-        
-        <li><a href="/post/%E6%8E%A5%E5%8F%A3/">接口</a></li>
-        
-        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">面向对象--继承</a></li>
         
         <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/">面向对象--多态</a></li>
         
-        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/">面向对象--封装</a></li>
+        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">面向对象--继承</a></li>
         
       </ul>
     </div>
