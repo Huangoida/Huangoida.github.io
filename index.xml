@@ -228,6 +228,202 @@ MiniDuckSimulator类:&lt;/p&gt;
     </item>
     
     <item>
+      <title>装饰者模式</title>
+      <link>https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>
+
+&lt;h1 id=&#34;装饰者模式&#34;&gt;装饰者模式&lt;/h1&gt;
+
+&lt;h2 id=&#34;装饰者模式的定义&#34;&gt;装饰者模式的定义&lt;/h2&gt;
+
+&lt;p&gt;装饰者模式动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有贪心的替代方案&lt;/p&gt;
+
+&lt;h2 id=&#34;装饰者模式的结构&#34;&gt;装饰者模式的结构&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-26/41726983.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Decorator&amp;ndash;是装饰者的父类，每个装饰者都需要继承这个抽象类(或实现这个接口)&lt;/p&gt;
+
+&lt;p&gt;ConcreteDecoratorA/B&amp;ndash;具体的装饰者，就对应上述例子的加冰，加糖等.&lt;/p&gt;
+
+&lt;p&gt;ConcreteComponent&amp;ndash;具体的对象，就是上述例子中的可乐.&lt;/p&gt;
+
+&lt;p&gt;Component&amp;ndash;装饰者模式中的最顶级的父类，装饰者与被装饰者都是它的子类或实现类才行。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
+
+&lt;p&gt;类图:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pcritks5y.bkt.clouddn.com/18-10-26/8389563.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最顶级的父类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class Beverage {
+    String description=&amp;quot;Unknown Beverage&amp;quot;;
+
+    public String getDescription() {
+        return description;
+    }
+    public abstract double cost();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;被装饰的Espresso咖啡:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+/**
+ * Espresso扩展自Beverage类，因为Espresso是一种饮料
+ */
+public class Espresso extends Beverage {
+    @Override
+    public double cost() {
+        return 1.99;
+    }//计算Espresso的价钱，不用管调料的价钱
+
+    public Espresso(){
+        description=&amp;quot;Espresso&amp;quot;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;被装饰的DarkRoast咖啡:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class DarkRoast extends Beverage {
+    @Override
+    public double cost() {
+        return 0.99;
+    }
+
+    public DarkRoast(){
+        description=&amp;quot;DarkRoast&amp;quot;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;被装饰的HouseBlend咖啡:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class HouseBlend extends Beverage {
+    @Override
+    public double cost() {
+        return 0.89;
+    }
+
+    public  HouseBlend(){
+        description=&amp;quot;HouseBlend&amp;quot;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Condiment类，所有装饰类的父类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class Condiment extends Beverage{
+    public abstract String getDescription();//所有的调料装饰者都必须重新实现getDescription()方法。
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;装饰类:Mocha类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+/**
+ * 摩卡作为一个装饰者，所以让它扩展自Condiment
+ */
+public class Mocha extends Condiment {
+    Beverage beverage;//用一个实例变量记录饮料，也就是被装饰者
+
+    public  Mocha(Beverage beverage){
+        this.beverage=beverage;
+    }
+    //想办法让被装饰者被记录到实例变量中。这里的做法是：把饮料当做构造器参数，再由构造器将此饮料记录在实例变量中。
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription()+&amp;quot;, Mocha&amp;quot;;
+    }
+
+    @Override
+    public double cost() {
+        return 0.20+beverage.cost();
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;装饰类：Soy类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Soy extends Condiment {
+    Beverage beverage;
+    public Soy(Beverage beverage){
+        this.beverage=beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription()+&amp;quot;, Soy&amp;quot;;
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost()+0.15;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;装饰类：whip类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Whip extends Condiment {
+    Beverage beverage;
+    public Whip(Beverage beverage){
+        this.beverage=beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription()+&amp;quot;, Whip&amp;quot;;
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost()+0.10;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以及测试类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+    Beverage beverage=new Espresso();//订一杯Espresso,不需要调料
+    System.out.println(beverage.getDescription()+&amp;quot; $&amp;quot;+beverage.cost());
+
+    Beverage beverage2=new DarkRoast();//制造一个DarkRoast对象
+    beverage2=new Mocha(beverage2);//用Mocha装饰它
+    beverage2=new Mocha(beverage2);//用第二个Mocha装饰它
+    beverage2=new Whip(beverage2);//用whip装饰它
+    System.out.println(beverage2.getDescription()+&amp;quot; $&amp;quot;+beverage2.cost());
+
+    Beverage beverage3=new HouseBlend();
+    beverage3=new Soy(beverage3);
+    beverage3=new Mocha(beverage3);
+    beverage3=new Whip(beverage3);
+    System.out.println(beverage3.getDescription()+&amp;quot; $&amp;quot;+beverage3.cost());
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>观察者模式</title>
       <link>https://Huangoida.github.io/post/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
@@ -432,6 +628,10 @@ public class Main {
 &lt;h2 id=&#34;观察者模式&#34;&gt;观察者模式&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://huangoida.github.io/post/观察者模式/&#34; target=&#34;_blank&#34;&gt;观察者模式&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;装饰者模式&#34;&gt;装饰者模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://huangoida.github.io/post/装饰者模式/&#34; target=&#34;_blank&#34;&gt;装饰者模式&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

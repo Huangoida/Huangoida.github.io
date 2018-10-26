@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>装饰者模式</title>
+      <link>https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>装饰者模式 装饰者模式的定义 装饰者模式动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有贪心的替代方案 装饰者模式的结构 Decora</description>
+    </item>
+    
+    <item>
       <title>观察者模式</title>
       <link>https://Huangoida.github.io/post/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
@@ -36,7 +45,7 @@
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0800</pubDate>
       
       <guid>https://Huangoida.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
-      <description>设计模式 现在在学习设计模式，故将各个设计模式记下来 策略模式 策略模式 观察者模式 观察者模式</description>
+      <description>设计模式 现在在学习设计模式，故将各个设计模式记下来 策略模式 策略模式 观察者模式 观察者模式 装饰者模式 装饰者模式</description>
     </item>
     
   </channel>

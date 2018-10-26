@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="策略模式 策略模式的定义 它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户 策略模式的使用场景 针对同一">
+  <meta name="description" content="装饰者模式 装饰者模式的定义 装饰者模式动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有贪心的替代方案 装饰者模式的结构 Decora">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
+  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
 
   
 
@@ -88,14 +88,14 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
+  <link rel="canonical" href="https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Oida Blog">
-  <meta property="og:url" content="https://Huangoida.github.io/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
-  <meta property="og:title" content="策略模式 | Oida Blog">
-  <meta property="og:description" content="策略模式 策略模式的定义 它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户 策略模式的使用场景 针对同一">
+  <meta property="og:url" content="https://Huangoida.github.io/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+  <meta property="og:title" content="装饰者模式 | Oida Blog">
+  <meta property="og:description" content="装饰者模式 装饰者模式的定义 装饰者模式动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有贪心的替代方案 装饰者模式的结构 Decora">
   
   
     
@@ -111,7 +111,7 @@
 
   
 
-  <title>策略模式 | Oida Blog</title>
+  <title>装饰者模式 | Oida Blog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -270,7 +270,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">策略模式</h1>
+  <h1 itemprop="name">装饰者模式</h1>
 
   
 
@@ -300,7 +300,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    2 min read
   </span>
   
 
@@ -328,35 +328,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f"
+         href="https://twitter.com/intent/tweet?text=%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E8%25A3%2585%25E9%25A5%25B0%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E8%25A3%2585%25E9%25A5%25B0%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f&amp;title=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E8%25A3%2585%25E9%25A5%25B0%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f&amp;title=%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f&amp;title=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E8%25A3%2585%25E9%25A5%25B0%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f&amp;title=%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e7%ad%96%e7%95%a5%e6%a8%a1%e5%bc%8f&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%2f">
+         href="mailto:?subject=%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E8%25A3%2585%25E9%25A5%25B0%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -378,212 +378,191 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h1 id="策略模式">策略模式</h1>
+<h1 id="装饰者模式">装饰者模式</h1>
 
-<h2 id="策略模式的定义">策略模式的定义</h2>
+<h2 id="装饰者模式的定义">装饰者模式的定义</h2>
 
-<p>它定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户</p>
+<p>装饰者模式动态的将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有贪心的替代方案</p>
 
-<h3 id="策略模式的使用场景">策略模式的使用场景</h3>
+<h2 id="装饰者模式的结构">装饰者模式的结构</h2>
 
-<ol>
-<li>针对同一类型问题的多种处理方式，仅仅是具体行为的差别</li>
-<li>需要安全的封装多种同一类型的操作时。</li>
-<li>出现同一抽象类有多个子类，又需要使用if-else或者swithc-case来选择子类时</li>
-</ol>
-
-<h2 id="策略模式的结构">策略模式的结构</h2>
-
-<ul>
-<li>Strategy&ndash;抽象的策略，是一个接口或抽象类</li>
-<li>ConcreteStrategy&ndash;具体的策略类，实现了抽象的策略</li>
-<li>Context&ndash;一个普通的类，上下文环境，持有Strategy的引用</li>
-</ul>
-
-<h2 id="实例">实例</h2>
-
-<p>应对不同种类的鸭子的需求</p>
-
-<p>下面依旧是UML图：
-<img src="http://pcritks5y.bkt.clouddn.com/18-9-20/62272279.jpg" alt="" />
-<img src="http://pcritks5y.bkt.clouddn.com/18-9-20/64987553.jpg" alt="" /></p>
-
-<p>Quackbehavior接口：</p>
-
-<pre><code class="language-java">public interface Quackbehavior {
-    public  void quack();
-}
-</code></pre>
-
-<p>MuteQuack类:</p>
-
-<pre><code class="language-java">public class MuteQuack implements Quackbehavior {
-    @Override
-    public void quack() {
-        System.out.println(&quot;&lt;&lt; Silence &gt;&gt;&quot;);
-    }
-}
-</code></pre>
-
-<p>Quack类:</p>
-
-<pre><code class="language-java">public class Quack implements Quackbehavior {
-    @Override
-    public void quack() {
-        System.out.println(&quot;Quack&quot;);
-    }
-}
-</code></pre>
-
-<p>Squeak类：</p>
-
-<pre><code class="language-java">public class Squeak implements Quackbehavior{
-    @Override
-    public void quack() {
-        System.out.println(&quot;Squeak&quot;);
-    }
-}
-</code></pre>
-
-<p>以上是关于鸭子叫的算法簇</p>
-
-<p>FlyBehavior接口：</p>
-
-<pre><code class="language-java">//飞行行为接口
-public interface FlyBehavior {
-    public  void Fly();
-}
-</code></pre>
-
-<p>FlyNoWay类:</p>
-
-<pre><code class="language-java">//该类的鸭子没有飞行行为
-public class FlyNoWay implements FlyBehavior {
-    @Override
-    public void Fly() {
-        System.out.println(&quot;I 'm not fly&quot;);
-    }
-}
-</code></pre>
-
-<p>FlyRockerPowered类：</p>
-
-<pre><code class="language-java">//用火箭飞行的行为
-public class FlyRockerPowered implements FlyBehavior {
-    @Override
-    public void Fly() {
-        System.out.println(&quot;I'm a flying with a rocket!&quot;);
-    }
-}
-</code></pre>
-
-<p>FlyWithWings类:</p>
-
-<pre><code class="language-java">//用翅膀飞行的行为
-public class FlyWithWings implements FlyBehavior {
-    @Override
-    public void Fly() {
-        System.out.println(&quot;I'm flying!&quot;);
-    }
-}
-
-</code></pre>
-
-<p>以上是关于鸭子飞行的算法簇</p>
-
-<p>这些是具体的策略类，实现抽象的策略。</p>
-
-<p>Duck类：</p>
-
-<pre><code class="language-java">public abstract class Duck {
-    //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们
-    FlyBehavior flyBehavior;
-    Quackbehavior quackbehavior;
-    public Duck(){ }
-    public abstract void  display();
-
-    public void performQuack(){
-        quackbehavior.quack();
-    }//委托给行为类
-
-    public  void performFly(){
-        flyBehavior.Fly();
-    }
-
-    //动态改变其飞行行为
-    public void setFlyBehavior(FlyBehavior flyBehavior) {
-        this.flyBehavior = flyBehavior;
-    }
-    //动态改变其叫行为
-    public void setQuackbehavior(Quackbehavior quackbehavior) {
-        this.quackbehavior = quackbehavior;
-    }
-
-    public  void swim(){
-        System.out.println(&quot;All ducks float,even decoys!&quot;);
-    }
-}
-</code></pre>
-
-<p>MallardDuck类：</p>
-
-<pre><code class="language-java">public class MallardDuck extends Duck {
-    public MallardDuck(){
-        quackbehavior=new Quack();
-        flyBehavior=new FlyWithWings();
-    }
-
-    @Override
-    public void display() {
-        System.out.println(&quot;I 'm a real Mallard duck&quot;);
-    }
-}
-</code></pre>
-
-<p>ModelDuck类：</p>
-
-<pre><code class="language-java">public class ModelDuck extends Duck {
-    public ModelDuck(){
-        flyBehavior=new FlyNoWay();
-        quackbehavior=new Quack();
-    }
-
-    @Override
-    public void display() {
-        System.out.println(&quot;I'm a model duck&quot;);
-    }
-}
-</code></pre>
-
-<p>测试类
-MiniDuckSimulator类:</p>
-
-<pre><code class="language-java">public class MiniDuckSimulator {
-    public static void main(String[] args) {
-        Duck mallard=new MallardDuck();
-        mallard.performQuack();
-        //这会调用MallerdDuck继承来的performQuack方法，从而委托给对象QuackBehavior对象处理（也就是说调用继承来的quackBehavior引用对象的Quack（））
-        mallard.performFly();
-        Duck model=new ModelDuck();
-        model.performFly();//第一次调用performFly（）会被委托给flyBehavior对象（FlyNoway实例），该对象是在模型鸭构造器中设置的。
-        model.setFlyBehavior(new FlyRockerPowered());//会调用继承来的setter方法，把火箭动力飞行行为设定到了模型鸭中。
-        //运行时想改变鸭子的行为，只需要调用鸭子的setter方法就行
-        model.performFly();
-    }
-}
-</code></pre>
-
-<p>输出结果:</p>
+<p><img src="http://pcritks5y.bkt.clouddn.com/18-10-26/41726983.jpg" alt="" /></p>
 
 <blockquote>
-<p>Quack</p>
+<p>Decorator&ndash;是装饰者的父类，每个装饰者都需要继承这个抽象类(或实现这个接口)</p>
 
-<p>I&rsquo;m flying!</p>
+<p>ConcreteDecoratorA/B&ndash;具体的装饰者，就对应上述例子的加冰，加糖等.</p>
 
-<p>I &rsquo;m not fly</p>
+<p>ConcreteComponent&ndash;具体的对象，就是上述例子中的可乐.</p>
 
-<p>I&rsquo;m a flying with a rocket!</p>
+<p>Component&ndash;装饰者模式中的最顶级的父类，装饰者与被装饰者都是它的子类或实现类才行。</p>
 </blockquote>
+
+<h2 id="例子">例子</h2>
+
+<p>类图:</p>
+
+<p><img src="http://pcritks5y.bkt.clouddn.com/18-10-26/8389563.jpg" alt="" /></p>
+
+<p>最顶级的父类:</p>
+
+<pre><code class="language-java">public abstract class Beverage {
+    String description=&quot;Unknown Beverage&quot;;
+
+    public String getDescription() {
+        return description;
+    }
+    public abstract double cost();
+}
+</code></pre>
+
+<p>被装饰的Espresso咖啡:</p>
+
+<pre><code class="language-java">package com.company;
+
+/**
+ * Espresso扩展自Beverage类，因为Espresso是一种饮料
+ */
+public class Espresso extends Beverage {
+    @Override
+    public double cost() {
+        return 1.99;
+    }//计算Espresso的价钱，不用管调料的价钱
+
+    public Espresso(){
+        description=&quot;Espresso&quot;;
+    }
+}
+</code></pre>
+
+<p>被装饰的DarkRoast咖啡:</p>
+
+<pre><code class="language-java">public class DarkRoast extends Beverage {
+    @Override
+    public double cost() {
+        return 0.99;
+    }
+
+    public DarkRoast(){
+        description=&quot;DarkRoast&quot;;
+    }
+}
+</code></pre>
+
+<p>被装饰的HouseBlend咖啡:</p>
+
+<pre><code class="language-java">public class HouseBlend extends Beverage {
+    @Override
+    public double cost() {
+        return 0.89;
+    }
+
+    public  HouseBlend(){
+        description=&quot;HouseBlend&quot;;
+    }
+}
+</code></pre>
+
+<p>Condiment类，所有装饰类的父类</p>
+
+<pre><code class="language-java">public abstract class Condiment extends Beverage{
+    public abstract String getDescription();//所有的调料装饰者都必须重新实现getDescription()方法。
+}
+</code></pre>
+
+<p>装饰类:Mocha类</p>
+
+<pre><code class="language-java">package com.company;
+
+/**
+ * 摩卡作为一个装饰者，所以让它扩展自Condiment
+ */
+public class Mocha extends Condiment {
+    Beverage beverage;//用一个实例变量记录饮料，也就是被装饰者
+
+    public  Mocha(Beverage beverage){
+        this.beverage=beverage;
+    }
+    //想办法让被装饰者被记录到实例变量中。这里的做法是：把饮料当做构造器参数，再由构造器将此饮料记录在实例变量中。
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription()+&quot;, Mocha&quot;;
+    }
+
+    @Override
+    public double cost() {
+        return 0.20+beverage.cost();
+    }
+
+}
+</code></pre>
+
+<p>装饰类：Soy类</p>
+
+<pre><code class="language-java">public class Soy extends Condiment {
+    Beverage beverage;
+    public Soy(Beverage beverage){
+        this.beverage=beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription()+&quot;, Soy&quot;;
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost()+0.15;
+    }
+}
+</code></pre>
+
+<p>装饰类：whip类</p>
+
+<pre><code class="language-java">public class Whip extends Condiment {
+    Beverage beverage;
+    public Whip(Beverage beverage){
+        this.beverage=beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription()+&quot;, Whip&quot;;
+    }
+
+    @Override
+    public double cost() {
+        return beverage.cost()+0.10;
+    }
+}
+</code></pre>
+
+<p>以及测试类:</p>
+
+<pre><code class="language-java">package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+    Beverage beverage=new Espresso();//订一杯Espresso,不需要调料
+    System.out.println(beverage.getDescription()+&quot; $&quot;+beverage.cost());
+
+    Beverage beverage2=new DarkRoast();//制造一个DarkRoast对象
+    beverage2=new Mocha(beverage2);//用Mocha装饰它
+    beverage2=new Mocha(beverage2);//用第二个Mocha装饰它
+    beverage2=new Whip(beverage2);//用whip装饰它
+    System.out.println(beverage2.getDescription()+&quot; $&quot;+beverage2.cost());
+
+    Beverage beverage3=new HouseBlend();
+    beverage3=new Soy(beverage3);
+    beverage3=new Mocha(beverage3);
+    beverage3=new Whip(beverage3);
+    System.out.println(beverage3.getDescription()+&quot; $&quot;+beverage3.cost());
+
+    }
+}
+</code></pre>
 
     </div>
 
@@ -664,15 +643,15 @@ MiniDuckSimulator类:</p>
       <h3>Related</h3>
       <ul>
         
+        <li><a href="/post/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a></li>
+        
         <li><a href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li>
         
         <li><a href="/post/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a></li>
         
-        <li><a href="/post/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a></li>
-        
         <li><a href="/post/%E5%86%85%E9%83%A8%E7%B1%BB/">内部类</a></li>
         
-        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">面向对象--继承</a></li>
+        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/">面向对象--多态</a></li>
         
       </ul>
     </div>
