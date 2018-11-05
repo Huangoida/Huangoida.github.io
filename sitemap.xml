@@ -76,6 +76,14 @@
     
     <url>
     
+      <loc>https://Huangoida.github.io/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://Huangoida.github.io/post/%E6%8E%A5%E5%8F%A3/</loc>
       <lastmod>2018-09-07T21:02:12+08:00</lastmod>
     </url>
@@ -229,6 +237,15 @@
     
       <loc>https://Huangoida.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
       <lastmod>2018-10-23T00:00:00+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://Huangoida.github.io/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/</loc>
+      <lastmod>2018-09-07T21:02:12+08:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -18,7 +18,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">
+  <link rel="alternate" hreflang="en-us" href="https://Huangoida.github.io/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">
 
   
 
@@ -88,13 +88,13 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">
+  <link rel="canonical" href="https://Huangoida.github.io/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Oida Blog">
-  <meta property="og:url" content="https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">
-  <meta property="og:title" content="面向对象--继承 | Oida Blog">
+  <meta property="og:url" content="https://Huangoida.github.io/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">
+  <meta property="og:title" content="抽象类 | Oida Blog">
   <meta property="og:description" content="">
   
   
@@ -111,7 +111,7 @@
 
   
 
-  <title>面向对象--继承 | Oida Blog</title>
+  <title>抽象类 | Oida Blog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -270,7 +270,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">面向对象--继承</h1>
+  <h1 itemprop="name">抽象类</h1>
 
   
 
@@ -304,7 +304,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    3 min read
   </span>
   
 
@@ -330,35 +330,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1--%e7%bb%a7%e6%89%bf&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259D%25A2%25E5%2590%2591%25E5%25AF%25B9%25E8%25B1%25A1---%25E7%25BB%25A7%25E6%2589%25BF%2f"
+         href="https://twitter.com/intent/tweet?text=%e6%8a%bd%e8%b1%a1%e7%b1%bb&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E6%258A%25BD%25E8%25B1%25A1%25E7%25B1%25BB%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259D%25A2%25E5%2590%2591%25E5%25AF%25B9%25E8%25B1%25A1---%25E7%25BB%25A7%25E6%2589%25BF%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E6%258A%25BD%25E8%25B1%25A1%25E7%25B1%25BB%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259D%25A2%25E5%2590%2591%25E5%25AF%25B9%25E8%25B1%25A1---%25E7%25BB%25A7%25E6%2589%25BF%2f&amp;title=%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1--%e7%bb%a7%e6%89%bf"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E6%258A%25BD%25E8%25B1%25A1%25E7%25B1%25BB%2f&amp;title=%e6%8a%bd%e8%b1%a1%e7%b1%bb"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259D%25A2%25E5%2590%2591%25E5%25AF%25B9%25E8%25B1%25A1---%25E7%25BB%25A7%25E6%2589%25BF%2f&amp;title=%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1--%e7%bb%a7%e6%89%bf"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E6%258A%25BD%25E8%25B1%25A1%25E7%25B1%25BB%2f&amp;title=%e6%8a%bd%e8%b1%a1%e7%b1%bb"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1--%e7%bb%a7%e6%89%bf&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E9%259D%25A2%25E5%2590%2591%25E5%25AF%25B9%25E8%25B1%25A1---%25E7%25BB%25A7%25E6%2589%25BF%2f">
+         href="mailto:?subject=%e6%8a%bd%e8%b1%a1%e7%b1%bb&amp;body=https%3a%2f%2fHuangoida.github.io%2fpost%2f%25E6%258A%25BD%25E8%25B1%25A1%25E7%25B1%25BB%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -383,171 +383,228 @@
 <h2>Table of Contents</h2>
 <nav id="TableOfContents">
 <ul>
-<li><a href="#超类和子类">超类和子类</a>
+<li><a href="#抽象类">抽象类</a>
 <ul>
-<li><a href="#覆盖方法">覆盖方法</a></li>
-<li><a href="#子类构造器">子类构造器</a></li>
+<li><a href="#抽象方法">抽象方法</a></li>
+<li><a href="#抽象类的继承">抽象类的继承</a></li>
 </ul></li>
-<li><a href="#阻止继承">阻止继承</a></li>
+<li><a href="#实例代码">实例代码</a>
+<ul>
+<li><a href="#抽象类利用多态">抽象类利用多态</a></li>
+</ul></li>
 </ul>
 </nav>
 
 
-<p>这里提到面向对象第二个特性：继承
-依旧拿之前用的student类举例子，我们这可以说学生类写好了，但如果我们要写个教师类呢？是不是要重新写一个类，尽管里面有许多相同的元素在里面。这样做是可以的，但一个类还好，要是多个类呢？
-人们可以便想出了一些方法来复用代码，这样就不用重复编写了。
-&gt;第一种只需在新的类中产生现有类的对象。由于新的类是由现有类的对象所组成，所以这种方法称为组合
-&gt;第二种按照现有类的类型来创建新类，无需改变现有类的形式，采用现有类的形式并在其中添加代码，这种形式称为继承</p>
+<h1 id="抽象类">抽象类</h1>
 
-<h1 id="超类和子类">超类和子类</h1>
+<p>有些情况下我们需要将问题更加的抽象化，让他更加的通用。比如Person类，Person类的对象基本上没有什么意义。但是由于多态，我们可以通过这个类，能够操纵一系列的类，这就很舒服了。所以，Person类只是表示了接口，而不是一个具体的类。于是Java便引入了一个抽象的机制。</p>
 
-<p>继承这很容易理解，你会继承你父母的财产，就是这个意思。
-java里面爸爸就叫超类（也可以叫父类，基类），儿子就叫子类（也可以叫派生类）。
-当创建出来一个类时，它总是在继承的，如果没有明确从其他类中继承，那么这个类会从java的object类继承，所以object类就是所有类的超类。</p>
+<h2 id="抽象方法">抽象方法</h2>
 
-<p>比如可以先写个人类作为基类，再通过继承来写出学生类和教师类</p>
+<p>有些方法并不需要实现，它只需要一个声明，其他的由它的子类来实现，这便是抽象方法。</p>
 
-<pre><code class="language-java">public class Person {//人类作为基类
-    private String name;//姓名
-    private int number;//学号
-    private static  int NextNumber=1;
-    Person(String name){
-        this.name=name;
-        number=NextNumber;
-        NextNumber++;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public String  getName() {
-        return name;
-    }
-}
-
-
-public class Student extends Person {
-    private  int score;
-    Student(String name,int score) {
-        super(name);
-        this.score=score;
-    }
-
-    public int getScore() {
-        return score;
-    }
-     public static void main(String[] args) {
-        Student student1=new Student(&quot;小明&quot;,100);
-        System.out.println(&quot;小明的名字：&quot;+student1.getName()+
-        &quot; 小明的学号:&quot;+student1.getNumber()+&quot; 小明的分数:&quot;+student1.getScore());
-    }
-}
-
+<pre><code class="language-java">abstract void f();
 </code></pre>
 
-<p>输出结果：
-&gt;小明的名字：小明 小明的学号:1 小明的分数:100</p>
+<p>上面便是它的语法。在返回值前面加上abstract关键字。</p>
 
-<p>这里便是学生类继承人类，这里在Student后面有个关键词extends
-extends就是表示继承，这里便是Student类继承Person类
-Student类里增加了一个分数的域，以及一个显示该域的方法。
-尽管Student类中没有定义getName和getNumber等方法，但Student类生成的对象却可以使用这些方法，这是因为Student类会继承超类Person的这些方法，同时，也从超类中继承name，number这两个域
-但相反的是，Person无法使用Student类中的getScore方法，也没有Score这个域。</p>
+<hr />
 
-<h2 id="覆盖方法">覆盖方法</h2>
+<p>包含抽象方法的类就叫做抽象类，如果一个类包含一个或多个抽象方法，这个类就必须被限定为抽象类。</p>
 
-<p>有的时候，超类中的一些方法对于子类是不适用的，这时候便可以用一个新的方法来覆盖超类中的这个方法。
-但不能直接修改
-如：</p>
+<pre><code class="language-java">public abstract class Person{
+    .....
+} 
+</code></pre>
 
-<pre><code class="language-java">public class Student extends Person {
-    private  int score;
+<p>在Class面前加上abstract关键字，这样就将类限定成为一个抽象类。</p>
 
-    Student(String name,int score) {
-        super(name);
-        this.score=score;
+<h2 id="抽象类的继承">抽象类的继承</h2>
+
+<p>如果一个类想要继承抽象类，并想创建这个类的对象，那么必须实现基类中的抽象方法。</p>
+
+<p>如果不这么做，那么这个类也必须标记为抽象类，也要加上abstract关键字。</p>
+
+<p>当然，我们也可以创建了一个没有任何抽象方法的抽象类。比如有些类之间创建对象是没有什么意义的，我们可以通过此方法阻止它产生它的对象。</p>
+
+<h1 id="实例代码">实例代码</h1>
+
+<p>shape类:</p>
+
+<pre><code class="language-java">public abstract class shape {
+    public shape() {
     }
-    public int getNumber() {
-        ;
-        return  number+1;
+
+    public abstract double getArea();
+
+    public abstract String getType();
+}
+</code></pre>
+
+<p>expcet类：</p>
+
+<pre><code class="language-java">public abstract class expcet extends shape {
+    public expcet() {
     }
 
-    public int getScore() {
-        return score;
+    public abstract double getGirth();
+}
+</code></pre>
+
+<p>rectangle类：</p>
+
+<pre><code class="language-java">public class rectangle extends expcet {
+    private double length;
+    private double height;
+
+    public rectangle(double length, double height) {
+        this.height = height;
+        this.length = length;
+    }
+
+    public double getGirth() {
+        return (this.length + this.height) * 2.0D;
+    }
+
+    public double getArea() {
+        return this.length * this.height;
+    }
+
+    public String getType() {
+        return &quot;矩形&quot;;
+    }
+}
+</code></pre>
+
+<p>square类:</p>
+
+<pre><code class="language-java">public class square extends rectangle {
+    private int side;
+
+    public square(double length) {
+        super(length, length);
+    }
+
+    public void setside(int side) {
+        this.side = side;
+    }
+}
+</code></pre>
+
+<p>测试类:</p>
+
+<pre><code class="language-java">public class test {
+    public test() {
     }
 
     public static void main(String[] args) {
-        Student student1=new Student(&quot;小明&quot;,100);
-        System.out.println(&quot;小明的名字：&quot;+student1.getName()+&quot; 小明的学号:&quot;+student1.getNumber()+&quot; 小明的分数:&quot;+student1.getScore());
+        rectangle rectangl = new rectangle(3.0D, 4.0D);
+        System.out.println(rectangl.getArea());
+        square squar = new square(2.0D);
+        System.out.println(squar.getArea());
+        System.out.println(rectangl.getType());
     }
-
 }
 </code></pre>
 
-<p>这里重写了getNumber方法，这是我们想当然应该这么做的，但这样是<strong>错的</strong>，因为<strong>子类不能够直接访问超类的私有域</strong>。
-那么这该怎么办呢？
-那么我改成调用方法行不，事实上也是不行的，因为超类也有一个getNumber方法，这会导致无限次的调用，造成程序崩溃。
-可以使用关键字super来解决问题：
-<code>super.getNumber()</code>
-这就是调用超类的方法，调用Person类中的getNumber方法。
-所以，正确的方法便是：</p>
+<h2 id="抽象类利用多态">抽象类利用多态</h2>
 
-<pre><code class="language-java">public class Student extends Person {
-    private  int score;
+<p>shape类：</p>
 
-    Student(String name,int score) {
-        super(name);
-        this.score=score;
+<pre><code class="language-java">public abstract class shape {
+    private String color;
+
+    public abstract double getGirth();
+
+    public abstract String getType();
+
+    public shape(String color) {
+        this.color = color;
     }
 
-
-    @Override
-    public int getNumber() {
-        return super.getNumber()+1;
+    public String getcolor() {
+        return this.color;
     }
 
-    public int getScore() {
-        return score;
+    public void setColor(String color) {
+        this.color = color;
+    }
+}
+</code></pre>
+
+<p>circle类:</p>
+
+<pre><code class="language-java">public class circle extends shape {
+    private double radius;
+
+    public circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getGirth() {
+        return 6.283185307179586D * this.radius;
+    }
+
+    public String getType() {
+        return &quot;圆&quot; + this.getcolor();
+    }
+}
+
+</code></pre>
+
+<p>Trangle类：</p>
+
+<pre><code class="language-java">public class Trangle extends shape {
+    private double a;
+    private double b;
+    private double c;
+
+    public Trangle(String color, double a, double b, double c) {
+        super(color);
+        this.setSide(a, b, c);
+    }
+
+    public double getGirth() {
+        return this.a + this.b + this.c;
+    }
+
+    public String getType() {
+        return &quot;三角形&quot;;
+    }
+
+    public void setSide(double a, double b, double c) {
+        if (a &lt; b + c &amp;&amp; b &lt; a + c &amp;&amp; c &lt; a + b) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        } else {
+            System.out.println(&quot;三角形两边之和须大于第三边&quot;);
+        }
+    }
+}
+</code></pre>
+
+<p>测试类:</p>
+
+<pre><code class="language-java">public class test {
+    public test() {
     }
 
     public static void main(String[] args) {
-        Student student1=new Student(&quot;小明&quot;,100);
-        System.out.println(&quot;小明的名字：&quot;+student1.getName()+&quot; 小明的学号:&quot;+student1.getNumber()+&quot; 小明的分数:&quot;+student1.getScore());
+        shape s1 = new Trangle(&quot;白色&quot;, 3.0D, 4.0D, 5.0D);
+        shape s2 = new circle(&quot;黄色&quot;, 3.0D);
+        System.out.println(s1.getType());
+        System.out.println(s1.getGirth());
+        System.out.println(s2.getcolor());
     }
-
 }
 </code></pre>
-
-<p>emmmm，这个@Override只是个注解（先理解为注释吧），也就是说可写可不写，但写了的话：
-如果你不小心写成了重载而不是重新该方法，编译器会报错。</p>
-
-<h2 id="子类构造器">子类构造器</h2>
-
-<p>在student类中：</p>
-
-<pre><code class="language-java">Student(String name,int score) {
-        super(name);
-        this.score=score;
-    }
-</code></pre>
-
-<p>Student这个构造器，里面还有个<code>super(name)</code>,通过前文我们知道super是调用超类的方法，这里便是调用超类构造器的简写，这就是调用有name这个参数的构造器。因为子类无法访问超类的私有部分，所以可以通过该方法进行调用。同时，<strong>使用super调用构造器必须是子类调用器的第一条语句。</strong></p>
-
-<h1 id="阻止继承">阻止继承</h1>
-
-<p>如果说你不想要自己的类被继承，那么可以使用关键词final</p>
-
-<pre><code class="language-java">public final class Student extends Person
-{
-.........
-}
-</code></pre>
-
-<p>这样的话，Student就不会被其他的类所继承了。
-方法也是如此，如果你不想要别人重写该方法，那么也是加final</p>
-
-<p><code>public final String getName(){}</code></p>
     </div>
 
     
@@ -556,6 +613,8 @@ Student类里增加了一个分数的域，以及一个显示该域的方法。
 <div class="article-tags">
   
   <a class="badge badge-light" href="/tags/java/">java</a>
+  
+  <a class="badge badge-light" href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">抽象类</a>
   
   <a class="badge badge-light" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a>
   
@@ -582,9 +641,9 @@ Student类里增加了一个分数的域，以及一个显示该域的方法。
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB/">抽象类</a></li>
-        
         <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/">面向对象--多态</a></li>
+        
+        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">面向对象--继承</a></li>
         
         <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/">面向对象--封装</a></li>
         
