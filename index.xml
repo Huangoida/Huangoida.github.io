@@ -1886,9 +1886,11 @@ class WoodWind extends Wind{
 
 &lt;p&gt;上文我们讲了抽象类，这次的接口和抽象类有许多的相似处，其实可以这么理解抽象类处于类与接口的中间部分，但接口不是类，而是对类的一组需求描述。&lt;/p&gt;
 
-&lt;p&gt;接口的关键字是interface，它是要产生一个完全抽象的类，它允许创建者确定方法名、参数列表和返回类型，但没有任何的实现。
-想要创建一个接口，需要用interface来代替class关键字
-继续拿Person来进行魔改&lt;/p&gt;
+&lt;p&gt;接口是一系列方法的声明，一些方法特征的集合。抽象类里面可以实现方法，为子类提供公共方法，而接口里面全部都是抽象方法，不允许实现方法。&lt;/p&gt;
+
+&lt;p&gt;接口的关键字是interface。想要创建一个接口，需要用interface来代替class关键字&lt;/p&gt;
+
+&lt;p&gt;我们继续拿Person来进行魔改&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Person
 {
@@ -1901,8 +1903,9 @@ class WoodWind extends Wind{
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface Person
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;这一行,我们可以像类一样，在前面加上一个public，如果不加，它也只具有在这个包里面的访问权限。
-然后下一行&lt;/p&gt;
+&lt;p&gt;这里定义了一个Person接口&lt;/p&gt;
+
+&lt;p&gt;然后下一行&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String getName();
 &lt;/code&gt;&lt;/pre&gt;
@@ -1963,13 +1966,13 @@ class WoodWind extends Wind{
 interface Monster{
     void menace();
 }
-interface DangerousMonster extends Monster{
+interface DangerousMonster extends Monster{//这里Dangerousmoster接口继承Monster接口
     void destroy();
 }
 interface Lethal{
     void kill();
 }
-interface Vampire extends DangerousMonster, Lethal{
+interface Vampire extends DangerousMonster, Lethal{//Vampire接口多重继承DangerousMonster和Lethal接口
     void drinkBlood();
 }
 class DragonZilla implements DangerousMonster{
