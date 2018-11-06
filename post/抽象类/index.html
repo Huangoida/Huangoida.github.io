@@ -385,12 +385,11 @@
 <ul>
 <li><a href="#抽象类">抽象类</a>
 <ul>
+<li><a href="#为什么需要抽象类">为什么需要抽象类</a></li>
 <li><a href="#抽象方法">抽象方法</a></li>
-<li><a href="#抽象类的继承">抽象类的继承</a></li>
-</ul></li>
-<li><a href="#实例代码">实例代码</a>
-<ul>
-<li><a href="#抽象类利用多态">抽象类利用多态</a></li>
+<li><a href="#抽象类-1">抽象类</a></li>
+<li><a href="#来个例子感受一下">来个例子感受一下</a></li>
+<li><a href="#对抽象的理解">对抽象的理解</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -398,213 +397,149 @@
 
 <h1 id="抽象类">抽象类</h1>
 
-<p>有些情况下我们需要将问题更加的抽象化，让他更加的通用。比如Person类，Person类的对象基本上没有什么意义。但是由于多态，我们可以通过这个类，能够操纵一系列的类，这就很舒服了。所以，Person类只是表示了接口，而不是一个具体的类。于是Java便引入了一个抽象的机制。</p>
+<h2 id="为什么需要抽象类">为什么需要抽象类</h2>
+
+<p>假如我们有一个父类：</p>
+
+<pre><code class="language-java">public class Animal{
+    public void Run(){
+        System.out.println(&quot;我不知道怎么跑&quot;)//每个动物跑法不一样
+    }
+}
+</code></pre>
+
+<p>还有两个子类:</p>
+
+<pre><code class="language-java">public class Dog(){
+    public void Run(){
+        System.out.println(&quot;我拿四条腿跑步&quot;)//狗是四脚
+    }
+}
+public class Duck(){
+    public void Run(){
+        System.out.println(&quot;我两条腿跑&quot;)//鸭子两只脚
+    }
+}
+</code></pre>
+
+<p>这样我们便会发现，父类的Run方法就没有什么用处，只是给Duck和dog两个类去继承和重写该方法。</p>
+
+<p>这样的话，为什么不拥有一个机制？让它能够应对父类方法的不确定性。</p>
+
+<p>于是乎，Java里面便提供了一个关键字，abstract。</p>
+
+<p>通过用abstract关键字来修饰该类，这个类就是抽象类。</p>
 
 <h2 id="抽象方法">抽象方法</h2>
 
-<p>有些方法并不需要实现，它只需要一个声明，其他的由它的子类来实现，这便是抽象方法。</p>
+<p>就像上面那个Run方法，在父类中它并没有什么用处，它只会给子类提供一个名字和返回值让子类去重写该方法。那么我们可以将该方法设置成为一个抽象方法.</p>
 
-<pre><code class="language-java">abstract void f();
+<p>抽象方法的声明:</p>
+
+<pre><code class="language-java">
+abstract 返回值 名字();
+
 </code></pre>
 
-<p>上面便是它的语法。在返回值前面加上abstract关键字。</p>
+<p>在返回值前面加上abstract关键字,便将这个方法设置成为一个抽象方法。</p>
 
-<hr />
+<h2 id="抽象类-1">抽象类</h2>
 
-<p>包含抽象方法的类就叫做抽象类，如果一个类包含一个或多个抽象方法，这个类就必须被限定为抽象类。</p>
+<p>如果一个类里面有一个或多个抽象方法，那么这个类就是必须设置成为一个抽象类，这样就要在class前面加上abstract关键字</p>
 
-<pre><code class="language-java">public abstract class Person{
-    .....
-} 
+<pre><code class="language-java">public abstract class 类名{
+
+}
 </code></pre>
 
-<p>在Class面前加上abstract关键字，这样就将类限定成为一个抽象类。</p>
+<p>抽象类不能够被实例化，如果要实例化，就要靠子类继承抽象类，并重写父类所有的抽象方法。</p>
 
-<h2 id="抽象类的继承">抽象类的继承</h2>
-
-<p>如果一个类想要继承抽象类，并想创建这个类的对象，那么必须实现基类中的抽象方法。</p>
-
-<p>如果不这么做，那么这个类也必须标记为抽象类，也要加上abstract关键字。</p>
+<p>如果不这么做，那么这个类也必须标记为抽象类，也要加上abstract关键字，那么这个子类也是无法被实例化的，因为它还是一个抽象类。</p>
 
 <p>当然，我们也可以创建了一个没有任何抽象方法的抽象类。比如有些类之间创建对象是没有什么意义的，我们可以通过此方法阻止它产生它的对象。</p>
 
-<h1 id="实例代码">实例代码</h1>
+<h2 id="来个例子感受一下">来个例子感受一下</h2>
 
-<p>shape类:</p>
+<pre><code class="language-java">abstract class Instrument {//写一个乐器抽象类
+     private int i;
 
-<pre><code class="language-java">public abstract class shape {
-    public shape() {
-    }
+     public abstract void play();//两个抽象方法
+     public abstract void adjust();
 
-    public abstract double getArea();
-
-    public abstract String getType();
+     public String what(){return &quot;Instrument&quot;;}
 }
-</code></pre>
 
-<p>expcet类：</p>
+class Wind extends Instrument{//这里管乐器继承乐器类
 
-<pre><code class="language-java">public abstract class expcet extends shape {
-    public expcet() {
+    @Override
+    public void play() {//普通类继承抽象类，就实现这些抽象方法
+        System.out.println(&quot;Wind play&quot;);
     }
 
-    public abstract double getGirth();
-}
-</code></pre>
+    @Override
+    public void adjust() { }//这里什么都不写
 
-<p>rectangle类：</p>
-
-<pre><code class="language-java">public class rectangle extends expcet {
-    private double length;
-    private double height;
-
-    public rectangle(double length, double height) {
-        this.height = height;
-        this.length = length;
-    }
-
-    public double getGirth() {
-        return (this.length + this.height) * 2.0D;
-    }
-
-    public double getArea() {
-        return this.length * this.height;
-    }
-
-    public String getType() {
-        return &quot;矩形&quot;;
+    public String what(){//重写what函数
+        return &quot;Wind&quot;;
     }
 }
-</code></pre>
 
-<p>square类:</p>
+class Percussion extends Instrument{
 
-<pre><code class="language-java">public class square extends rectangle {
-    private int side;
-
-    public square(double length) {
-        super(length, length);
+    @Override
+    public void play() {//普通类继承抽象类，就实现这些抽象方法
+        System.out.println(&quot;Percussion play&quot;);
     }
 
-    public void setside(int side) {
-        this.side = side;
+    @Override
+    public void adjust() { }
+
+    @Override
+    public String what() {//重写what函数
+        return &quot;Percussion&quot;;
     }
 }
+
+class WoodWind extends Wind{
+    @Override
+    public String what() {
+        return &quot;WoodWind&quot;;
+    }
+
+    @Override
+    public void play() {
+        System.out.println(&quot;WoodWind play&quot;);
+    }
+}
+
 </code></pre>
 
 <p>测试类:</p>
 
-<pre><code class="language-java">public class test {
-    public test() {
-    }
+<pre><code class="language-java">public class Main {
 
     public static void main(String[] args) {
-        rectangle rectangl = new rectangle(3.0D, 4.0D);
-        System.out.println(rectangl.getArea());
-        square squar = new square(2.0D);
-        System.out.println(squar.getArea());
-        System.out.println(rectangl.getType());
+      Instrument wind=new Wind();
+      Instrument WoodWind=new WoodWind();
+      Instrument Percussion=new Percussion();
+      wind.play();
+      WoodWind.play();
+      Percussion.play();
     }
 }
 </code></pre>
 
-<h2 id="抽象类利用多态">抽象类利用多态</h2>
+<h2 id="对抽象的理解">对抽象的理解</h2>
 
-<p>shape类：</p>
+<p>引用知乎里对抽象类的一个说法</p>
 
-<pre><code class="language-java">public abstract class shape {
-    private String color;
+<blockquote>
+<p>至于抽象类，它和抽象画还真的有点相似之处</p>
 
-    public abstract double getGirth();
+<p>抽象画：我告诉你我画了一幅画，具体画的啥，我也不知道</p>
 
-    public abstract String getType();
-
-    public shape(String color) {
-        this.color = color;
-    }
-
-    public String getcolor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-}
-</code></pre>
-
-<p>circle类:</p>
-
-<pre><code class="language-java">public class circle extends shape {
-    private double radius;
-
-    public circle(String color, double radius) {
-        super(color);
-        this.radius = radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-    public double getGirth() {
-        return 6.283185307179586D * this.radius;
-    }
-
-    public String getType() {
-        return &quot;圆&quot; + this.getcolor();
-    }
-}
-
-</code></pre>
-
-<p>Trangle类：</p>
-
-<pre><code class="language-java">public class Trangle extends shape {
-    private double a;
-    private double b;
-    private double c;
-
-    public Trangle(String color, double a, double b, double c) {
-        super(color);
-        this.setSide(a, b, c);
-    }
-
-    public double getGirth() {
-        return this.a + this.b + this.c;
-    }
-
-    public String getType() {
-        return &quot;三角形&quot;;
-    }
-
-    public void setSide(double a, double b, double c) {
-        if (a &lt; b + c &amp;&amp; b &lt; a + c &amp;&amp; c &lt; a + b) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        } else {
-            System.out.println(&quot;三角形两边之和须大于第三边&quot;);
-        }
-    }
-}
-</code></pre>
-
-<p>测试类:</p>
-
-<pre><code class="language-java">public class test {
-    public test() {
-    }
-
-    public static void main(String[] args) {
-        shape s1 = new Trangle(&quot;白色&quot;, 3.0D, 4.0D, 5.0D);
-        shape s2 = new circle(&quot;黄色&quot;, 3.0D);
-        System.out.println(s1.getType());
-        System.out.println(s1.getGirth());
-        System.out.println(s2.getcolor());
-    }
-}
-</code></pre>
+<p>抽象类：我告诉你我定义了一些方法，方法具体做什么，我也不知道！</p>
+</blockquote>
     </div>
 
     
@@ -641,9 +576,9 @@
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/">面向对象--多态</a></li>
-        
         <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/">面向对象--继承</a></li>
+        
+        <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%A4%9A%E6%80%81/">面向对象--多态</a></li>
         
         <li><a href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E5%B0%81%E8%A3%85/">面向对象--封装</a></li>
         

@@ -1708,12 +1708,11 @@ Map集合不是实现Collection接口，也没实现iterable，所有不能用�
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#抽象类&#34;&gt;抽象类&lt;/a&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#为什么需要抽象类&#34;&gt;为什么需要抽象类&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#抽象方法&#34;&gt;抽象方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#抽象类的继承&#34;&gt;抽象类的继承&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#实例代码&#34;&gt;实例代码&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#抽象类利用多态&#34;&gt;抽象类利用多态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#抽象类-1&#34;&gt;抽象类&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#来个例子感受一下&#34;&gt;来个例子感受一下&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#对抽象的理解&#34;&gt;对抽象的理解&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/nav&gt;
@@ -1721,213 +1720,149 @@ Map集合不是实现Collection接口，也没实现iterable，所有不能用�
 
 &lt;h1 id=&#34;抽象类&#34;&gt;抽象类&lt;/h1&gt;
 
-&lt;p&gt;有些情况下我们需要将问题更加的抽象化，让他更加的通用。比如Person类，Person类的对象基本上没有什么意义。但是由于多态，我们可以通过这个类，能够操纵一系列的类，这就很舒服了。所以，Person类只是表示了接口，而不是一个具体的类。于是Java便引入了一个抽象的机制。&lt;/p&gt;
+&lt;h2 id=&#34;为什么需要抽象类&#34;&gt;为什么需要抽象类&lt;/h2&gt;
+
+&lt;p&gt;假如我们有一个父类：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Animal{
+    public void Run(){
+        System.out.println(&amp;quot;我不知道怎么跑&amp;quot;)//每个动物跑法不一样
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;还有两个子类:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Dog(){
+    public void Run(){
+        System.out.println(&amp;quot;我拿四条腿跑步&amp;quot;)//狗是四脚
+    }
+}
+public class Duck(){
+    public void Run(){
+        System.out.println(&amp;quot;我两条腿跑&amp;quot;)//鸭子两只脚
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样我们便会发现，父类的Run方法就没有什么用处，只是给Duck和dog两个类去继承和重写该方法。&lt;/p&gt;
+
+&lt;p&gt;这样的话，为什么不拥有一个机制？让它能够应对父类方法的不确定性。&lt;/p&gt;
+
+&lt;p&gt;于是乎，Java里面便提供了一个关键字，abstract。&lt;/p&gt;
+
+&lt;p&gt;通过用abstract关键字来修饰该类，这个类就是抽象类。&lt;/p&gt;
 
 &lt;h2 id=&#34;抽象方法&#34;&gt;抽象方法&lt;/h2&gt;
 
-&lt;p&gt;有些方法并不需要实现，它只需要一个声明，其他的由它的子类来实现，这便是抽象方法。&lt;/p&gt;
+&lt;p&gt;就像上面那个Run方法，在父类中它并没有什么用处，它只会给子类提供一个名字和返回值让子类去重写该方法。那么我们可以将该方法设置成为一个抽象方法.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;abstract void f();
+&lt;p&gt;抽象方法的声明:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;
+abstract 返回值 名字();
+
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;上面便是它的语法。在返回值前面加上abstract关键字。&lt;/p&gt;
+&lt;p&gt;在返回值前面加上abstract关键字,便将这个方法设置成为一个抽象方法。&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h2 id=&#34;抽象类-1&#34;&gt;抽象类&lt;/h2&gt;
 
-&lt;p&gt;包含抽象方法的类就叫做抽象类，如果一个类包含一个或多个抽象方法，这个类就必须被限定为抽象类。&lt;/p&gt;
+&lt;p&gt;如果一个类里面有一个或多个抽象方法，那么这个类就是必须设置成为一个抽象类，这样就要在class前面加上abstract关键字&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class Person{
-    .....
-} 
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class 类名{
+
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;在Class面前加上abstract关键字，这样就将类限定成为一个抽象类。&lt;/p&gt;
+&lt;p&gt;抽象类不能够被实例化，如果要实例化，就要靠子类继承抽象类，并重写父类所有的抽象方法。&lt;/p&gt;
 
-&lt;h2 id=&#34;抽象类的继承&#34;&gt;抽象类的继承&lt;/h2&gt;
-
-&lt;p&gt;如果一个类想要继承抽象类，并想创建这个类的对象，那么必须实现基类中的抽象方法。&lt;/p&gt;
-
-&lt;p&gt;如果不这么做，那么这个类也必须标记为抽象类，也要加上abstract关键字。&lt;/p&gt;
+&lt;p&gt;如果不这么做，那么这个类也必须标记为抽象类，也要加上abstract关键字，那么这个子类也是无法被实例化的，因为它还是一个抽象类。&lt;/p&gt;
 
 &lt;p&gt;当然，我们也可以创建了一个没有任何抽象方法的抽象类。比如有些类之间创建对象是没有什么意义的，我们可以通过此方法阻止它产生它的对象。&lt;/p&gt;
 
-&lt;h1 id=&#34;实例代码&#34;&gt;实例代码&lt;/h1&gt;
+&lt;h2 id=&#34;来个例子感受一下&#34;&gt;来个例子感受一下&lt;/h2&gt;
 
-&lt;p&gt;shape类:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;abstract class Instrument {//写一个乐器抽象类
+     private int i;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class shape {
-    public shape() {
-    }
+     public abstract void play();//两个抽象方法
+     public abstract void adjust();
 
-    public abstract double getArea();
-
-    public abstract String getType();
+     public String what(){return &amp;quot;Instrument&amp;quot;;}
 }
-&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;expcet类：&lt;/p&gt;
+class Wind extends Instrument{//这里管乐器继承乐器类
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class expcet extends shape {
-    public expcet() {
+    @Override
+    public void play() {//普通类继承抽象类，就实现这些抽象方法
+        System.out.println(&amp;quot;Wind play&amp;quot;);
     }
 
-    public abstract double getGirth();
-}
-&lt;/code&gt;&lt;/pre&gt;
+    @Override
+    public void adjust() { }//这里什么都不写
 
-&lt;p&gt;rectangle类：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class rectangle extends expcet {
-    private double length;
-    private double height;
-
-    public rectangle(double length, double height) {
-        this.height = height;
-        this.length = length;
-    }
-
-    public double getGirth() {
-        return (this.length + this.height) * 2.0D;
-    }
-
-    public double getArea() {
-        return this.length * this.height;
-    }
-
-    public String getType() {
-        return &amp;quot;矩形&amp;quot;;
+    public String what(){//重写what函数
+        return &amp;quot;Wind&amp;quot;;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;square类:&lt;/p&gt;
+class Percussion extends Instrument{
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class square extends rectangle {
-    private int side;
-
-    public square(double length) {
-        super(length, length);
+    @Override
+    public void play() {//普通类继承抽象类，就实现这些抽象方法
+        System.out.println(&amp;quot;Percussion play&amp;quot;);
     }
 
-    public void setside(int side) {
-        this.side = side;
+    @Override
+    public void adjust() { }
+
+    @Override
+    public String what() {//重写what函数
+        return &amp;quot;Percussion&amp;quot;;
     }
 }
+
+class WoodWind extends Wind{
+    @Override
+    public String what() {
+        return &amp;quot;WoodWind&amp;quot;;
+    }
+
+    @Override
+    public void play() {
+        System.out.println(&amp;quot;WoodWind play&amp;quot;);
+    }
+}
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;测试类:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class test {
-    public test() {
-    }
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Main {
 
     public static void main(String[] args) {
-        rectangle rectangl = new rectangle(3.0D, 4.0D);
-        System.out.println(rectangl.getArea());
-        square squar = new square(2.0D);
-        System.out.println(squar.getArea());
-        System.out.println(rectangl.getType());
+      Instrument wind=new Wind();
+      Instrument WoodWind=new WoodWind();
+      Instrument Percussion=new Percussion();
+      wind.play();
+      WoodWind.play();
+      Percussion.play();
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;抽象类利用多态&#34;&gt;抽象类利用多态&lt;/h2&gt;
+&lt;h2 id=&#34;对抽象的理解&#34;&gt;对抽象的理解&lt;/h2&gt;
 
-&lt;p&gt;shape类：&lt;/p&gt;
+&lt;p&gt;引用知乎里对抽象类的一个说法&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public abstract class shape {
-    private String color;
+&lt;blockquote&gt;
+&lt;p&gt;至于抽象类，它和抽象画还真的有点相似之处&lt;/p&gt;
 
-    public abstract double getGirth();
+&lt;p&gt;抽象画：我告诉你我画了一幅画，具体画的啥，我也不知道&lt;/p&gt;
 
-    public abstract String getType();
-
-    public shape(String color) {
-        this.color = color;
-    }
-
-    public String getcolor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;circle类:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class circle extends shape {
-    private double radius;
-
-    public circle(String color, double radius) {
-        super(color);
-        this.radius = radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-    public double getGirth() {
-        return 6.283185307179586D * this.radius;
-    }
-
-    public String getType() {
-        return &amp;quot;圆&amp;quot; + this.getcolor();
-    }
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Trangle类：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Trangle extends shape {
-    private double a;
-    private double b;
-    private double c;
-
-    public Trangle(String color, double a, double b, double c) {
-        super(color);
-        this.setSide(a, b, c);
-    }
-
-    public double getGirth() {
-        return this.a + this.b + this.c;
-    }
-
-    public String getType() {
-        return &amp;quot;三角形&amp;quot;;
-    }
-
-    public void setSide(double a, double b, double c) {
-        if (a &amp;lt; b + c &amp;amp;&amp;amp; b &amp;lt; a + c &amp;amp;&amp;amp; c &amp;lt; a + b) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        } else {
-            System.out.println(&amp;quot;三角形两边之和须大于第三边&amp;quot;);
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;测试类:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class test {
-    public test() {
-    }
-
-    public static void main(String[] args) {
-        shape s1 = new Trangle(&amp;quot;白色&amp;quot;, 3.0D, 4.0D, 5.0D);
-        shape s2 = new circle(&amp;quot;黄色&amp;quot;, 3.0D);
-        System.out.println(s1.getType());
-        System.out.println(s1.getGirth());
-        System.out.println(s2.getcolor());
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;p&gt;抽象类：我告诉你我定义了一些方法，方法具体做什么，我也不知道！&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
