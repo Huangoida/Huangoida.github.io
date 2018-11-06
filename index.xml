@@ -2019,9 +2019,99 @@ public class HorrorShow {
 
 &lt;p&gt;但如果你使用接口，把人物的一些功能放到接口里，定义类的时候实现该接口，到时候只需要用接口来引用实现它的类，当功能改变的时候，这需要换一个引用的类。&lt;/p&gt;
 
+&lt;p&gt;这里举个连接不同数据库的例子吧:&lt;/p&gt;
+
+&lt;p&gt;假如我要根据客户不同的需要选择数据库，这时候该怎么办？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.company;
+
+class MysqlConnection{
+    public void getConnection(){
+        System.out.println(&amp;quot;连接mysql数据库成功&amp;quot;);
+    }
+}
+
+class OracleConnection{
+    public void getConnection(){
+        System.out.println(&amp;quot;连接Oracle数据库成功&amp;quot;);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+    String db=&amp;quot;Mysql&amp;quot;;
+    if (&amp;quot;mysql&amp;quot;.equals(db))
+    {
+        MysqlConnection conn=new MysqlConnection();
+        conn.getConnection();
+    }else if (&amp;quot;Orcle&amp;quot;.equals(db))
+    {
+        OracleConnection conn=new OracleConnection();
+        conn.getConnection();
+    }
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里就是用多个类，根据if语句来判断我们需要的数据库，但如果又要加一个数据库，那么main函数这还需要改动。但如果你写给别人用的，你这改动，别人那里也需要改动。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;interface Connection{
+    void getConnection();
+}
+
+class MysqlConnection implements Connection{
+
+    @Override
+    public void getConnection() {
+        System.out.println(&amp;quot;Mysql连接成功&amp;quot;);
+    }
+}
+
+class OracleConnection implements Connection{
+
+    @Override
+    public void getConnection() {
+        System.out.println(&amp;quot;连接Oracle数据库成功&amp;quot;);
+    }
+}
+
+class DataBasefactory{
+    public static Connection createConnection(String dbType)
+    {
+        switch (dbType)
+        {
+            case &amp;quot;mysql&amp;quot;:
+                return new MysqlConnection();
+            case &amp;quot;oracle&amp;quot;:
+                return new OracleConnection();
+            default:
+                return null;
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+      String db=&amp;quot;oracle&amp;quot;;//假设要用oracle数据库
+        Connection connection=DataBasefactory.createConnection(db);
+        connection.getConnection();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但如果你使用接口,看main函数调用,无论是哪个数据库，都只是从接口中调用我们所需要的，我们就可以不需要修改main函数.&lt;/p&gt;
+
+&lt;p&gt;这例子是简单了点，如果一个大型程序，第一种方法你可能要改很多，你这边的要改，他们那个也要改，第二种方法你只需要改自己这边就行。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;这是简单工厂模式难道会说出来&lt;/del&gt;&lt;/p&gt;
+
 &lt;p&gt;2、如果多个人开发的话，只需要一个人写好接口，写好变量和命名，其他人只需要按照接口来实现相应功能即可。&lt;/p&gt;
 
-&lt;p&gt;&lt;del&gt;啊，要死了，接口在设计里面很有用，有点过于进阶，有兴趣的自行百度设计模式吧，根本讲不完&lt;/del&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;del&gt;啊，要死了，接口在设计里面很有用，但目前有点过于进阶，有兴趣的自行百度设计模式吧&lt;/del&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
