@@ -1489,6 +1489,219 @@ movl Source,Dest.&lt;/p&gt;
     </item>
     
     <item>
+      <title>泛型</title>
+      <link>https://Huangoida.github.io/post/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E6%B3%9B%E5%9E%8B/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;泛型&#34;&gt;泛型&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;如果学过C++，就会发现泛型其实很像模版。&lt;/p&gt;
+
+&lt;h2 id=&#34;为什么要使用泛型&#34;&gt;为什么要使用泛型&lt;/h2&gt;
+
+&lt;p&gt;比方说: 你写了一个返回值的函数,你可能要为 int 、float、double类型个来一个函数，这无意间增加了代码的复杂度，比如就会成为这样：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  Generic{
+    public int display(int a){
+        return a;
+    }
+    public double display(double a){
+        return a;
+    }
+    public float display(float a){
+        return a;
+    }
+    public String display(String a)
+    {
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Generic generic=new Generic();
+        System.out.println(generic.display(1));
+        System.out.println(generic.display(1.0));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为了一些相同功能的代码而占用许多的空间，这好像没有意义。&lt;/p&gt;
+
+&lt;p&gt;然而我们引入泛型这个概念以后，就好办了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class  Generic&amp;lt;T&amp;gt;{
+    public T display(T a){
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Generic&amp;lt;String &amp;gt; generic=new Generic&amp;lt;&amp;gt;();
+        Generic&amp;lt;Integer&amp;gt; generic1=new Generic&amp;lt;&amp;gt;();
+        System.out.println(generic.display(&amp;quot;abcd&amp;quot;));
+        System.out.println(generic1.display(1));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里我们看到两串代码的不同之处在于下面一段代码类型都变成了T类型，也就是说Generic类引入了一个类型变量T，用&amp;lt;&amp;gt;来连接，放在类名字的后面。&lt;/p&gt;
+
+&lt;p&gt;然后看main函数，创建generic对象时，我们往&amp;lt;&amp;gt;填入了String类型，再调用display函数时,就如同下面这个函数一样&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public String display(String a)
+{
+    return a;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以，当创建对象时，在尖括号里指明要什么类型的对象，然后你只能在这个对象中使用该类型。&lt;/p&gt;
+
+&lt;h2 id=&#34;泛型接口&#34;&gt;泛型接口&lt;/h2&gt;
+
+&lt;p&gt;泛型也可以在接口中使用，这里有两种实现接口的办法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface  Generic&amp;lt;T&amp;gt;{
+    public  T next();
+}
+
+class Genericor&amp;lt;T&amp;gt; implements Generic&amp;lt;T&amp;gt;{
+
+    @Override
+    public T next() {
+        return null;
+    }
+}
+
+class Genericor2 implements Generic&amp;lt;String&amp;gt;{
+
+    @Override
+    public String next() {
+        return null;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一种是没有传入数据类型，需要将泛型的声明一起加到类中，如Genericor类
+第二种是传入了数据类型，所有使用了泛型的地方都要改成传入的类型，如Genericor2类&lt;/p&gt;
+
+&lt;h2 id=&#34;泛型方法&#34;&gt;泛型方法&lt;/h2&gt;
+
+&lt;p&gt;之前泛型都是用在类上，那么有没有可能用在方法上呢？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public &amp;lt;T&amp;gt;void Display(T a){
+        System.out.println(a);
+    }
+
+    public static void main(String[] args) {
+        Test test=new Test();
+        test.Display(&amp;quot;sd&amp;quot;);
+        test.Display(1);
+        test.Display(1.0);
+        test.Display(true);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果为：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;sd
+1
+1.0
+true&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;要定义一个泛型方法，只要将泛型参数列表放到返回值前。&lt;/p&gt;
+
+&lt;h2 id=&#34;类型擦除&#34;&gt;类型擦除&lt;/h2&gt;
+
+&lt;p&gt;java虚拟机会把泛型参数类型全部擦除，用确定的类型进行替换，这就是类型擦除，类型擦除过程中，一般使用第一个限定类型来替换，如果没有限定则使用Ojbect.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test&amp;lt;T&amp;gt;{
+    public void Display(T a){
+        System.out.println(a);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;虚拟机进行翻译后：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Test{
+    public void Display(object a){
+        System.out.println(a);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果加入限定类型 Comparable&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class Test&amp;lt;T extends Comparable&amp;gt;
+{
+    public void Display(T a){
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;经过虚拟机翻译后的原始类型为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class Test
+{
+    public void Display(Comparable a){
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以我们调用Display函数时，都会是这样的: Display(object a)，这个方法会自动调用Display((T) a)方法。这是为了在虚拟机翻译时，引入的桥方法。&lt;/p&gt;
+
+&lt;p&gt;总之,你需要知道的是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;虚拟机中没有泛型，只有普通的类和方法&lt;/li&gt;
+&lt;li&gt;所有的类型参数都用它们限定的类型替换&lt;/li&gt;
+&lt;li&gt;桥方法被合成来保持多态&lt;/li&gt;
+&lt;li&gt;为保持类型安全性，必要时插入强制类型转换.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;泛型的约束&#34;&gt;泛型的约束&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-不能用基本类型实例化类型参数&#34;&gt;1、不能用基本类型实例化类型参数&lt;/h3&gt;
+
+&lt;p&gt;也就是说&lt;code&gt;Test&amp;lt;int&amp;gt;&lt;/code&gt;这些是不存在的，只有Test&lt;Integer&gt;,这个的原因就是因为类型擦除，擦除后，它只有Object类型的域&lt;/p&gt;
+
+&lt;h3 id=&#34;2-不能创建泛型数组&#34;&gt;2、不能创建泛型数组&lt;/h3&gt;
+
+&lt;p&gt;不能创建泛型数组的解决方案是使用ArrayList代替泛型数组，。&lt;/p&gt;
+
+&lt;h2 id=&#34;边界&#34;&gt;边界&lt;/h2&gt;
+
+&lt;p&gt;前面说的限定类型估计一脸懵逼，这是从哪冒出来的。就是从这里冒出来的。我们说过如果不加上类型的话，那么会被擦除到Object，如果给边界，就会限制到某个类型的子集。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;interface Dog{
+    void shout();
+}
+
+public class TestBorder&amp;lt;T extends Dog&amp;gt; {
+    T t;
+    public TestBorder(T t){
+        this.t = t;
+    }
+    public void test(){
+        t.shout();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为了进行限制，重用了extends关键字，要注意这和普通情况下的extends意义是完全不一样的，这里就是设置Dog为上边界。
+如果有多个限定，用&amp;amp;分割，第一个可以类或者接口，但后面的都必须是接口。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>集合类</title>
       <link>https://Huangoida.github.io/post/%E9%9B%86%E5%90%88%E7%B1%BB/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
@@ -2579,343 +2792,6 @@ class Student {
 
 &lt;p&gt;tips：大部分情况下，成员变量是用private修饰，一些方法用private修饰，一些方法用public修饰，这都是要按照情况而定的。
 如果是想给子类而不想给其他的类，那么用protected修饰。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>面向对象</title>
-      <link>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
-      <pubDate>Wed, 05 Sep 2018 21:02:12 +0800</pubDate>
-      
-      <guid>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
-
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#前言&#34;&gt;前言&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#例子&#34;&gt;例子&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#类的创建&#34;&gt;类的创建&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#该程序解析&#34;&gt;该程序解析&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#构造器&#34;&gt;构造器&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#重载&#34;&gt;重载&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#默认初始化&#34;&gt;默认初始化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#无参数构造器&#34;&gt;无参数构造器&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#隐式参数与显式参数&#34;&gt;隐式参数与显式参数&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#静态方法与静态常量&#34;&gt;静态方法与静态常量&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#静态域&#34;&gt;静态域&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#静态方法&#34;&gt;静态方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#析构&#34;&gt;析构&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#其他例子&#34;&gt;其他例子&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-
-&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
-
-&lt;p&gt;我们编程都是将自然语言抽象成计算机语言，这其中就有很多的抽象方法，比如我们之前用c语言时用的面向过程编程，这就是一种抽象方法，还有函数式编程、面向切面编程等等，这些都是抽象的方法。相同的问题用不同的抽象方法看，就会有不同的解。这篇就将介绍面向对象这种编程思想&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&#34;例子&#34;&gt;例子&lt;/h1&gt;
-
-&lt;p&gt;举个例子：
-把大象放进冰箱里：
-面向过程编程：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;1.打开冰箱&lt;/p&gt;
-
-&lt;p&gt;2.把大象放进去&lt;/p&gt;
-
-&lt;p&gt;3.把冰箱门关上&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;而面向对象编程则是：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;1、抽象出冰箱的属性（容量）和行为（打开冰箱，放大象，关冰箱）==画出个冰箱的图纸&lt;/p&gt;
-
-&lt;p&gt;2、制造一个冰箱，放进大象&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这一看可能还是一脸懵逼状态，为什么要搞那么复杂？
-如果按照面向过程编程，如果中间要稍微变动一些细节怎么样？会不会引起全部的代码改动呢？比如两个冰箱放两个大象呢，这样就要对整个过程进行改动。
-而面向对象编程呢？因为我们已经抽象出来了这个冰箱，就等于我们有了这个冰箱的图纸，不断地制造这个冰箱就行。
-人们把这个图纸就叫做类，制造冰箱就是类的实例化也就是对象。&lt;/p&gt;
-
-&lt;p&gt;面向对象有三大特性：封装、继承、多态。这三个特性会在后面一一细讲。&lt;/p&gt;
-
-&lt;h1 id=&#34;类的创建&#34;&gt;类的创建&lt;/h1&gt;
-
-&lt;p&gt;java里面类定义则是&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class className
-{
-field1
-field2
-.....
-method1
-method2
-.....
-}
-className 是类的名字
-field是类的属性
-method是类的行为
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;举个简单的例子&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class Student {
-    private String name;//姓名
-    private int number;//学号
-
-    Student(String na,int nu){
-        name=na;
-        number=nu;
-    }
-    public int getNumber() {
-        return number;
-    }
-
-    public String  getName() {
-        return name;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这就是一个学生类的创建，里面有学生的属性（姓名和学号），还有获得那些属性的方法，这里面的一些东西会在后面讲，我们先看看这个类的运用&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public  class  StudentTest{
-    public static void main(String[] args) {
-        Student student1=new Student(&amp;quot;小明&amp;quot;,1);
-        Student student2=new Student(&amp;quot;小红&amp;quot;,2);
-        System.out.println(&amp;quot;姓名为：&amp;quot;+student1.getName()+&amp;quot; 学号为：&amp;quot;+student1.getNumber());
-        System.out.println(&amp;quot;姓名为：&amp;quot;+student2.getName()+&amp;quot; 学号为：&amp;quot;+student2.getNumber());
-    }
-}
-class Student {
-    private String name;//姓名
-    private int number;//学号
-
-    Student(String na,int nu){
-        name=na;
-        number=nu;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public String  getName() {
-        return name;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里我们创建了两个学生对象，一个叫小明，一个叫小红，还给了他们不同的学号&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;姓名为：小明 学号为：1
-姓名为：小红 学号为：2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这就是他们的输出结果
-通过调用getNumber函数和getName函数将信息打印出来了。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;注意：这程序的文件名为StudentTest.java，因为文件名必须与public类的名字匹配。在一个源文件里，只能有一个public，但可以有无数个非public类&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;该程序解析&#34;&gt;该程序解析&lt;/h1&gt;
-
-&lt;p&gt;这个程序包含了2个实例域&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private String name;//姓名
-private int number;//学号
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;private关键字确保只有Student类自身的方法能够访问到这些实例域，其他类的方法无法访问&lt;/p&gt;
-
-&lt;p&gt;1个构造器和两个方法&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String na,int nu)
-public int getNumber()
-public String  getName()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个类所有的方法都被标记public，public关键字意味着所有的类任何方法都可以调用这些方法
-（这些之后会细讲）&lt;/p&gt;
-
-&lt;h1 id=&#34;构造器&#34;&gt;构造器&lt;/h1&gt;
-
-&lt;p&gt;这个程序里面看Student类，会看到一个函数和类有着相同的名字：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String na,int nu){
-    name=na;
-    number=nu;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个便是构造器，也称构造函数
-当Student类被创建的时候，便会自动调用该函数，以便将实例域初始化成为想要的状态
-如
-&lt;code&gt;Student student1=new Student(&amp;quot;小明&amp;quot;,1);&lt;/code&gt;
-创造Student1这个对象时，就会调用构造器，将Student1这个对象的实例域设置为：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;name=&amp;quot;小明&amp;quot;
-number=1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;还有一点要注意，&lt;strong&gt;构造器是没有返回值的&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;重载&#34;&gt;重载&lt;/h2&gt;
-
-&lt;p&gt;java里面所有的方法都是支持重载的
-重载是什么呢？
-比如：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int test(int i)
-int test(String j)
-int test(int i,String j)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这三个函数名字是一样的，但里面的参数不同，这就是重载。编译器会通过不同方法给出的参数类型以及值类型进行匹配来挑选相应的方法。如果编译器找不到匹配的参数，便会报错。
-&lt;strong&gt;要注意重载是要返回类型相同的，也就是说不能有两个名字相同、参数相同，但返回类型不同的方法&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;构造器自然也是支持重载的，可以重载构造器，来应对不同的需求。&lt;/p&gt;
-
-&lt;h2 id=&#34;默认初始化&#34;&gt;默认初始化&lt;/h2&gt;
-
-&lt;p&gt;如果构造器没有给实例域赋值，就会自动的赋默认值：数值为0，布尔值为false，对象引用为null&lt;/p&gt;
-
-&lt;h2 id=&#34;无参数构造器&#34;&gt;无参数构造器&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(){
-    name=&amp;quot;小明&amp;quot;;
-    number=1;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这就是Student无参数构造器。如果有该方法，对象无参数创建时，便会调用该方法进行初始化。
-如果一个类有至少一个构造器，但没有无参数构造器，则创建对象是如果无参数就是报错。
-如果类没有任何构造器，系统会提供一个默认的构造器：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;className()
-{
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;也可以在类的定义中，直接将一个值赋给实例域&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class student()
-{
-private String name=&amp;quot;小米&amp;quot;;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这样也是可以的&lt;/p&gt;
-
-&lt;h1 id=&#34;隐式参数与显式参数&#34;&gt;隐式参数与显式参数&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int getNumber()
-{
-return number;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;当调用&lt;code&gt;Student1.getNumber()&lt;/code&gt;，将会执行以下指令：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int getNumber()
-{
-return Student1.number;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看上去getNumber这个方法并没有任何参数，实际上存在着一个隐藏的参数，这就是隐式参数，是出现在方法名前的Student对象。假如getNumber有参数的方法&lt;code&gt;Student1.getNumber(1)&lt;/code&gt;,这个1就是显式参数。可以知道，显式参数出现在方法的声明里，隐式参数并没有出现在声明里。那么有没有可能能自己调用隐式函数呢？
-每个方法里关键字this表示隐式参数&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int getNumber()
-{
-return this.number;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个和上面那个方法意思是一样的&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String name,int number)
-{
-name=name;
-number=number;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果我们这么写，系统就不会知道那个是实例域哪个是局部变量了&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String name,int number)
-{
-this.name=name;
-this.number=number;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这样改就能知道，左边this调用了该对象，所以左边是对象的实例域，右边是局部变量&lt;/p&gt;
-
-&lt;h1 id=&#34;静态方法与静态常量&#34;&gt;静态方法与静态常量&lt;/h1&gt;
-
-&lt;h2 id=&#34;静态域&#34;&gt;静态域&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public  class  StudentTest{
-    public static void main(String[] args) {
-        Student student1=new Student(&amp;quot;小明&amp;quot;);
-        Student student2=new Student(&amp;quot;小红&amp;quot;);
-        System.out.println(&amp;quot;姓名为：&amp;quot;+student1.getName()+&amp;quot; 学号为：&amp;quot;+student1.getNumber());
-        System.out.println(&amp;quot;姓名为：&amp;quot;+student2.getName()+&amp;quot; 学号为：&amp;quot;+student2.getNumber());
-    }
-}
-class Student {
-    private String name;//姓名
-    private int number;//学号
-    private static  int NextNumber=1;
-    Student(String name){
-        this.name=name;
-        number=NextNumber;
-        NextNumber++;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public String  getName() {
-        return name;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;static关键字表示静态，如果将一个属性定义为static，那么这个属性为整个类所共享，上面的程序依旧输出：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;姓名为：小明 学号为：1
-姓名为：小红 学号为：2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果不用static关键字，有些操作要给每个对象进行赋值，这很不方便，比如统一使用一个常量，设置为静态的话，只需要&lt;code&gt;类名字.该常量&lt;/code&gt;，但不设置该常量，则需要创建对象，然后通过对象来进行操作。&lt;/p&gt;
-
-&lt;h2 id=&#34;静态方法&#34;&gt;静态方法&lt;/h2&gt;
-
-&lt;p&gt;如果把方法前面放上static，则该方法为静态方法，该方法是可以不需要使用对象进行操作的
-可以直接&lt;code&gt;类名字.该方法&lt;/code&gt;的方式来运行。
-&lt;strong&gt;也就是说该方法没有隐式参数，也就是说它无法访问对象的实例域，但它可以访问类的静态域。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;析构&#34;&gt;析构&lt;/h2&gt;
-
-&lt;p&gt;如果你学过C++，C++里面有个析构函数，那个是当对象生成期结束后，对对象进行回收的函数，但java里面没有这个概念，因为其有自动的垃圾回收器，不需要人工回收内存&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&#34;其他例子&#34;&gt;其他例子&lt;/h1&gt;</description>
     </item>
     
   </channel>

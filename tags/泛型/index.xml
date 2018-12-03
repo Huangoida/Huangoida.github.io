@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>泛型 on Oida Blog</title>
+    <link>https://Huangoida.github.io/tags/%E6%B3%9B%E5%9E%8B/</link>
+    <description>Recent content in 泛型 on Oida Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 23 Oct 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://Huangoida.github.io/tags/%E6%B3%9B%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>泛型</title>
+      <link>https://Huangoida.github.io/post/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E6%B3%9B%E5%9E%8B/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
