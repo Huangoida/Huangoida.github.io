@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jan 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://Huangoida.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数据库第一章</title>
+      <link>https://Huangoida.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E7%AB%A0/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E7%AB%A0/</guid>
+      <description>数据库 第一章 数据库系统概述 数据库的4个基本概念 数据 定义： 描述事物的符号记录称为数据 数据的含义称为数据的语义，数据与其语义是不可分的 数据库DB</description>
+    </item>
     
     <item>
       <title>策略模式</title>
