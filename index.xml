@@ -11,6 +11,409 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>SQL语句(一)</title>
+      <link>https://Huangoida.github.io/post/sql%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://Huangoida.github.io/post/sql%E8%AF%AD%E5%8F%A5/</guid>
+      <description>
+
+&lt;h1 id=&#34;sql语句-一&#34;&gt;SQL语句(一)&lt;/h1&gt;
+
+&lt;p&gt;sql语言包含:&lt;/p&gt;
+
+&lt;p&gt;数据定义语言(DDL),它提供定义关系模式、删除关系以及修改关系模式的命令&lt;/p&gt;
+
+&lt;p&gt;数据操纵语言(DML),它包括查询语言，以及往数据库中插入元组、从数据库中删除元组和修改数据库中元组的命令&lt;/p&gt;
+
+&lt;h2 id=&#34;创建数据库&#34;&gt;创建数据库&lt;/h2&gt;
+
+&lt;p&gt;用语句创建数据库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;CREATE DATABASE database_name
+ON
+{[PRIMARY｝
+(
+    NAME = logical_file_name,
+    FILENAME = &#39;os_file_name&#39;
+    [,SIZE = size]
+    [,MAXSIZE = max_size]
+    [,FILEGROWTH = growth_increment,]
+)
+[,..n]
+
+
+LOG ON
+(
+    NAME = logical_name,
+    FILENAME = &#39;os_file_name&#39;
+    [SIZE = size]
+        [,MAXSIZE = max_size]
+    [,FILEGROWTH = growth_increment,]
+)
+[,..n]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;database_name ：表示为数据库名字&lt;/p&gt;
+
+&lt;p&gt;PRIMARY: 用于指定主文件组的文件，一个数据库只能有一个主文件&lt;/p&gt;
+
+&lt;p&gt;NAME ：指定数据库的逻辑名称&lt;/p&gt;
+
+&lt;p&gt;FILENAME：指定数据库所在文件的操作系统文件名称和路径&lt;/p&gt;
+
+&lt;p&gt;SIZE：指定数据库的初始容量大小&lt;/p&gt;
+
+&lt;p&gt;MAXSIZE： 指定操作系统文件可以增长到的最大尺寸&lt;/p&gt;
+
+&lt;p&gt;FILEGROWTH: 指定文件增量大小&lt;/p&gt;
+
+&lt;h2 id=&#34;修改数据库&#34;&gt;修改数据库&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;ALTER DATABASE database_name
+{ADD FILE &amp;lt;filespec&amp;gt;[,…n] [TO FILEGROUP filegroup_name]
+ADD LOG FILE  &amp;lt;filespec&amp;gt;[,…n]
+REMOVE FILE logical_file_name
+REMOVE FILEGROUP filegroup_name
+MODIFY FILE &amp;lt;filespec&amp;gt;
+MODIFY NAME=new_database_name
+ADD FILEGROUP filegroup_name
+MODIFY FILEGROUP filegroup_name
+&amp;lt;filespec&amp;gt;::=
+（|NAME=logical_file_name
+[,NEWNAME=new_logical_file_name]
+[,FILENAME=’os_file_name’]
+[,SIZE=size]
+[,MAXSIZE={max_size|UNLIMITED}]
+[,FILEGROWTH=growth_increment,])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ADD FILE &amp;lt;filespec&amp;gt;[,…n] [TO FILEGROUP filegroup_name]：&lt;/code&gt;
+表示向指定的文件组中添加新的数据文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ADD LOG FILE &amp;lt;filespec&amp;gt;[,…n]：&lt;/code&gt;增加新的日志文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;REMOVE FILE logical_file_name：&lt;/code&gt;删除指定的操作系统文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;REMOVE FILEGROUP filegroup_name：&lt;/code&gt;删除指定的文件组。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;MODIFY FILE &amp;lt;filespec&amp;gt;&lt;/code&gt;：修改某个操作系统文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;MODIFY NAME=new_databasename&lt;/code&gt;：重命名数据库。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ADD FILEGROUP filegroup_name&lt;/code&gt;：增加一个文件组。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;MODIFY FILEGROUP filegroup_name&lt;/code&gt;：修改某个指定文件组的属性。&lt;/p&gt;
+
+&lt;h2 id=&#34;删除数据库&#34;&gt;删除数据库&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;DROP DATABASE database_name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;创建表&#34;&gt;创建表&lt;/h2&gt;
+
+&lt;p&gt;使用CREATE TABLE语句创建表&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;创建一个department表
+    CRAETE TABLE department
+    (
+        dept_name varchar(20),
+        building varchar(15),
+        budget numeric(12,2),
+        primary key(dept_name);
+    )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;database_name－ 是要在其中创建表的数据库名称。&lt;/p&gt;
+
+&lt;p&gt;Owner－ 是新表所有者的用户 ID 名,由这些用户创建的表的默认所有者为 dbo&lt;/p&gt;
+
+&lt;p&gt;table_name－ 是新表的名称。表名必须符合标识符规则。数据库中的 owner.table_name 组合必须唯一。table_name 最多可包含 128 个字符&lt;/p&gt;
+
+&lt;p&gt;column_name－是表中的列名。列名必须符合标识符规则，并且在表内唯一。&lt;/p&gt;
+
+&lt;p&gt;列的属性－包括列的数据类型、列的长度、列上的约束（CONSTRAINT
+是可选关键字，表示 PRIMARY KEY、NOT NULL、UNIQUE、FOREIGN KEY 或 CHECK 约束定义的开始。约束是特殊属性，用于强制数据完整性并可以为表及其列创建索引。）&lt;/p&gt;
+
+&lt;p&gt;primary key(A1,A2,&amp;hellip;) 表示属性A1，A2构成主码，关系中没有一元组在主码上取值相同。&lt;/p&gt;
+
+&lt;p&gt;foreign key(A1,A2) references: 属性A1，A2上的取值必须对应于关系S中某元组在主码属性上的取值&lt;/p&gt;
+
+&lt;p&gt;not null : 一个属性上的not null约束表明在该属性上不允许空值&lt;/p&gt;
+
+&lt;h2 id=&#34;插入数据&#34;&gt;插入数据&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;insert into table values (co1_value,co2_value,co3_value)
+
+元组的属性与关系模式中属性排列顺序一致。如果忘记,可以在insert语句中指定属性
+
+insert into table(co1,co2,co3)
+values (co1_value,co2_value,co3_value)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;更新&#34;&gt;更新&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;update r
+set q
+where p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;update 语句可以包含select语句在where字句中的任何合法结构&lt;/p&gt;
+
+&lt;h2 id=&#34;删除&#34;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;删除表是
+&lt;code&gt;drop table&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;删除数据是:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;delete from r where P&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
+
+&lt;h3 id=&#34;单关系查询&#34;&gt;单关系查询&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select Co_name1,Co_name2,...
+from table_name
+where condition
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Co_name 是该表的一个属性
+table_name是名字
+condition 是条件&lt;/p&gt;
+
+&lt;h3 id=&#34;多关系&#34;&gt;多关系&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select tab1_Co_name1,tab2_co_name2
+from tab1,tab2
+where tab1.co_name1=tab2.co_name1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;select 用于列出查询结果中所需要的属性&lt;/p&gt;
+
+&lt;p&gt;from是一个查询求值中需要访问的关系列表&lt;/p&gt;
+
+&lt;p&gt;where是一个作用在from 子句中关系的属性上的谓词&lt;/p&gt;
+
+&lt;h3 id=&#34;自然连接&#34;&gt;自然连接&lt;/h3&gt;
+
+&lt;p&gt;自然连接作用域两个关系，并产生一个关系作为结果&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;比如
+select name,course_id
+from instructor,teaches
+where instructor.ID = teaches.ID
+
+用自然连接运算可写成
+
+select name,course_id
+from instructor natural join teaches
+
+两个查询结果相同
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一个from字句中，可以用自然连接将多个关系结合在一起&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;    select A1,A2,..,An
+    from r1 natural join r2 natural join r3 .... natural join rm
+    where p;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;附加的基本运算&#34;&gt;附加的基本运算&lt;/h3&gt;
+
+&lt;h4 id=&#34;更名运算&#34;&gt;更名运算&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;old-name as new-name&lt;/code&gt;
+as字句既可以出现在select中，也可以出现在from字句中&lt;/p&gt;
+
+&lt;h4 id=&#34;字符串运算&#34;&gt;字符串运算&lt;/h4&gt;
+
+&lt;p&gt;百分号(%):匹配任意子串&lt;/p&gt;
+
+&lt;p&gt;下划线(_):匹配任意一个字符&lt;/p&gt;
+
+&lt;p&gt;&amp;rsquo;%Comp&amp;rsquo; 匹配任何包含Comp子串的字符串&lt;/p&gt;
+
+&lt;p&gt;&amp;lsquo;_ _ _&amp;lsquo;匹配只含3个字符的字符串&lt;/p&gt;
+
+&lt;p&gt;&amp;lsquo;_ _ _%&amp;lsquo;匹配至少含3个字符的字符串&lt;/p&gt;
+
+&lt;h4 id=&#34;排列元组的显示次序&#34;&gt;排列元组的显示次序&lt;/h4&gt;
+
+&lt;p&gt;order by 字句让查询结果中的元组按排列顺序显示&lt;/p&gt;
+
+&lt;p&gt;order by字句默认使用升序，可以用desc表示降序，或用asc表示升序。&lt;/p&gt;
+
+&lt;p&gt;例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;按salary的降序列出整个instructor，如果几位老师工资相同，按姓名升序排列
+select *
+from instructor
+order by salary desc, name asc;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;集合运算&#34;&gt;集合运算&lt;/h3&gt;
+
+&lt;h4 id=&#34;并运算&#34;&gt;并运算&lt;/h4&gt;
+
+&lt;p&gt;为了找出在2009年秋季开课，或者在2010年春季开课或两个学期都开课的所有课程&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;(
+    select course_id
+    from section
+    where semester = &#39;Fall&#39; and year = 2009
+ )
+union
+(
+    select course_id
+    from section
+    where semester = &#39;Spring&#39; and year = 2010
+)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;交运算&#34;&gt;交运算&lt;/h4&gt;
+
+&lt;p&gt;找出在2009年秋季和2010年春季同时开课的所有课程的集合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;(
+    select course_id
+    from section
+    where semester = &#39;Fall&#39; and year = 2009
+)
+intersect
+(
+    select course_id
+    from section
+    where semester = &#39;spring&#39; and year =2010
+)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;差运算&#34;&gt;差运算&lt;/h4&gt;
+
+&lt;p&gt;在2009年秋季开课但不在2010年春季开课的所有课程&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;(
+    select course_id
+    from section
+    where semester = &#39;Fall&#39; and year = 2009
+)
+except
+(
+    select course_id
+    from section
+    where semester = &#39;Spring&#39; and year = 2010
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;聚集函数&#34;&gt;聚集函数&lt;/h3&gt;
+
+&lt;p&gt;聚集函数是以值的一个集合为输入返回单个值的函数。提供了五个固有聚集函数：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;平局值：avg&lt;/li&gt;
+&lt;li&gt;最小值：min&lt;/li&gt;
+&lt;li&gt;最大值：max&lt;/li&gt;
+&lt;li&gt;总和：sum&lt;/li&gt;
+&lt;li&gt;计数：count&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;基本聚集&#34;&gt;基本聚集&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select avg(salary)
+from instructor
+where dept_name = &#39;Comp.Sci&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查询结果是一个具有单属性的关系，只包含一个元组。这个元组对应教师平均工资&lt;/p&gt;
+
+&lt;h4 id=&#34;分组聚集&#34;&gt;分组聚集&lt;/h4&gt;
+
+&lt;p&gt;有时候我们不仅希望聚集函数作业在单个元组集上，也希望将其作用到一组元组集上，可用group by字句实现。&lt;/p&gt;
+
+&lt;p&gt;group by 字句给出一个或多个属性用来构造分组的，group by子句中的所有属性上的取值相同的元组将被分在一个组中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;找出每一个系的平均工资
+select dept_name,avg(salary)
+from instructor
+group by dept_name;
+
+该元组按照dept_name属性进行分组的。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当SQL查询使用分组时，一个很重要的事是保证出现在select语句中但没有被聚集的属性只能是出现在group by字句中的那些属性.&lt;/p&gt;
+
+&lt;h4 id=&#34;having-字句&#34;&gt;having 字句&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;教师平均工资超过42000美元
+select dept_name,avg(salary)
+from instructor
+group by dept_name
+having avg(salary)&amp;gt; 42000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;having 字句是对分组的限定条件&lt;/p&gt;
+
+&lt;h3 id=&#34;嵌套子查询&#34;&gt;嵌套子查询&lt;/h3&gt;
+
+&lt;p&gt;子查询是另一个查询中的select-from-where表达式&lt;/p&gt;
+
+&lt;h4 id=&#34;集合成员资格&#34;&gt;集合成员资格&lt;/h4&gt;
+
+&lt;p&gt;连接词 in 测试元组是否是集合中的成员。 not in 测试元组是否不是集合中的成员&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;查找2009年秋季开课的课程与2010年春季开课的课程集合
+
+select course_id
+from section
+where semester = &#39;Fall&#39; and year = 2009 and
+course_id in(select course_id
+    from section
+    where semester = &#39;spring&#39; and year = 2010
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;集合的比较&#34;&gt;集合的比较&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select name
+from instructor
+where salary &amp;gt; some (
+    select salary
+    from instructor
+    where dept_name = &#39;Biology&#39;
+)
+当元组的salary值比Biology系教师的所有工资值集合中的某一成员高，外层select 的where字句中&amp;gt;some 的比较为真
+
+sql 也运行 &amp;lt;some,&amp;lt;=some,&amp;gt;=some,=some和&amp;lt;&amp;gt;some的比较
+
+结构&amp;gt;all 对应于词组“比所有的都大”
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;空关系测试&#34;&gt;空关系测试&lt;/h4&gt;
+
+&lt;p&gt;exists 结构在作为参数的子查询非空时返回true值。&lt;/p&gt;
+
+&lt;p&gt;来自外层查询的一个相关名称可以用在where字句的子查询中，使用了来自外层查询相关名称的子查询被称作&lt;strong&gt;相关子查询&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们可以用not exists 测试子查询结果集中是否不存在元组。&lt;/p&gt;
+
+&lt;h4 id=&#34;from字句中的子查询&#34;&gt;from字句中的子查询&lt;/h4&gt;
+
+&lt;p&gt;sql运行from字句中使用子查询表达式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select dept_name,avg_salary
+from (select dept_name,avg(salary)as avg_salary
+    from instructor
+    group by dept_name
+    )
+where avg_salary &amp;gt; 42000;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>数据库第一章</title>
       <link>https://Huangoida.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%AC%E4%B8%80%E7%AB%A0/</link>
       <pubDate>Mon, 07 Jan 2019 00:00:00 +0800</pubDate>
@@ -2588,184 +2991,6 @@ Student是继承与Person的，所以Student里面是有Person的东西的，但
 如果你把所有的抽象方法给定义了，那么子类就不是抽象类了&lt;/p&gt;
 
 &lt;p&gt;抽象类也是不能够被实例化的，也就是说无法创建抽象类的对象，比如:&lt;code&gt;Person person=new Person(&amp;quot;小明&amp;quot;)&lt;/code&gt;这样是不行的,但是可以创建一个子类的对象，或者是&lt;code&gt;Person person=new Student(&amp;quot;小明&amp;quot;)&lt;/code&gt;,这样就是说可以定义一个抽象类的对象，但它只能够引用非抽象子类的对象，不能够引用自己的对象。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>面向对象--继承</title>
-      <link>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/</link>
-      <pubDate>Fri, 07 Sep 2018 21:02:12 +0800</pubDate>
-      
-      <guid>https://Huangoida.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1---%E7%BB%A7%E6%89%BF/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
-
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#超类和子类&#34;&gt;超类和子类&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#覆盖方法&#34;&gt;覆盖方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#子类构造器&#34;&gt;子类构造器&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#阻止继承&#34;&gt;阻止继承&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-
-&lt;p&gt;这里提到面向对象第二个特性：继承
-依旧拿之前用的student类举例子，我们这可以说学生类写好了，但如果我们要写个教师类呢？是不是要重新写一个类，尽管里面有许多相同的元素在里面。这样做是可以的，但一个类还好，要是多个类呢？
-人们可以便想出了一些方法来复用代码，这样就不用重复编写了。
-&amp;gt;第一种只需在新的类中产生现有类的对象。由于新的类是由现有类的对象所组成，所以这种方法称为组合
-&amp;gt;第二种按照现有类的类型来创建新类，无需改变现有类的形式，采用现有类的形式并在其中添加代码，这种形式称为继承&lt;/p&gt;
-
-&lt;h1 id=&#34;超类和子类&#34;&gt;超类和子类&lt;/h1&gt;
-
-&lt;p&gt;继承这很容易理解，你会继承你父母的财产，就是这个意思。
-java里面爸爸就叫超类（也可以叫父类，基类），儿子就叫子类（也可以叫派生类）。
-当创建出来一个类时，它总是在继承的，如果没有明确从其他类中继承，那么这个类会从java的object类继承，所以object类就是所有类的超类。&lt;/p&gt;
-
-&lt;p&gt;比如可以先写个人类作为基类，再通过继承来写出学生类和教师类&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Person {//人类作为基类
-    private String name;//姓名
-    private int number;//学号
-    private static  int NextNumber=1;
-    Person(String name){
-        this.name=name;
-        number=NextNumber;
-        NextNumber++;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public String  getName() {
-        return name;
-    }
-}
-
-
-public class Student extends Person {
-    private  int score;
-    Student(String name,int score) {
-        super(name);
-        this.score=score;
-    }
-
-    public int getScore() {
-        return score;
-    }
-     public static void main(String[] args) {
-        Student student1=new Student(&amp;quot;小明&amp;quot;,100);
-        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+
-        &amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());
-    }
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;输出结果：
-&amp;gt;小明的名字：小明 小明的学号:1 小明的分数:100&lt;/p&gt;
-
-&lt;p&gt;这里便是学生类继承人类，这里在Student后面有个关键词extends
-extends就是表示继承，这里便是Student类继承Person类
-Student类里增加了一个分数的域，以及一个显示该域的方法。
-尽管Student类中没有定义getName和getNumber等方法，但Student类生成的对象却可以使用这些方法，这是因为Student类会继承超类Person的这些方法，同时，也从超类中继承name，number这两个域
-但相反的是，Person无法使用Student类中的getScore方法，也没有Score这个域。&lt;/p&gt;
-
-&lt;h2 id=&#34;覆盖方法&#34;&gt;覆盖方法&lt;/h2&gt;
-
-&lt;p&gt;有的时候，超类中的一些方法对于子类是不适用的，这时候便可以用一个新的方法来覆盖超类中的这个方法。
-但不能直接修改
-如：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student extends Person {
-    private  int score;
-
-    Student(String name,int score) {
-        super(name);
-        this.score=score;
-    }
-    public int getNumber() {
-        ;
-        return  number+1;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public static void main(String[] args) {
-        Student student1=new Student(&amp;quot;小明&amp;quot;,100);
-        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+&amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里重写了getNumber方法，这是我们想当然应该这么做的，但这样是&lt;strong&gt;错的&lt;/strong&gt;，因为&lt;strong&gt;子类不能够直接访问超类的私有域&lt;/strong&gt;。
-那么这该怎么办呢？
-那么我改成调用方法行不，事实上也是不行的，因为超类也有一个getNumber方法，这会导致无限次的调用，造成程序崩溃。
-可以使用关键字super来解决问题：
-&lt;code&gt;super.getNumber()&lt;/code&gt;
-这就是调用超类的方法，调用Person类中的getNumber方法。
-所以，正确的方法便是：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Student extends Person {
-    private  int score;
-
-    Student(String name,int score) {
-        super(name);
-        this.score=score;
-    }
-
-
-    @Override
-    public int getNumber() {
-        return super.getNumber()+1;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public static void main(String[] args) {
-        Student student1=new Student(&amp;quot;小明&amp;quot;,100);
-        System.out.println(&amp;quot;小明的名字：&amp;quot;+student1.getName()+&amp;quot; 小明的学号:&amp;quot;+student1.getNumber()+&amp;quot; 小明的分数:&amp;quot;+student1.getScore());
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;emmmm，这个@Override只是个注解（先理解为注释吧），也就是说可写可不写，但写了的话：
-如果你不小心写成了重载而不是重新该方法，编译器会报错。&lt;/p&gt;
-
-&lt;h2 id=&#34;子类构造器&#34;&gt;子类构造器&lt;/h2&gt;
-
-&lt;p&gt;在student类中：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Student(String name,int score) {
-        super(name);
-        this.score=score;
-    }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Student这个构造器，里面还有个&lt;code&gt;super(name)&lt;/code&gt;,通过前文我们知道super是调用超类的方法，这里便是调用超类构造器的简写，这就是调用有name这个参数的构造器。因为子类无法访问超类的私有部分，所以可以通过该方法进行调用。同时，&lt;strong&gt;使用super调用构造器必须是子类调用器的第一条语句。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;阻止继承&#34;&gt;阻止继承&lt;/h1&gt;
-
-&lt;p&gt;如果说你不想要自己的类被继承，那么可以使用关键词final&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final class Student extends Person
-{
-.........
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这样的话，Student就不会被其他的类所继承了。
-方法也是如此，如果你不想要别人重写该方法，那么也是加final&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;public final String getName(){}&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
